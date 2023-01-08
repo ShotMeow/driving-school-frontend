@@ -1,13 +1,19 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import React from "react";
+import { NextPage } from "next";
+import { Head, Html, Main, NextScript } from "next/document";
 
-export default function Document() {
+const Document: NextPage = () => {
   return (
-    <Html lang="en">
-      <Head />
+    <Html lang="ru">
+      <Head>
+        <title>Driving School</title>
+      </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
-}
+  );
+};
+
+export default Document;
