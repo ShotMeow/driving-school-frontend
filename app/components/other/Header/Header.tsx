@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { useAdaptive } from "../../../hooks/useAdaptive";
+import { useAdaptive } from "@/hooks/useAdaptive";
 
 import HeaderMobile from "./HeaderMobile/HeaderMobile";
 import HeaderDesktop from "./HeaderDesktop/HeaderDesktop";

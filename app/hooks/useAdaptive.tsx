@@ -8,7 +8,7 @@ export enum Version {
 
 const getVersion = () => {
   if (typeof window !== "undefined")
-    return document.body.clientWidth < 1024 ? Version.mobile : Version.desktop;
+    return document.body.clientWidth < 1110 ? Version.mobile : Version.desktop;
 };
 
 export const useAdaptive = (): { isMobile: boolean; isDesktop: boolean } => {

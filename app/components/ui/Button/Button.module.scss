@@ -1,0 +1,27 @@
+.button {
+  @apply rounded-sm flex items-center justify-center transition-all;
+}
+
+.primary {
+  @apply bg-primary text-white;
+
+  &:hover {
+    @apply bg-primary-hover;
+  }
+
+  &:active {
+    @apply bg-primary-active;
+  }
+}
+
+.secondary {
+  @apply border border-black text-black;
+
+  &:hover {
+    @apply text-white bg-secondary-hover;
+  }
+
+  &:active {
+    @apply text-white bg-secondary-active;
+  }
+}

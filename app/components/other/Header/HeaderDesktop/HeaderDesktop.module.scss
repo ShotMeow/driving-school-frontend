@@ -1,0 +1,22 @@
+.desktop {
+  @apply flex items-center justify-between mt-4;
+
+  > .about {
+    @apply flex items-center gap-4;
+    > .navigation {
+      @apply flex items-center pl-4 h-8;
+      border-left: 1px solid rgba(0 0 0 / 30%);
+
+      > ul {
+        @apply flex gap-6 text-lg;
+      }
+    }
+  }
+
+  > .actions {
+    @apply flex gap-4;
+    button {
+      @apply px-6 py-2;
+    }
+  }
+}

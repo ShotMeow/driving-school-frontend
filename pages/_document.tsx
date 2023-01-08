@@ -7,6 +7,7 @@ const Document: NextPage = () => {
     <Html lang="ru">
       <Head>
         <title>Driving School</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <body>
         <Main />

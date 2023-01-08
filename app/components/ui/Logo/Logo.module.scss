@@ -1,0 +1,7 @@
+.logo {
+  @apply flex items-center gap-4;
+
+  > .title {
+    @apply uppercase text-3xl font-bold;
+  }
+}

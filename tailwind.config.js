@@ -16,8 +16,32 @@ module.exports = {
         success: "#E6FFED",
         warning: "#FF0000",
       },
+      borderRadius: {
+        sm: "4px",
+      },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+      },
+      fontSize: {
+        xs: "12px",
+        sm: "14px",
+        base: "15px",
+        lg: "16px",
+        xl: "18px",
+        "2xl": "20px",
+        "3xl": "25px",
+        "4xl": "30px",
+        "5xl": "48px",
+      },
+    },
+    container: {
+      center: true,
+      screens: {
+        xl: "1110px",
+      },
+      padding: {
+        DEFAULT: "1rem",
+        xl: 0,
       },
     },
   },
