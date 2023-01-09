@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import { AppProps } from "next/app";
 
 import "../app/globals.scss";
+import Head from "next/head";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -14,6 +15,9 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
         stopDelayMs={200}
         height={3}
       />
+      <Head>
+        <title>Driving School</title>
+      </Head>
       <Component {...pageProps} />
     </>
   );

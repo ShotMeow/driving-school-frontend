@@ -1,0 +1,59 @@
+.section {
+  .majorArticle {
+    @apply relative bg-white shadow-md rounded-lg px-6 py-20 overflow-hidden;
+
+    h1 {
+      @apply text-5xl font-black uppercase w-3/4;
+    }
+
+    p {
+      @apply w-2/4;
+    }
+
+    button {
+      @apply px-8 py-2 mt-6;
+    }
+
+    img {
+      @apply absolute -top-10 -right-80 z-10;
+    }
+
+    @media (max-width: 1200px) {
+      @apply py-6;
+
+      h1 {
+        @apply w-full text-3xl;
+      }
+
+      p {
+        @apply w-full;
+      }
+    }
+  }
+
+  .items {
+    @apply grid gap-6;
+    grid-template-columns: repeat(4, 1fr);
+
+    article {
+      @apply shadow-md;
+    }
+  }
+
+  .items, .swiper {
+    @apply mt-6;
+    article {
+      @apply bg-white rounded-md flex flex-col items-center text-center gap-2 px-6 py-4;
+
+      h4 {
+        @apply text-2xl font-bold;
+      }
+    }
+  }
+
+  .swiper {
+    .slide {
+      @apply w-72;
+    }
+  }
+}

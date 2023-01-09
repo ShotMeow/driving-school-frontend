@@ -3,12 +3,12 @@ import throttle from "lodash.throttle";
 
 export enum Version {
   mobile,
-  desktop,
+  desktop
 }
 
 const getVersion = () => {
   if (typeof window !== "undefined")
-    return document.body.clientWidth < 1110 ? Version.mobile : Version.desktop;
+    return document.body.clientWidth < 1200 ? Version.mobile : Version.desktop;
 };
 
 export const useAdaptive = (): { isMobile: boolean; isDesktop: boolean } => {
@@ -27,6 +27,6 @@ export const useAdaptive = (): { isMobile: boolean; isDesktop: boolean } => {
 
   return {
     isMobile: version === Version.mobile,
-    isDesktop: version === Version.desktop,
+    isDesktop: version === Version.desktop
   };
 };

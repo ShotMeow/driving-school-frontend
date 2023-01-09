@@ -1,9 +1,0 @@
-.item > a {
-  &:hover {
-    @apply font-medium;
-  }
-
-  &:active {
-    @apply font-medium underline;
-  }
-}

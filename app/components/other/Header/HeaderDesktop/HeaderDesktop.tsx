@@ -5,7 +5,6 @@ import styles from "./HeaderDesktop.module.scss";
 import Logo from "@/components/ui/Logo/Logo";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
-import ListItem from "@/components/ui/ListItem/ListItem";
 
 const HeaderDesktop: FC = () => {
   return (
@@ -14,15 +13,15 @@ const HeaderDesktop: FC = () => {
         <Logo />
         <nav className={styles.navigation}>
           <ul>
-            <ListItem>
+            <li>
               <Link href="/tariffs">Тарифы и цены</Link>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <Link href="/steps">Этапы обучения</Link>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <Link href="/contacts">Контакты</Link>
-            </ListItem>
+            </li>
           </ul>
         </nav>
       </div>

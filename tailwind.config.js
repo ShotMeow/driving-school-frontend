@@ -14,13 +14,15 @@ module.exports = {
         black: "#282828",
         info: "#E6F3FF",
         success: "#E6FFED",
-        warning: "#FF0000",
+        warning: "#FF0000"
       },
       borderRadius: {
         sm: "4px",
+        md: "10px",
+        lg: "15px"
       },
       fontFamily: {
-        montserrat: ["Montserrat", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"]
       },
       fontSize: {
         xs: "12px",
@@ -31,19 +33,22 @@ module.exports = {
         "2xl": "20px",
         "3xl": "25px",
         "4xl": "30px",
-        "5xl": "48px",
+        "5xl": "48px"
       },
+      boxShadow: {
+        md: "0px 0px 60px 2px rgba(0, 0, 0, 0.04)"
+      }
     },
     container: {
       center: true,
       screens: {
-        xl: "1110px",
+        xl: "1200px"
       },
       padding: {
         DEFAULT: "1rem",
-        xl: 0,
-      },
-    },
+        xl: 0
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };

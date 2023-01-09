@@ -1,0 +1,33 @@
+.overlay {
+  @apply fixed opacity-0 pointer-events-none w-screen h-screen left-0 top-0 z-20 transition-all;
+  background-color: rgba(0 0 0 / 30%);
+}
+
+.show {
+  @apply opacity-100 pointer-events-auto;
+
+  > .dropdown {
+    @apply top-0;
+  }
+}
+
+.dropdown {
+  @apply px-4 py-4 fixed z-40 -top-96 left-0 bg-white w-full text-center flex flex-col gap-6 transition-all duration-700;
+
+  .header {
+    @apply flex justify-between items-center;
+  }
+
+  .navigation {
+    > ul {
+      @apply flex flex-col gap-6 text-lg;
+    }
+  }
+
+  .actions {
+    @apply flex flex-col items-center gap-4;
+    button {
+      @apply px-6 py-2;
+    }
+  }
+}
