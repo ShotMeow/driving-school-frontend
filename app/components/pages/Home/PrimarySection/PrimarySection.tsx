@@ -8,7 +8,6 @@ import "swiper/css";
 
 import Arrow from "@/components/other/Icons/Arrow";
 
-import car from "@/images/car.png";
 import Image from "next/image";
 import { useAdaptive } from "@/hooks/useAdaptive";
 import { Autoplay } from "swiper";
@@ -27,7 +26,7 @@ const PrimarySection: FC = () => {
         <Button primary>
           Записаться <Arrow />
         </Button>
-        {isDesktop && <Image src={car} alt="Картинка машины" />}
+        {isDesktop && <Image src='/images/car.png' alt="Картинка машины" width={1069} height={480} />}
       </article>
       {isDesktop ? (
         <div className={styles.items}>
