@@ -1,0 +1,88 @@
+.section {
+  h2 {
+    @apply text-5xl font-black text-center;
+
+    &.small {
+      @apply text-3xl text-left;
+    }
+  }
+
+  .categories,
+  .swiper {
+    @apply grid gap-5 mt-10;
+    grid-template-columns: repeat(2, 1fr);
+
+    article {
+      @apply bg-white flex flex-col justify-between gap-3 rounded-md shadow-md p-4;
+
+      h3 {
+        @apply text-3xl font-black;
+
+        > span {
+          @apply text-primary;
+        }
+      }
+
+      > img {
+        @apply self-center h-40 object-cover;
+      }
+
+      ul {
+        @apply flex gap-6;
+
+        > li {
+          @apply flex items-center gap-2;
+
+          .heading {
+            @apply font-bold text-2xl;
+          }
+        }
+      }
+
+      button {
+        @apply py-2;
+      }
+    }
+  }
+
+  .categories {
+    article {
+      ul {
+        @apply flex-wrap justify-center;
+
+        > li {
+          .heading {
+            @apply font-bold text-2xl;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper {
+    .slide {
+      @apply w-72;
+    }
+    article {
+      > img {
+        @apply h-24;
+      }
+
+      ul {
+        @apply flex-col;
+
+        img {
+          @apply shrink-0;
+        }
+
+        > li {
+          @apply text-base;
+
+          .heading {
+            @apply text-lg;
+          }
+        }
+      }
+    }
+  }
+}

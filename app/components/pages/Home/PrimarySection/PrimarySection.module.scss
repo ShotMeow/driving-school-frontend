@@ -3,7 +3,7 @@
     @apply relative bg-white shadow-md rounded-lg px-10 py-20 overflow-hidden;
 
     h1 {
-      @apply text-5xl font-black uppercase w-3/4;
+      @apply text-6xl font-black uppercase w-3/4;
     }
 
     p {
@@ -40,7 +40,8 @@
     }
   }
 
-  .items, .swiper {
+  .items,
+  .swiper {
     @apply mt-6;
     article {
       @apply bg-white rounded-md flex flex-col items-center text-center gap-2 px-3 py-4;

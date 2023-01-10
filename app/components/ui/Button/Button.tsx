@@ -21,7 +21,7 @@ const Button: FC<PropsWithChildren<Props>> = ({
         {
           [styles.button]: true,
           [styles.primary]: primary,
-          [styles.secondary]: secondary,
+          [styles.secondary]: secondary
         },
         className
       )}

@@ -26,7 +26,14 @@ const PrimarySection: FC = () => {
         <Button primary>
           Записаться <Arrow />
         </Button>
-        {isDesktop && <Image src='/images/car.png' alt="Картинка машины" width={1069} height={480} />}
+        {isDesktop && (
+          <Image
+            src="/images/car.png"
+            alt="Картинка машины"
+            width={1069}
+            height={480}
+          />
+        )}
       </article>
       {isDesktop ? (
         <div className={styles.items}>

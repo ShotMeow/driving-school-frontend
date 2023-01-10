@@ -33,7 +33,8 @@ module.exports = {
         "2xl": "20px",
         "3xl": "25px",
         "4xl": "30px",
-        "5xl": "48px"
+        "5xl": "40px",
+        "6xl": "48px"
       },
       boxShadow: {
         md: "0px 0px 60px 2px rgba(0, 0, 0, 0.04)"
