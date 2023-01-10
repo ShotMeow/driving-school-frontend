@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button/Button";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { motion } from "framer-motion";
 
 import Arrow from "@/components/other/Icons/Arrow";
 
@@ -16,7 +17,12 @@ const PrimarySection: FC = () => {
   const { isDesktop } = useAdaptive();
 
   return (
-    <section className={styles.section}>
+    <motion.section
+      initial={{ translateY: "200px", opacity: 0 }}
+      whileInView={{ translateY: "0px", opacity: 1 }}
+      viewport={{ once: true }}
+      className={styles.section}
+    >
       <article className={styles.majorArticle}>
         <h1>Научитесь водить уже через 3 месяца</h1>
         <p>
@@ -139,7 +145,7 @@ const PrimarySection: FC = () => {
           </SwiperSlide>
         </Swiper>
       )}
-    </section>
+    </motion.section>
   );
 };
 

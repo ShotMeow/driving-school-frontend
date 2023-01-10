@@ -1,0 +1,39 @@
+.section {
+  h2 {
+    @apply text-5xl font-black text-center;
+
+    &.small {
+      @apply text-3xl text-left;
+    }
+  }
+
+  .questions {
+    @apply mt-10;
+    article {
+      @apply border-b border-gray py-4;
+      .heading {
+        @apply flex justify-between items-center cursor-pointer;
+
+        h3 {
+          @apply text-4xl font-bold;
+        }
+
+        button {
+          @apply bg-primary rounded-full text-white p-2 transition-all;
+
+          &.rotate {
+            @apply rotate-45;
+          }
+        }
+      }
+
+      p {
+        @apply mt-2;
+      }
+
+      &:first-child {
+        @apply border-t;
+      }
+    }
+  }
+}

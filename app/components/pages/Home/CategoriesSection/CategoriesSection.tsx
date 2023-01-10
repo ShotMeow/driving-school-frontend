@@ -7,16 +7,22 @@ import Arrow from "@/components/other/Icons/Arrow";
 import { useAdaptive } from "@/hooks/useAdaptive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
+import { motion } from "framer-motion";
 import classNames from "classnames";
 
 const CategoriesSection: FC = () => {
-  const { isDesktop } = useAdaptive();
+  const { isDesktop, isMobile } = useAdaptive();
 
   return (
-    <section className={styles.section}>
+    <motion.section
+      initial={{ translateY: "200px", opacity: 0 }}
+      whileInView={{ translateY: "0px", opacity: 1 }}
+      viewport={{ once: true }}
+      className={styles.section}
+    >
       <h2
         className={classNames({
-          [styles.small]: !isDesktop
+          [styles.small]: isMobile
         })}
       >
         Выберите категорию
@@ -413,7 +419,7 @@ const CategoriesSection: FC = () => {
           </SwiperSlide>
         </Swiper>
       )}
-    </section>
+    </motion.section>
   );
 };
 

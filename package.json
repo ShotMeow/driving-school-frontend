@@ -1,6 +1,6 @@
 {
   "name": "driving-school",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +17,7 @@
     "classnames": "^2.3.2",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "framer-motion": "^8.4.0",
     "lodash.throttle": "^4.1.1",
     "next": "13.1.1",
     "nextjs-progressbar": "^0.0.16",
