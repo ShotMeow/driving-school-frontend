@@ -3,10 +3,10 @@
 }
 
 .primary {
-  @apply bg-primary text-white;
+  @apply border border-primary text-primary;
 
   &:hover {
-    @apply bg-primary-hover;
+    @apply bg-primary text-white;
   }
 
   &:active {
