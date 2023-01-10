@@ -13,7 +13,7 @@
     grid-template-columns: repeat(2, 1fr);
 
     article {
-      @apply bg-white flex flex-col justify-between gap-3 rounded-md shadow-md p-4;
+      @apply bg-white flex flex-col justify-between gap-3 rounded-md p-4;
 
       h3 {
         @apply text-3xl font-black;
@@ -24,7 +24,7 @@
       }
 
       > img {
-        @apply self-center h-40 object-cover;
+        @apply self-center h-40;
       }
 
       ul {
@@ -47,6 +47,7 @@
 
   .categories {
     article {
+      @apply shadow-md;
       ul {
         @apply flex-wrap justify-center;
 

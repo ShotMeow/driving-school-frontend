@@ -3,14 +3,14 @@
 }
 
 .primary {
-  @apply border border-primary text-primary;
+  @apply bg-primary text-white;
 
   &:hover {
-    @apply bg-primary text-white;
+    @apply bg-primary-active;
   }
 
   &:active {
-    @apply bg-primary-active;
+    @apply bg-primary;
   }
 }
 
