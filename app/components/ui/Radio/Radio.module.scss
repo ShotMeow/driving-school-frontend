@@ -8,11 +8,6 @@
 
   &:has(:checked)::before {
     @apply border-white border-2;
-
-    label::after {
-      @apply w-2 h-2 bg-white absolute left-0 top-0;
-      content: "";
-    }
   }
 
   > input {
@@ -26,7 +21,7 @@
   }
 
   > &::after {
-    @apply w-4 h-4 rounded-full bg-white absolute left-2 top-2 hidden;
+    @apply w-4 h-4 rounded-full bg-white absolute left-2 hidden;
     content: "";
   }
 
