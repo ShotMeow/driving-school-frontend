@@ -18,8 +18,15 @@ const FormSection: FC = () => {
       <Heading>Подробная заявка на обучение</Heading>
       <form className={styles.form}>
         <div className={styles.inputs}>
-          <Input title="Имя" placeholder="Введите ваше имя" dark name="name" />
           <Input
+            required
+            title="Имя"
+            placeholder="Введите ваше имя"
+            dark
+            name="name"
+          />
+          <Input
+            required
             title="Возраст"
             type="number"
             placeholder="Введите кол-во полных лет"
@@ -27,6 +34,7 @@ const FormSection: FC = () => {
             dark
           />
           <Input
+            required
             title="Номер телефона"
             type="tel"
             placeholder="Введите номер вашего телефона"
@@ -34,6 +42,7 @@ const FormSection: FC = () => {
             name="tel"
           />
           <Input
+            required
             title="Электронная почта"
             type="email"
             placeholder="Введите вашу эл. почту"
@@ -46,24 +55,28 @@ const FormSection: FC = () => {
             <h5>Желаемые категории</h5>
             <div className={styles.category}>
               <Radio
+                required
                 title="B (легковой автомобиль)"
                 name="category"
                 defaultValue="B"
                 dark
               />
               <Radio
+                required
                 title="C (грузовой автомобиль)"
                 name="category"
                 defaultValue="C"
                 dark
               />
               <Radio
+                required
                 title="CE (грузовой автомобиль с прицепом)"
                 name="category"
                 defaultValue="CE"
                 dark
               />
               <Radio
+                required
                 title="D (автобус)"
                 name="category"
                 defaultValue="D"
@@ -75,13 +88,21 @@ const FormSection: FC = () => {
             <h5>Предпочитаемая группа</h5>
             <div className={styles.group}>
               <Radio
+                required
                 title="Утренняя"
                 name="group"
                 defaultValue="morning"
                 dark
               />
-              <Radio title="Дневная" name="group" defaultValue="day" dark />
               <Radio
+                required
+                title="Дневная"
+                name="group"
+                defaultValue="day"
+                dark
+              />
+              <Radio
+                required
                 title="Вечерняя"
                 name="group"
                 defaultValue="evening"

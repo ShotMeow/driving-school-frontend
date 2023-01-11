@@ -8,6 +8,7 @@ interface Props extends HTMLAttributes<HTMLInputElement> {
   type?: HTMLInputTypeAttribute;
   dark?: boolean;
   name: string;
+  required?: boolean;
 }
 
 const Input: FC<Props> = ({
@@ -15,6 +16,7 @@ const Input: FC<Props> = ({
   title,
   name,
   dark = false,
+  required = false,
   ...props
 }) => {
   return (
@@ -26,6 +28,7 @@ const Input: FC<Props> = ({
         })}
         type={type}
         name={name}
+        required={required}
         {...props}
       />
     </label>
