@@ -1,7 +1,7 @@
 .input {
   @apply relative flex flex-col text-gray-black my-8;
   span {
-    @apply absolute -top-6 transition-all;
+    @apply absolute -top-6 transition-all cursor-text;
   }
 
   input {
