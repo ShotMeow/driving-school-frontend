@@ -10,6 +10,7 @@ module.exports = {
         "secondary-hover": "#212121",
         "secondary-active": "#121212",
         gray: "#777777",
+        "gray-black": "#222222",
         black: "#282828",
         info: "#E6F3FF",
         success: "#E6FFED",
@@ -18,7 +19,8 @@ module.exports = {
       borderRadius: {
         sm: "4px",
         md: "10px",
-        lg: "15px"
+        lg: "15px",
+        xl: "24px"
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"]

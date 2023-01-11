@@ -1,12 +1,4 @@
 .section {
-  h2 {
-    @apply text-5xl font-black text-center;
-
-    &.small {
-      @apply text-3xl text-left;
-    }
-  }
-
   .questions {
     @apply mt-10;
     article {

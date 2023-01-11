@@ -8,10 +8,10 @@ import { useAdaptive } from "@/hooks/useAdaptive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import { motion } from "framer-motion";
-import classNames from "classnames";
+import Heading from "@/components/ui/Heading/Heading";
 
 const CategoriesSection: FC = () => {
-  const { isDesktop, isMobile } = useAdaptive();
+  const { isDesktop } = useAdaptive();
 
   return (
     <motion.section
@@ -20,13 +20,7 @@ const CategoriesSection: FC = () => {
       viewport={{ once: true }}
       className={styles.section}
     >
-      <h2
-        className={classNames({
-          [styles.small]: isMobile
-        })}
-      >
-        Выберите категорию
-      </h2>
+      <Heading>Выберите категорию</Heading>
       {isDesktop ? (
         <div className={styles.categories}>
           <article>

@@ -21,12 +21,17 @@ const QuestionsSection = dynamic(
   }
 );
 
+const FormSection = dynamic(import("./FormSection/FormSection"), {
+  ssr: false
+});
+
 const Home: FC = () => {
   return (
     <main className={styles.main}>
       <PrimarySection />
       <CategoriesSection />
       <QuestionsSection />
+      <FormSection />
     </main>
   );
 };

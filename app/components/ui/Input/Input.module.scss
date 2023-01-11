@@ -1,0 +1,29 @@
+.input {
+  @apply flex flex-col gap-2;
+
+  > h5 {
+    @apply text-2xl;
+  }
+
+  > input {
+    @apply border border-gray bg-inherit outline-none rounded-sm py-2 px-6;
+
+    &::placeholder {
+      @apply text-gray;
+    }
+
+    &:focus {
+      @apply border-gray-black;
+
+      &::placeholder {
+        @apply text-gray-black;
+      }
+    }
+
+    &.dark {
+      &:focus {
+        @apply border-white;
+      }
+    }
+  }
+}

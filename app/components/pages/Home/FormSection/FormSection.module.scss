@@ -1,0 +1,59 @@
+.section {
+  .form {
+    @apply relative bg-black rounded-xl p-10 text-white flex gap-6 mt-10;
+
+    .inputs {
+      @apply flex flex-col gap-2;
+      width: 340px;
+    }
+
+    .buttons {
+      @apply border-l border-gray px-6 space-y-10;
+      h5 {
+        @apply text-2xl mb-4;
+      }
+
+      .category {
+        @apply flex flex-col gap-4;
+
+        label::before {
+          flex-shrink: 0;
+        }
+      }
+
+      .group {
+        @apply flex gap-4;
+
+        label::before {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    button {
+      @apply text-3xl bg-primary flex flex-col items-center justify-center rounded-r-xl absolute  top-0 right-0 h-full w-1/6;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .form {
+      @apply flex-col;
+
+      .inputs {
+        @apply w-auto;
+      }
+
+      .buttons {
+        @apply border-none px-0 mb-32;
+      }
+
+      .group {
+        @apply flex-col;
+      }
+
+      button {
+        @apply bottom-0 left-0 h-32 w-full rounded-none rounded-b-xl top-auto right-auto;
+      }
+    }
+  }
+}

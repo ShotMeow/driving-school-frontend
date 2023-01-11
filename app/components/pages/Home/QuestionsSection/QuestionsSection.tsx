@@ -2,16 +2,15 @@ import React, { FC, useState } from "react";
 
 import styles from "./QuestionsSection.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAdaptive } from "@/hooks/useAdaptive";
 import classNames from "classnames";
 import {
   data,
   Question
 } from "@/components/pages/Home/QuestionsSection/QuestionsSection.data";
 import Add from "@/components/other/Icons/Add";
+import Heading from "@/components/ui/Heading/Heading";
 
 const QuestionsSection: FC = () => {
-  const { isMobile } = useAdaptive();
   const [questions, setQuestions] = useState<Question[]>(data);
 
   const handleOpen = (id: number) => {
@@ -29,13 +28,7 @@ const QuestionsSection: FC = () => {
       viewport={{ once: true }}
       className={styles.section}
     >
-      <h2
-        className={classNames({
-          [styles.small]: isMobile
-        })}
-      >
-        Ответы на вопросы
-      </h2>
+      <Heading>Ответы на вопросы</Heading>
       <div className={styles.questions}>
         {questions.map((question) => (
           <article key={question.id}>
