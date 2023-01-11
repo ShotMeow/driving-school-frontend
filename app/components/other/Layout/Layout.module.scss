@@ -1,3 +1,7 @@
 .layout {
-  @apply container;
+  @apply container flex flex-col justify-between h-full;
+
+  .top {
+    @apply flex flex-col gap-4;
+  }
 }

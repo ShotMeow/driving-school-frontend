@@ -12,8 +12,10 @@ const Header = dynamic(() => import("../Header/Header"), {
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles.layout}>
-      <Header />
-      {children}
+      <div className={styles.top}>
+        <Header />
+        {children}
+      </div>
       <Footer />
     </div>
   );

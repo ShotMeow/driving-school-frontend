@@ -8,3 +8,7 @@ body {
   @apply font-montserrat text-black;
   background-color: #f9f9f9;
 }
+
+html, body, #__next {
+  @apply h-full;
+}

@@ -1,0 +1,15 @@
+.footer {
+  @apply flex items-center justify-between mt-16 py-4 border-t-2 border-gray;
+
+  nav > ul {
+    @apply flex gap-6;
+  }
+
+  @media (max-width: 700px) {
+    @apply flex-col gap-6;
+
+    nav > ul {
+      @apply flex-col text-center;
+    }
+  }
+}
