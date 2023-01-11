@@ -1,0 +1,10 @@
+.input {
+  @apply relative flex flex-col text-gray-black my-8;
+  span {
+    @apply absolute -top-6 transition-all;
+  }
+
+  input {
+    @apply py-1 text-xl placeholder-transparent bg-transparent border-b border-gray focus:outline-none;
+  }
+}

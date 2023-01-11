@@ -1,0 +1,12 @@
+.modal {
+  @apply h-screen w-screen fixed top-0 left-0 z-30;
+  background-color: rgba(0 0 0 / 30%);
+
+  > div {
+    @apply h-full flex items-center justify-center;
+  }
+
+  .inner {
+    @apply bg-white rounded-md px-8 py-6;
+  }
+}

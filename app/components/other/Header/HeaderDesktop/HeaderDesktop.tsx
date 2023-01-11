@@ -6,7 +6,11 @@ import Logo from "@/components/ui/Logo/Logo";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 
-const HeaderDesktop: FC = () => {
+interface Props {
+  setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const HeaderDesktop: FC<Props> = ({ setIsModalShow }) => {
   return (
     <header className={styles.desktop}>
       <div className={styles.about}>
@@ -33,7 +37,11 @@ const HeaderDesktop: FC = () => {
         >
           +7 (985) 775-12-62
         </Button>
-        <Button className={styles.authorize} secondary>
+        <Button
+          onClick={() => setIsModalShow((prev) => !prev)}
+          className={styles.authorize}
+          secondary
+        >
           Авторизация
         </Button>
       </div>

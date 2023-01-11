@@ -9,18 +9,19 @@ import Cross from "@/components/other/Icons/Cross";
 import classNames from "classnames";
 
 interface Props {
-  isModal: boolean;
-  setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  isDropdown: boolean;
+  setIsDropdown: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Dropdown: FC<Props> = ({ isModal, setIsModal }) => {
+const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
   return createPortal(
     <div
       className={classNames({
         [styles.overlay]: true,
-        [styles.show]: isModal
+        [styles.show]: isDropdown
       })}
-      onClick={() => setIsModal(false)}
+      onClick={() => setIsDropdown(false)}
     >
       <div
         className={styles.dropdown}
@@ -28,7 +29,7 @@ const Dropdown: FC<Props> = ({ isModal, setIsModal }) => {
       >
         <div className={styles.header}>
           <Logo />
-          <button onClick={() => setIsModal(false)}>
+          <button onClick={() => setIsDropdown(false)}>
             <Cross />
           </button>
         </div>
@@ -53,7 +54,11 @@ const Dropdown: FC<Props> = ({ isModal, setIsModal }) => {
           >
             +7 (985) 775-12-62
           </Button>
-          <Button className={styles.authorize} secondary>
+          <Button
+            onClick={() => setIsModalShow(true)}
+            className={styles.authorize}
+            secondary
+          >
             Авторизация
           </Button>
         </div>

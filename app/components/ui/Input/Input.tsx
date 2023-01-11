@@ -21,7 +21,7 @@ const Input: FC<Props> = ({
 }) => {
   return (
     <label className={styles.input}>
-      {title && <h5>{title}</h5>}
+      <h5>{title}</h5>
       <input
         className={classNames({
           [styles.dark]: dark
