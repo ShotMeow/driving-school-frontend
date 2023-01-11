@@ -17,6 +17,9 @@
     .auth {
       @apply px-20 py-3 mb-6;
     }
+    .register {
+      @apply px-10 py-3 mb-6;
+    }
     .miss {
       @apply absolute text-gray right-0;
       bottom: 88px;
@@ -25,7 +28,7 @@
 
   .footer {
     span {
-      @apply cursor-pointer text-primary font-medium;
+      @apply text-left cursor-pointer text-primary font-medium;
     }
 
     .info {

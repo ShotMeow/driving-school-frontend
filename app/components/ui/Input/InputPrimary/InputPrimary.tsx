@@ -28,7 +28,7 @@ const InputPrimary: FC<Props> = ({
       />
       <span
         className={
-          "peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-black peer-placeholder-shown:text-lg"
+          "peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray peer-placeholder-shown:text-lg"
         }
       >
         {title}
