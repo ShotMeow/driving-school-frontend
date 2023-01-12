@@ -1,9 +1,16 @@
-import React, { FC, HTMLAttributes, PropsWithChildren, useEffect } from "react";
+import React, {
+  FC,
+  HTMLAttributes,
+  PropsWithChildren,
+  useEffect,
+  useRef
+} from "react";
 
 import styles from "./ModalWrapper.module.scss";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
 import { motion } from "framer-motion";
+import { createFocusTrap } from "focus-trap";
 
 interface Props extends HTMLAttributes<HTMLElement> {
   isShow: boolean;
@@ -17,6 +24,20 @@ const ModalWrapper: FC<PropsWithChildren<Props>> = ({
   className,
   ...props
 }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const trap = createFocusTrap(ref.current as HTMLDivElement, {
+      allowOutsideClick: true
+    });
+
+    if (isShow) trap.activate();
+
+    return () => {
+      trap.deactivate();
+    };
+  }, [isShow]);
+
   useEffect(() => {
     if (isShow) document.documentElement.classList.add("--prevent-scroll");
 
@@ -59,6 +80,7 @@ const ModalWrapper: FC<PropsWithChildren<Props>> = ({
             },
             className
           )}
+          ref={ref}
           {...props}
         >
           {children}

@@ -1,0 +1,34 @@
+.register {
+  @apply overflow-y-scroll h-full px-4;
+  .top {
+    @apply flex justify-between items-center mb-10;
+
+    h4 {
+      @apply text-2xl font-black;
+    }
+  }
+
+  .primary {
+    @apply relative;
+    .auth {
+      @apply px-20 py-3 mb-6;
+    }
+    .register {
+      @apply px-10 py-3 mb-6;
+    }
+    .miss {
+      @apply absolute text-gray right-0;
+      bottom: 88px;
+    }
+  }
+
+  .footer {
+    a, button {
+      @apply text-left cursor-pointer text-primary font-medium;
+    }
+
+    .info {
+      @apply text-base mt-4;
+    }
+  }
+}

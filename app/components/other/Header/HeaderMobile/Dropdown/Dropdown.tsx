@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 
@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button/Button";
 import Logo from "@/components/ui/Logo/Logo";
 import Cross from "@/components/other/Icons/Cross";
 import classNames from "classnames";
+import { createFocusTrap } from "focus-trap";
 
 interface Props {
   isDropdown: boolean;
@@ -15,6 +16,20 @@ interface Props {
 }
 
 const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const trap = createFocusTrap(ref.current as HTMLDivElement, {
+      allowOutsideClick: true
+    });
+
+    if (isDropdown) trap.activate();
+
+    return () => {
+      trap.deactivate();
+    };
+  }, [isDropdown]);
+
   return createPortal(
     <div
       className={classNames({
@@ -26,6 +41,7 @@ const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
       <div
         className={styles.dropdown}
         onClick={(event) => event.stopPropagation()}
+        ref={ref}
       >
         <div className={styles.header}>
           <Logo />
