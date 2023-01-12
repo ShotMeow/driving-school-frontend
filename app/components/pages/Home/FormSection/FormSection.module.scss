@@ -51,7 +51,7 @@
         @apply flex-col;
       }
 
-      button {
+      .submit {
         @apply bottom-0 left-0 h-32 w-full rounded-none rounded-b-xl top-auto right-auto;
       }
     }
