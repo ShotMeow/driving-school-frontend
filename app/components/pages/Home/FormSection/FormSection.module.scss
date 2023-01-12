@@ -30,7 +30,7 @@
       }
     }
 
-    button {
+    .submit {
       @apply text-3xl bg-primary flex flex-col items-center justify-center rounded-r-xl absolute  top-0 right-0 h-full w-1/6;
     }
   }

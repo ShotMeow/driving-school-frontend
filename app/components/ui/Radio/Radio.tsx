@@ -17,19 +17,22 @@ const Radio: FC<Props> = ({
   required = false,
   ...props
 }) => {
-  // ToDo: Сделать клик при использовании табуляции.
-
   return (
-    <label
+    <div
       className={classNames({
         [styles.radio]: true,
         [styles.dark]: dark
       })}
-      tabIndex={0}
     >
-      <input type="radio" required={required} {...props} name={name} />
-      <h6>{title}</h6>
-    </label>
+      <input
+        type="radio"
+        required={required}
+        {...props}
+        name={name}
+        id={name}
+      />
+      <label htmlFor={name}>{title}</label>
+    </div>
   );
 };
 
