@@ -18,7 +18,7 @@ const Radio: FC<Props> = ({
   ...props
 }) => {
   return (
-    <div
+    <label
       className={classNames({
         [styles.radio]: true,
         [styles.dark]: dark
@@ -31,8 +31,8 @@ const Radio: FC<Props> = ({
         name={name}
         id={name}
       />
-      <label htmlFor={name}>{title}</label>
-    </div>
+      <h6>{title}</h6>
+    </label>
   );
 };
 
