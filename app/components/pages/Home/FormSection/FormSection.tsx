@@ -10,10 +10,11 @@ import LongArrow from "@/components/other/Icons/LongArrow";
 const FormSection: FC = () => {
   return (
     <motion.section
-      initial={{ translateY: "200px", opacity: 0 }}
-      whileInView={{ translateY: "0px", opacity: 1 }}
+      initial={{ translateX: "-200px", opacity: 0 }}
+      whileInView={{ translateX: "0px", opacity: 1 }}
       viewport={{ once: true }}
       className={styles.section}
+      id="form"
     >
       <Heading>Подробная заявка на обучение</Heading>
       <form className={styles.form}>

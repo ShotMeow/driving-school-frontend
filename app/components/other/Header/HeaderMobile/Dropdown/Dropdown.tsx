@@ -52,10 +52,14 @@ const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
         <nav className={styles.navigation}>
           <ul>
             <li>
-              <Link href="/tariffs">Тарифы и цены</Link>
+              <Link href="/#categories" scroll={false}>
+                Тарифы и цены
+              </Link>
             </li>
             <li>
-              <Link href="/steps">Этапы обучения</Link>
+              <Link href="/#form" scroll={false}>
+                Заявка на обучение
+              </Link>
             </li>
             <li>
               <Link href="/contacts">Контакты</Link>

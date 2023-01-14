@@ -12,6 +12,7 @@ import Arrow from "@/components/other/Icons/Arrow";
 import Image from "next/image";
 import { useAdaptive } from "@/hooks/useAdaptive";
 import { Autoplay } from "swiper";
+import Link from "next/link";
 
 const PrimarySection: FC = () => {
   const { isDesktop } = useAdaptive();
@@ -29,9 +30,11 @@ const PrimarySection: FC = () => {
           Научитесь водить уже через 3 месяца. Предостовляем высококачественные
           уроки вождения с 2000 года и выпускаем более 450 студентов в месяц.
         </p>
-        <Button primary>
-          Записаться <Arrow />
-        </Button>
+        <Link href="/#form" scroll={false}>
+          <Button primary>
+            Записаться <Arrow />
+          </Button>
+        </Link>
         {isDesktop && (
           <Image
             src="/images/car.png"

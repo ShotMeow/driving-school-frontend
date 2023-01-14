@@ -15,10 +15,11 @@ const CategoriesSection: FC = () => {
 
   return (
     <motion.section
-      initial={{ translateY: "200px", opacity: 0 }}
-      whileInView={{ translateY: "0px", opacity: 1 }}
+      initial={{ translateX: "200px", opacity: 0 }}
+      whileInView={{ translateX: "0px", opacity: 1 }}
       viewport={{ once: true }}
       className={styles.section}
+      id="categories"
     >
       <Heading>Выберите категорию</Heading>
       {isDesktop ? (
