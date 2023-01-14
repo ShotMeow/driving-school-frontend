@@ -1,6 +1,10 @@
 .logo {
   @apply flex items-center gap-4;
 
+  img {
+    @apply w-auto h-auto;
+  }
+
   > .title {
     @apply uppercase text-3xl font-bold;
   }

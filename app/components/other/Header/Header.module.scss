@@ -1,5 +1,9 @@
 .header {
-  @apply mt-4;
+  @apply mt-4 mb-10;
+
+  @media (max-width: 1200px) {
+    @apply mb-0;
+  }
 }
 
 .modal {

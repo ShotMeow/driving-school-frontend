@@ -16,6 +16,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
         height={3}
       />
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Driving School</title>
       </Head>
       <Component {...pageProps} />

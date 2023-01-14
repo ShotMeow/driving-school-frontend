@@ -38,6 +38,7 @@ const QuestionsSection: FC = () => {
             >
               <h3>{question.title}</h3>
               <button
+                title="Tab Open"
                 className={classNames({
                   [styles.rotate]: question.isOpen
                 })}

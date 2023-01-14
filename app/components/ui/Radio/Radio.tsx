@@ -24,13 +24,7 @@ const Radio: FC<Props> = ({
         [styles.dark]: dark
       })}
     >
-      <input
-        type="radio"
-        required={required}
-        {...props}
-        name={name}
-        id={name}
-      />
+      <input type="radio" required={required} {...props} name={name} />
       <h6>{title}</h6>
     </label>
   );

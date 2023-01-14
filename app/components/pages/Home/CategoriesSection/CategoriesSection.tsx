@@ -32,7 +32,7 @@ const CategoriesSection: FC = () => {
               src="/images/category_car_b.jpg"
               alt="Машина категории B"
               width={433}
-              height={142}
+              height={160}
             />
             <ul>
               <li>
@@ -78,7 +78,7 @@ const CategoriesSection: FC = () => {
               src="/images/category_car_c.jpg"
               alt="Машина категории C"
               width={426}
-              height={185}
+              height={160}
             />
             <ul>
               <li>
@@ -124,7 +124,7 @@ const CategoriesSection: FC = () => {
               src="/images/category_car_ce.jpg"
               alt="Машина категории CE"
               width={545}
-              height={168}
+              height={160}
             />
             <ul>
               <li>
@@ -170,7 +170,7 @@ const CategoriesSection: FC = () => {
               src="/images/category_car_d.jpg"
               alt="Машина категории D"
               width={450}
-              height={166}
+              height={160}
             />
             <ul>
               <li>
