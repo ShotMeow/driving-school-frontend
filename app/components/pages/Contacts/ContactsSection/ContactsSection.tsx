@@ -21,9 +21,7 @@ const ContactsSection: FC = () => {
       <div className={styles.form}>
         <div>
           <h4 className={styles.heading}>Остались вопросы?</h4>
-          <p>
-            Напишите нам ваш номер и мы <br /> вам перезвоним
-          </p>
+          <p>Напишите нам ваш номер и мы вам перезвоним</p>
         </div>
         <form>
           <div>
