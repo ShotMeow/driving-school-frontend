@@ -1,0 +1,56 @@
+.section {
+  @apply grid gap-8;
+  grid-template-columns: 5fr 2fr;
+
+  .form, .info {
+    @apply bg-white shadow-md rounded-xl p-8;
+  }
+
+  .form {
+    @apply flex flex-col justify-between gap-6;
+    .heading {
+      @apply text-3xl font-black;
+    }
+
+    > form {
+      @apply flex flex-col gap-8;
+      > div {
+        @apply grid gap-6;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      button {
+        @apply px-4 py-2 gap-2;
+      }
+    }
+  }
+
+  .info {
+    h5 {
+      @apply text-lg font-black mb-4;
+    }
+
+    ul {
+      @apply space-y-4;
+      li {
+        @apply flex flex-col;
+
+        span:first-child {
+          @apply flex items-center gap-2 text-sm font-bold text-black pl-0;
+        }
+
+        span {
+          @apply text-sm text-gray pl-7;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    grid-template-columns: 1fr;
+
+    .form > form > div {
+      grid-template-columns: 1fr;
+    }
+  }
+}

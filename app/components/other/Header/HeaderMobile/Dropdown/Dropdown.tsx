@@ -44,7 +44,9 @@ const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
         ref={ref}
       >
         <div className={styles.header}>
-          <Logo />
+          <button onClick={() => setIsDropdown(false)}>
+            <Logo />
+          </button>
           <button onClick={() => setIsDropdown(false)}>
             <Cross />
           </button>
@@ -52,12 +54,20 @@ const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
         <nav className={styles.navigation}>
           <ul>
             <li>
-              <Link href="/#categories" scroll={false}>
+              <Link
+                href="/#categories"
+                onClick={() => setIsDropdown(false)}
+                scroll={false}
+              >
                 Тарифы и цены
               </Link>
             </li>
             <li>
-              <Link href="/#form" scroll={false}>
+              <Link
+                href="/#form"
+                onClick={() => setIsDropdown(false)}
+                scroll={false}
+              >
                 Заявка на обучение
               </Link>
             </li>
