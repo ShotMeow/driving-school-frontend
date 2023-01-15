@@ -1,9 +1,9 @@
-<h1 align="center">Driving School</h1>
+<h1 align="center">Driving School Frontend</h1>
 
 ![Screen Shot](https://github.com/ShotMeow/driving-school/blob/main/public/github/main.png?raw=true)
 
 <h2 align="center">О проекте</h2>
-<p align="center">Driving School - веб-интерфейс, осуществленный посредством использования технологий Next.js + TypeScript. Данный проект не продуктовый и разработанный в качестве работы для портфолио.</p>
+<p align="center">Driving School Frontend - веб-интерфейс, осуществленный посредством использования технологий Next.js + TypeScript. Данный проект не продуктовый и разработан в качестве работы для портфолио.</p>
 
 <h2 align="center">Стэк технологий</h2>
 <ul>
