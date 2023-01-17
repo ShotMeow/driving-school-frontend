@@ -12,14 +12,6 @@
       @apply text-gray;
     }
 
-    &:focus {
-      @apply border-gray-black;
-
-      &::placeholder {
-        @apply text-gray-black;
-      }
-    }
-
     &.dark {
       &:focus {
         @apply border-white;

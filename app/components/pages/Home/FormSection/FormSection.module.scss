@@ -1,6 +1,6 @@
 .section {
   .form {
-    @apply relative bg-black rounded-xl p-10 text-white flex gap-6 mt-10;
+    @apply relative bg-black rounded-xl p-10 text-white flex gap-6 mt-10 shadow-md;
 
     .inputs {
       @apply flex flex-col gap-2;

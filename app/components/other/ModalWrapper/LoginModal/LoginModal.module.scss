@@ -23,7 +23,8 @@
   }
 
   .footer {
-    a, button {
+    a,
+    button {
       @apply text-left cursor-pointer text-primary font-medium;
     }
 

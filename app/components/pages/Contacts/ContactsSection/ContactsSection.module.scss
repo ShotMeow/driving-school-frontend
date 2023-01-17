@@ -2,7 +2,8 @@
   @apply grid gap-8;
   grid-template-columns: 5fr 2fr;
 
-  .form, .info {
+  .form,
+  .info {
     @apply bg-white shadow-md rounded-xl p-8;
   }
 
@@ -49,7 +50,8 @@
   @media (max-width: 1199px) {
     grid-template-columns: 1fr;
 
-    .form, .info {
+    .form,
+    .info {
       @apply p-4;
     }
 
