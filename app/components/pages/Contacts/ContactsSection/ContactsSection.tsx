@@ -68,7 +68,7 @@ const ContactsSection: FC = () => {
               <Geo /> <h6>Местоположение</h6>
             </span>
             <span>
-              <a href="https://yandex.ru/maps/-/CCUvbUTgPD" target="_blank">
+              <a href="https://yandex.ru/maps/-/CCUvbUTgPD" rel="noreferrer" target="_blank">
                 754071, Московская область, город Сергиев Посад, улица 40 лет
                 Октября, 5А
               </a>
