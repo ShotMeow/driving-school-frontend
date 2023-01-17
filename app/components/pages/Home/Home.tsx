@@ -6,7 +6,10 @@ import dynamic from "next/dynamic";
 const PrimarySection = dynamic(import("./PrimarySection/PrimarySection"));
 
 const CategoriesSection = dynamic(
-  import("./CategoriesSection/CategoriesSection")
+  import("./CategoriesSection/CategoriesSection"),
+  {
+    ssr: false
+  }
 );
 
 const QuestionsSection = dynamic(
