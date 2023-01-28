@@ -3,11 +3,11 @@
     @apply relative bg-white shadow-md rounded-lg px-10 py-20 overflow-hidden;
 
     h1 {
-      @apply text-6xl font-black uppercase w-3/4 relative z-10;
+      @apply text-6xl font-black uppercase w-3/4;
     }
 
     p {
-      @apply w-2/4 relative z-10;
+      @apply w-2/4;
     }
 
     button {
@@ -15,7 +15,7 @@
     }
 
     img {
-      @apply absolute -top-10 -right-80 z-0;
+      @apply absolute -top-10 -right-80 z-10;
     }
 
     @media (max-width: 1200px) {
