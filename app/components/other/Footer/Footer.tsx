@@ -11,10 +11,14 @@ const Footer: FC = () => {
       <nav className={styles.navigation}>
         <ul>
           <li>
-            <Link href="/#categories" scroll={false}>Тарифы и цены</Link>
+            <Link href="/#categories" scroll={false}>
+              Тарифы и цены
+            </Link>
           </li>
           <li>
-            <Link href="/#form" scroll={false}>Заявка на обучение</Link>
+            <Link href="/#form" scroll={false}>
+              Заявка на обучение
+            </Link>
           </li>
           <li>
             <Link href="/contacts">Контакты</Link>
