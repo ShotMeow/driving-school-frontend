@@ -4,14 +4,12 @@ import styles from "./InputPrimary.module.scss";
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
   title: string;
-  name: string;
   type?: HTMLInputTypeAttribute;
   required?: boolean;
 }
 
 const InputPrimary: FC<Props> = ({
   title,
-  name,
   type = "text",
   required = false,
   ...props
@@ -19,7 +17,6 @@ const InputPrimary: FC<Props> = ({
   return (
     <label className={styles.input}>
       <input
-        name={name}
         required={required}
         placeholder={title}
         type={type}
