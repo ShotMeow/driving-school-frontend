@@ -1,6 +1,12 @@
+@import '/app/variables';
+
 .overlay {
-  @apply fixed opacity-0 pointer-events-none w-screen h-screen left-0 top-0 z-20 transition-all;
+  @apply fixed opacity-0 pointer-events-none w-full h-full left-0 top-0 z-20 transition-all;
   background-color: rgba(0 0 0 / 30%);
+
+  @media (min-width: $adaptive-min-breakpoint) {
+    @apply hidden;
+  }
 }
 
 .show {

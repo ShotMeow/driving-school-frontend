@@ -1,28 +1,24 @@
-import React, { FC, HTMLAttributes, HTMLInputTypeAttribute } from "react";
+import React, {FC, HTMLInputTypeAttribute, InputHTMLAttributes} from "react";
 
 import styles from "./InputPrimary.module.scss";
+import InputPhone from "@/components/ui/Input/InputPrimary/InputPhone";
 
-interface Props extends HTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
   type?: HTMLInputTypeAttribute;
-  required?: boolean;
 }
 
 const InputPrimary: FC<Props> = ({
   title,
-  type = "text",
-  required = false,
   ...props
 }) => {
   return (
     <label className={styles.input}>
-      <input
-        required={required}
+      {props.type === "tel" ? <InputPhone placeholder={title} className={"peer"} {...props} /> : <input
         placeholder={title}
-        type={type}
         className={"peer"}
         {...props}
-      />
+      />}
       <span
         className={
           "peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray peer-placeholder-shown:text-lg"

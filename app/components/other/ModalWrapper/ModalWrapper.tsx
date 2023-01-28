@@ -63,7 +63,7 @@ const ModalWrapper: FC<PropsWithChildren<Props>> = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={() => setIsShow(false)}
+      onMouseDown={() => setIsShow(false)}
       className={styles.modal}
     >
       <motion.div
@@ -72,7 +72,7 @@ const ModalWrapper: FC<PropsWithChildren<Props>> = ({
         exit={{ scale: 0 }}
       >
         <div
-          onClick={(event) => event.stopPropagation()}
+          onMouseDown={(event) => event.stopPropagation()}
           onKeyDown={(event) => event.stopPropagation()}
           className={classNames(
             {
