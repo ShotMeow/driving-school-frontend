@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes, PropsWithChildren } from "react";
+import React, {ButtonHTMLAttributes, FC, PropsWithChildren} from "react";
 import classNames from "classnames";
 
 import styles from "./Button.module.scss";
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   primary?: boolean;
   secondary?: boolean;
 }

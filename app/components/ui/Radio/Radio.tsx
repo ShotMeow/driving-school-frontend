@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes } from "react";
+import React, {FC, InputHTMLAttributes} from "react";
 
 import styles from "./Radio.module.scss";
 import classNames from "classnames";
 
-interface Props extends HTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
   name: string;
   dark?: boolean;

@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes, HTMLInputTypeAttribute } from "react";
+import React, {FC, HTMLInputTypeAttribute, InputHTMLAttributes} from "react";
 
 import styles from "./Input.module.scss";
 import classNames from "classnames";
 
-interface Props extends HTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
   type?: HTMLInputTypeAttribute;
   dark?: boolean;
