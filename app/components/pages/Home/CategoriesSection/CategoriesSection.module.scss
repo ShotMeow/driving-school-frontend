@@ -18,10 +18,10 @@
       }
 
       > .img {
-        @apply self-center h-40;
+        @apply self-center justify-center h-40;
 
         > img {
-          @apply h-full object-cover;
+          @apply h-full w-full object-cover;
         }
       }
 
