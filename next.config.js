@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  poweredByHeader: false
+  poweredByHeader: false,
+  env: {
+    JWT_SECRET: process.env.JWT_SECRET
+  }
 };
 
 module.exports = nextConfig;

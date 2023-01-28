@@ -26,7 +26,7 @@
   }
 
   &:has(:focus)::before {
-    @apply border-white border-4;
+    @apply border-white border-2;
   }
 
   &:has(:checked)::after {

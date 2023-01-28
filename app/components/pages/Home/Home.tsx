@@ -3,7 +3,9 @@ import React, { FC } from "react";
 import styles from "./Home.module.scss";
 import dynamic from "next/dynamic";
 
-const PrimarySection = dynamic(import("./PrimarySection/PrimarySection"));
+const PrimarySection = dynamic(import("./PrimarySection/PrimarySection"), {
+  ssr: false
+});
 
 const CategoriesSection = dynamic(
   import("./CategoriesSection/CategoriesSection"),
@@ -19,7 +21,9 @@ const QuestionsSection = dynamic(
   }
 );
 
-const FormSection = dynamic(import("./FormSection/FormSection"));
+const FormSection = dynamic(import("./FormSection/FormSection"), {
+  ssr: false
+});
 
 const Home: FC = () => {
   return (

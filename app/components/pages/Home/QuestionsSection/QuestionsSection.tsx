@@ -49,9 +49,9 @@ const QuestionsSection: FC = () => {
             <AnimatePresence>
               {question.isOpen && (
                 <motion.p
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  exit={{ height: 0 }}
+                  initial={{ height: 0, marginTop: 0 }}
+                  animate={{ height: "auto", marginTop: 10 }}
+                  exit={{ height: 0, marginTop: 0 }}
                   style={{ overflow: "hidden" }}
                 >
                   {question.description}
