@@ -22,23 +22,22 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
       <form className={styles.primary}>
         <InputPrimary
           title="ФИО"
-          name="name"
         />
         <InputPrimary
+          type="tel"
           title="Номер телефона"
-          name="tel"
         />
         <InputPrimary
+          type="email"
           title="Эл. почта"
-          name="email"
         />
         <InputPrimary
+          type="password"
           title="Пароль"
-          name="password"
         />
         <InputPrimary
+          type="password"
           title="Подтвердите пароль"
-          name="repeat_password"
         />
         <Button type="submit" className={styles.register} primary>
           Зарегистрироваться

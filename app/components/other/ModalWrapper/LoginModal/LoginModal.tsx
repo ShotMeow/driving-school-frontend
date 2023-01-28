@@ -21,7 +21,7 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
       </div>
       <form className={styles.primary}>
         <InputPrimary title="Эл почта или телефон" name="login" />
-        <InputPrimary title="Пароль" name="password" type="password" />
+        <InputPrimary type="password" title="Пароль" name="password" />
         <button type="button" className={styles.miss}>Забыли пароль?</button>
         <Button type="submit" className={styles.auth} primary>
           Войти
