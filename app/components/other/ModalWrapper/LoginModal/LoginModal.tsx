@@ -19,14 +19,14 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
           <ExitThin />
         </button>
       </div>
-      <div className={styles.primary}>
+      <form className={styles.primary}>
         <InputPrimary title="Эл почта или телефон" name="login" />
         <InputPrimary title="Пароль" name="password" type="password" />
-        <button className={styles.miss}>Забыли пароль?</button>
-        <Button className={styles.auth} primary>
+        <button type="button" className={styles.miss}>Забыли пароль?</button>
+        <Button type="submit" className={styles.auth} primary>
           Войти
         </Button>
-      </div>
+      </form>
       <div className={styles.footer}>
         <p>
           Новый пользователь?{" "}
