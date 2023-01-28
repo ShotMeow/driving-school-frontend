@@ -1,8 +1,6 @@
 import React, { FC, HTMLAttributes, PropsWithChildren } from "react";
 
 import styles from "./Heading.module.scss";
-import classNames from "classnames";
-import { useAdaptive } from "@/hooks/useAdaptive";
 
 interface Props extends HTMLAttributes<HTMLHeadingElement> {}
 
@@ -11,18 +9,8 @@ const Heading: FC<PropsWithChildren<Props>> = ({
   className,
   ...props
 }) => {
-  const { isMobile } = useAdaptive();
   return (
-    <h2
-      className={classNames(
-        {
-          [styles.heading]: true,
-          [styles.small]: isMobile
-        },
-        className
-      )}
-      {...props}
-    >
+    <h2 className={styles.heading} {...props}>
       {children}
     </h2>
   );

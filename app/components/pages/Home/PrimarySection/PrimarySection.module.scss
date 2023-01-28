@@ -1,3 +1,5 @@
+@import "/app/variables";
+
 .section {
   .majorArticle {
     @apply relative bg-white shadow-md rounded-lg px-10 py-20 overflow-hidden;
@@ -16,9 +18,13 @@
 
     img {
       @apply absolute -top-10 -right-80 z-10;
+
+      @media (max-width: $adaptive-max-breakpoint) {
+        @apply hidden;
+      }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: $adaptive-max-breakpoint) {
       @apply py-6 px-6;
 
       h1 {
@@ -37,6 +43,18 @@
 
     article {
       @apply shadow-md;
+    }
+  }
+
+  .items {
+    @media (max-width: $adaptive-max-breakpoint) {
+      @apply hidden;
+    }
+  }
+
+  .swiper {
+    @media (min-width: $adaptive-max-breakpoint) {
+      @apply hidden;
     }
   }
 

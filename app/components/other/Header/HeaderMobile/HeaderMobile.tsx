@@ -3,7 +3,14 @@ import React, { FC, useState } from "react";
 import styles from "./HeaderMobile.module.scss";
 import Logo from "@/components/ui/Logo/Logo";
 import Burger from "@/components/other/Icons/Burger";
-import Dropdown from "@/components/other/Header/HeaderMobile/Dropdown/Dropdown";
+import dynamic from "next/dynamic";
+
+const Dropdown = dynamic(
+  import("@/components/other/Header/HeaderMobile/Dropdown/Dropdown"),
+  {
+    ssr: false
+  }
+);
 
 interface Props {
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;

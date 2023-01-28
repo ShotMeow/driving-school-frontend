@@ -1,7 +1,5 @@
 import React, { FC, useState } from "react";
 
-import { useAdaptive } from "@/hooks/useAdaptive";
-
 import HeaderMobile from "./HeaderMobile/HeaderMobile";
 import HeaderDesktop from "./HeaderDesktop/HeaderDesktop";
 
@@ -15,14 +13,10 @@ const Header: FC = () => {
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
   const [modalType, setModalType] = useState<"login" | "register">("login");
 
-  const { isMobile } = useAdaptive();
   return (
     <div className={styles.header}>
-      {isMobile ? (
-        <HeaderMobile setIsModalShow={setIsModalShow} />
-      ) : (
-        <HeaderDesktop setIsModalShow={setIsModalShow} />
-      )}
+      <HeaderMobile setIsModalShow={setIsModalShow} />
+      <HeaderDesktop setIsModalShow={setIsModalShow} />
       <AnimatePresence>
         {isModalShow && (
           <ModalWrapper

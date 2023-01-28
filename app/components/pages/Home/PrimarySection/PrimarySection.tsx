@@ -10,13 +10,16 @@ import { motion } from "framer-motion";
 import Arrow from "@/components/other/Icons/Arrow";
 
 import Image from "next/image";
-import { useAdaptive } from "@/hooks/useAdaptive";
 import { Autoplay } from "swiper";
 import Link from "next/link";
 
-const PrimarySection: FC = () => {
-  const { isDesktop } = useAdaptive();
+import car from "/public/images/car.png";
+import chart from "/public/images/chart.png";
+import fleet from "/public/images/fleet.png";
+import instructor from "/public/images/instructor.png";
+import discount from "/public/images/discount.png";
 
+const PrimarySection: FC = () => {
   return (
     <motion.section
       initial={{ translateY: "200px", opacity: 0 }}
@@ -35,119 +38,69 @@ const PrimarySection: FC = () => {
             Записаться <Arrow />
           </Button>
         </Link>
-        {isDesktop && (
-          <Image
-            src="/images/car.png"
-            alt="Картинка машины"
-            width={1069}
-            height={480}
-          />
-        )}
+        <Image src={car} alt="Картинка машины" />
       </article>
-      {isDesktop ? (
-        <div className={styles.items}>
+      <div className={styles.items}>
+        <article>
+          <Image src={chart} alt="График" />
+          <h4>График</h4>
+          <p>Подстраивающийся под вас</p>
+        </article>
+        <article>
+          <Image src={fleet} alt="Автопарк" />
+          <h4>Автопарк</h4>
+          <p>Ежегодно обновляется</p>
+        </article>
+        <article>
+          <Image src={instructor} alt="Инструктора" />
+          <h4>Инструктора</h4>
+          <p>С опытом не менее 5 лет</p>
+        </article>
+        <article>
+          <Image src={discount} alt="Рассрочка и скидки" />
+          <h4>Рассрочка и скидки</h4>
+          <p>На 12 м. и скидки студентам</p>
+        </article>
+      </div>
+      <Swiper
+        slidesPerView={"auto"}
+        spaceBetween={20}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: true
+        }}
+        modules={[Autoplay]}
+        className={styles.swiper}
+      >
+        <SwiperSlide className={styles.slide}>
           <article>
-            <Image
-              src="/images/chart.png"
-              alt="График"
-              width={40}
-              height={40}
-            />
+            <Image src={chart} alt="График" />
             <h4>График</h4>
             <p>Подстраивающийся под вас</p>
           </article>
+        </SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <article>
-            <Image
-              src="/images/fleet.png"
-              alt="Автопарк"
-              width={40}
-              height={40}
-            />
+            <Image src={fleet} alt="Автопарк" />
             <h4>Автопарк</h4>
             <p>Ежегодно обновляется</p>
           </article>
+        </SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <article>
-            <Image
-              src="/images/instructor.png"
-              alt="Инструктора"
-              width={40}
-              height={40}
-            />
+            <Image src={instructor} alt="Инструктора" />
             <h4>Инструктора</h4>
             <p>С опытом не менее 5 лет</p>
           </article>
+        </SwiperSlide>
+        <SwiperSlide className={styles.slide}>
           <article>
-            <Image
-              src="/images/discount.png"
-              alt="Рассрочка и скидки"
-              width={40}
-              height={40}
-            />
+            <Image src={discount} alt="Рассрочка и скидки" />
             <h4>Рассрочка и скидки</h4>
             <p>На 12 м. и скидки студентам</p>
           </article>
-        </div>
-      ) : (
-        <Swiper
-          slidesPerView={"auto"}
-          spaceBetween={20}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: true
-          }}
-          modules={[Autoplay]}
-          className={styles.swiper}
-        >
-          <SwiperSlide className={styles.slide}>
-            <article>
-              <Image
-                src="/images/chart.png"
-                alt="График"
-                width={40}
-                height={40}
-              />
-              <h4>График</h4>
-              <p>Подстраивающийся под вас</p>
-            </article>
-          </SwiperSlide>
-          <SwiperSlide className={styles.slide}>
-            <article>
-              <Image
-                src="/images/fleet.png"
-                alt="Автопарк"
-                width={40}
-                height={40}
-              />
-              <h4>Автопарк</h4>
-              <p>Ежегодно обновляется</p>
-            </article>
-          </SwiperSlide>
-          <SwiperSlide className={styles.slide}>
-            <article>
-              <Image
-                src="/images/instructor.png"
-                alt="Инструктора"
-                width={40}
-                height={40}
-              />
-              <h4>Инструктора</h4>
-              <p>С опытом не менее 5 лет</p>
-            </article>
-          </SwiperSlide>
-          <SwiperSlide className={styles.slide}>
-            <article>
-              <Image
-                src="/images/discount.png"
-                alt="Рассрочка и скидки"
-                width={40}
-                height={40}
-              />
-              <h4>Рассрочка и скидки</h4>
-              <p>На 12 м. и скидки студентам</p>
-            </article>
-          </SwiperSlide>
-        </Swiper>
-      )}
+        </SwiperSlide>
+      </Swiper>
     </motion.section>
   );
 };

@@ -21,7 +21,10 @@ const ContactsSection: FC = () => {
       <div className={styles.form}>
         <div>
           <h4 className={styles.heading}>Остались вопросы?</h4>
-          <p>Напишите нам ваш номер и мы вам перезвоним</p>
+          <p>
+            Свяжитесь с нами, отправив ваше имя и номер телефона и в ближайшее
+            время менеджер свяжется с вами и ответит на все ваши вопросы
+          </p>
         </div>
         <form>
           <div>
@@ -68,7 +71,11 @@ const ContactsSection: FC = () => {
               <Geo /> <h6>Местоположение</h6>
             </span>
             <span>
-              <a href="https://yandex.ru/maps/-/CCUvbUTgPD" rel="noreferrer" target="_blank">
+              <a
+                href="https://yandex.ru/maps/-/CCUvbUTgPD"
+                rel="noreferrer"
+                target="_blank"
+              >
                 754071, Московская область, город Сергиев Посад, улица 40 лет
                 Октября, 5А
               </a>

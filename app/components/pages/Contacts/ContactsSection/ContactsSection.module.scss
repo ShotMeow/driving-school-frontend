@@ -1,3 +1,5 @@
+@import "/app/variables";
+
 .section {
   @apply grid gap-8;
   grid-template-columns: 5fr 2fr;
@@ -10,7 +12,7 @@
   .form {
     @apply flex flex-col justify-between gap-6;
     .heading {
-      @apply text-3xl font-black;
+      @apply text-3xl font-black mb-2;
     }
 
     > form {
@@ -47,7 +49,7 @@
     }
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: $adaptive-max-breakpoint) {
     grid-template-columns: 1fr;
 
     .form,

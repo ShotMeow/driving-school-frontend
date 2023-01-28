@@ -3,11 +3,7 @@ import React, { FC, PropsWithChildren } from "react";
 import Footer from "../Footer/Footer";
 
 import styles from "./Layout.module.scss";
-import dynamic from "next/dynamic";
-
-const Header = dynamic(() => import("../Header/Header"), {
-  ssr: false
-});
+import Header from "@/components/other/Header/Header";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (

@@ -1,3 +1,5 @@
+@import "/app/variables";
+
 .section {
   .form {
     @apply relative bg-black rounded-xl p-10 text-white flex gap-6 mt-10 shadow-md;
@@ -35,7 +37,7 @@
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: $adaptive-max-breakpoint) {
     .form {
       @apply flex-col;
 

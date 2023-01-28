@@ -1,5 +1,11 @@
+@import "/app/variables";
+
 .desktop {
   @apply flex items-center justify-between;
+
+  @media (max-width: $adaptive-max-breakpoint) {
+    @apply hidden;
+  }
 
   > .about {
     @apply flex items-center gap-4;

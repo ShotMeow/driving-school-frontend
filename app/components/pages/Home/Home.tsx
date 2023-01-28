@@ -1,29 +1,10 @@
 import React, { FC } from "react";
 
 import styles from "./Home.module.scss";
-import dynamic from "next/dynamic";
-
-const PrimarySection = dynamic(import("./PrimarySection/PrimarySection"), {
-  ssr: false
-});
-
-const CategoriesSection = dynamic(
-  import("./CategoriesSection/CategoriesSection"),
-  {
-    ssr: false
-  }
-);
-
-const QuestionsSection = dynamic(
-  import("./QuestionsSection/QuestionsSection"),
-  {
-    ssr: false
-  }
-);
-
-const FormSection = dynamic(import("./FormSection/FormSection"), {
-  ssr: false
-});
+import CategoriesSection from "@/components/pages/Home/CategoriesSection/CategoriesSection";
+import FormSection from "@/components/pages/Home/FormSection/FormSection";
+import PrimarySection from "@/components/pages/Home/PrimarySection/PrimarySection";
+import QuestionsSection from "@/components/pages/Home/QuestionsSection/QuestionsSection";
 
 const Home: FC = () => {
   return (

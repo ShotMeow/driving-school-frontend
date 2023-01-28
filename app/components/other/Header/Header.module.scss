@@ -1,7 +1,9 @@
+@import "/app/variables";
+
 .header {
   @apply mt-4 mb-10;
 
-  @media (max-width: 1200px) {
+  @media (max-width: $adaptive-max-breakpoint) {
     @apply mb-0;
   }
 }
@@ -9,7 +11,7 @@
 .modal {
   width: 480px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: $adaptive-max-breakpoint) {
     @apply w-full h-full;
   }
 }

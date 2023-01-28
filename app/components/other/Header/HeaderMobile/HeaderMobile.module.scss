@@ -1,3 +1,9 @@
+@import "/app/variables";
+
 .mobile {
   @apply flex items-center justify-between;
+
+  @media (min-width: $adaptive-min-breakpoint) {
+    @apply hidden;
+  }
 }
