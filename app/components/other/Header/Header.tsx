@@ -4,10 +4,14 @@ import HeaderMobile from "./HeaderMobile/HeaderMobile";
 import HeaderDesktop from "./HeaderDesktop/HeaderDesktop";
 
 import styles from "./Header.module.scss";
-import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import { AnimatePresence } from "framer-motion";
 import LoginModal from "@/components/other/ModalWrapper/LoginModal/LoginModal";
 import RegisterModal from "@/components/other/ModalWrapper/RegisterModal/RegisterModal";
+import dynamic from "next/dynamic";
+
+const ModalWrapper = dynamic(import("@/components/other/ModalWrapper/ModalWrapper"), {
+  ssr: false
+})
 
 const Header: FC = () => {
   const [isModalShow, setIsModalShow] = useState<boolean>(false);

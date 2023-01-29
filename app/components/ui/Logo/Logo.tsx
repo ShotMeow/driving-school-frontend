@@ -5,10 +5,12 @@ import Image from "next/image";
 import styles from "./Logo.module.scss";
 import Link from "next/link";
 
+import logo from '/public/images/logo.png';
+
 const Logo: FC = () => {
   return (
     <Link href="/#header" scroll={false} className={styles.logo}>
-      <Image src="/images/logo.png" alt="Логотип" width={35} height={35} />
+      <Image src={logo} alt="Логотип" width={48} height={51} />
       <span className={styles.title}>Автошкола</span>
     </Link>
   );
