@@ -17,6 +17,9 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
       />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Driving School - проект для автошколы, разработанный ShotMeow. Данный проект не является реальным и создан для добавления в портфолио. Проект описывает работу автошколы, работающей в онлайн-режиме." />
+        <meta name="author" content="ShotMeow" />
+        <meta name="copyright" content="ShotMeow" />
         <title>Driving School</title>
       </Head>
       <Component {...pageProps} />
