@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Logo: FC = () => {
   return (
-    <Link href="/" className={styles.logo}>
+    <Link href="/#header" scroll={false} className={styles.logo}>
       <Image src="/images/logo.png" alt="Логотип" width={35} height={35} />
       <span className={styles.title}>Автошкола</span>
     </Link>

@@ -1,7 +1,7 @@
 @import "/app/variables";
 
 .header {
-  @apply mt-4 mb-10;
+  @apply pt-4 mb-10;
 
   @media (max-width: $adaptive-max-breakpoint) {
     @apply mb-0;

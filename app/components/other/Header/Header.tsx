@@ -14,7 +14,7 @@ const Header: FC = () => {
   const [modalType, setModalType] = useState<"login" | "register">("login");
 
   return (
-    <div className={styles.header}>
+    <div id="header" className={styles.header}>
       <HeaderMobile setIsModalShow={setIsModalShow} />
       <HeaderDesktop setIsModalShow={setIsModalShow} />
       <AnimatePresence>
