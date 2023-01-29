@@ -1,10 +1,33 @@
 .input {
-  @apply relative flex flex-col text-gray-black my-8;
-  > span {
-    @apply absolute -top-6 transition-all cursor-text;
+  @apply relative text-gray-black;
+  > label {
+    @apply relative flex flex-col;
+    > span {
+      @apply absolute -top-6 transition-all cursor-text peer-placeholder-shown:text-gray;
+    }
+
+    > input {
+      @apply py-1 text-xl placeholder-transparent bg-transparent border-b border-gray focus:outline-none;
+    }
+  }
+}
+
+.error {
+  > label > span {
+    @apply text-red-700 peer-placeholder-shown:text-red-700;
   }
 
-  > input {
-    @apply py-1 text-xl placeholder-transparent bg-transparent border-b border-gray focus:outline-none;
+  > label > input {
+    @apply border-red-700;
   }
+}
+
+.message {
+  @apply absolute text-sm mt-2 text-red-700;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -1,15 +1,16 @@
 {
   "name": "driving-school-frontend",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write ./"
+    "prettier": "prettier --write ./app"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "classnames": "^2.3.2",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",

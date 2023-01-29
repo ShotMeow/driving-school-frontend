@@ -1,4 +1,4 @@
-import React, {FC, InputHTMLAttributes} from "react";
+import React, { FC, InputHTMLAttributes } from "react";
 
 import styles from "./Radio.module.scss";
 import classNames from "classnames";

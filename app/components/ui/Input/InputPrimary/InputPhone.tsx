@@ -1,9 +1,8 @@
-import React, {FC, InputHTMLAttributes} from 'react';
+import React, { FC, InputHTMLAttributes } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {}
 
-
-const InputPhone: FC<Props> = ({...props}) => {
+const InputPhone: FC<Props> = ({ ...props }) => {
   const PATTERN = /\D/g;
 
   const getInputNumbersValue = (value: string) => {
@@ -64,8 +63,12 @@ const InputPhone: FC<Props> = ({...props}) => {
   };
 
   return (
-    <input onInput={handlePhoneInput}
-           onKeyDown={handlePhoneKeyDown} {...props} className="peer" />
+    <input
+      onInput={handlePhoneInput}
+      onKeyDown={handlePhoneKeyDown}
+      {...props}
+      className="peer"
+    />
   );
 };
 

@@ -9,12 +9,12 @@
   }
 
   .primary {
-    @apply relative;
+    @apply relative flex flex-col gap-14;
     .auth {
       @apply px-20 py-3 mb-6;
     }
     .register {
-      @apply px-6 py-3 mb-6;
+      @apply self-start px-5 py-3 mb-6;
     }
     .miss {
       @apply absolute text-gray right-0;
