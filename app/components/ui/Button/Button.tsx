@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, PropsWithChildren } from "react";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import classNames from "classnames";
 
 import styles from "./Button.module.scss";
@@ -8,28 +8,30 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({
-  children,
-  className,
-  primary = false,
-  secondary = false,
-  ...props
-}) => {
-  return (
-    <button
-      className={classNames(
-        {
-          [styles.button]: true,
-          [styles.primary]: primary,
-          [styles.secondary]: secondary
-        },
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, Props>(
+  (
+    { children, className, primary = false, secondary = false, ...props },
+    ref
+  ) => {
+    return (
+      <button
+        className={classNames(
+          {
+            [styles.button]: true,
+            [styles.primary]: primary,
+            [styles.secondary]: secondary
+          },
+          className
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 export default Button;

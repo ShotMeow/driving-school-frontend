@@ -1,8 +1,8 @@
-import React, { FC, InputHTMLAttributes } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {}
 
-const InputPhone: FC<Props> = ({ ...props }) => {
+const InputPhone = forwardRef<HTMLInputElement, Props>(({ ...props }, ref) => {
   const PATTERN = /\D/g;
 
   const getInputNumbersValue = (value: string) => {
@@ -47,10 +47,7 @@ const InputPhone: FC<Props> = ({ ...props }) => {
     input.value = formattedInputValue;
   };
 
-  const handlePhoneKeyDown = (
-    // remove first symbol
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => {
+  const handlePhoneKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const input = event.target as HTMLInputElement;
     if (
       event.key === "Backspace" &&
@@ -66,10 +63,12 @@ const InputPhone: FC<Props> = ({ ...props }) => {
     <input
       onInput={handlePhoneInput}
       onKeyDown={handlePhoneKeyDown}
+      ref={ref}
       {...props}
-      className="peer"
     />
   );
-};
+});
+
+InputPhone.displayName = "InputPhone";
 
 export default InputPhone;

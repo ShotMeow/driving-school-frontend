@@ -1,4 +1,8 @@
-import React, { FC, HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
+import React, {
+  forwardRef,
+  HTMLInputTypeAttribute,
+  InputHTMLAttributes
+} from "react";
 
 import styles from "./InputPrimary.module.scss";
 import InputPhone from "@/components/ui/Input/InputPrimary/InputPhone";
@@ -10,31 +14,45 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   type?: HTMLInputTypeAttribute;
 }
 
-const InputPrimary: FC<Props> = ({ title, error, ...props }) => {
-  return (
-    <div
-      className={classNames({
-        [styles.input]: true,
-        [styles.error]: error
-      })}
-    >
-      <label>
-        {props.type === "tel" ? (
-          <InputPhone placeholder={title} className={"peer"} {...props} />
-        ) : (
-          <input placeholder={title} className={"peer"} {...props} />
-        )}
-        <span
-          className={
-            "peer-placeholder-shown:top-1 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray"
-          }
-        >
-          {title}
-        </span>
-      </label>
-      <p className={styles.message}>{error}</p>
-    </div>
-  );
-};
+const InputPrimary = forwardRef<HTMLInputElement, Props>(
+  ({ title, error, ...props }, ref) => {
+    return (
+      <div
+        className={classNames({
+          [styles.input]: true,
+          [styles.error]: error
+        })}
+      >
+        <label>
+          {props.type === "tel" ? (
+            <InputPhone
+              placeholder={title}
+              className={"peer"}
+              ref={ref}
+              {...props}
+            />
+          ) : (
+            <input
+              placeholder={title}
+              className={"peer"}
+              ref={ref}
+              {...props}
+            />
+          )}
+          <span
+            className={
+              "peer-placeholder-shown:top-1 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray"
+            }
+          >
+            {title}
+          </span>
+        </label>
+        <p className={styles.message}>{error}</p>
+      </div>
+    );
+  }
+);
+
+InputPrimary.displayName = "InputPrimary";
 
 export default InputPrimary;
