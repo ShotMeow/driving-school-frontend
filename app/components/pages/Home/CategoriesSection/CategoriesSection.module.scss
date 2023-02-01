@@ -1,4 +1,4 @@
-@import "/app/variables";
+@import "@/styles/variables";
 
 .section {
   .categories,
@@ -62,6 +62,7 @@
     .slide {
       @apply w-72;
     }
+
     article {
       > .img {
         @apply h-24;

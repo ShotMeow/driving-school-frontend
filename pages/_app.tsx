@@ -3,7 +3,7 @@ import NextProgressBar from "nextjs-progressbar";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 
-import "../app/globals.scss";
+import "@/styles/globals.scss";
 import Head from "next/head";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {

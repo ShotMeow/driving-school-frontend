@@ -21,7 +21,9 @@ const Footer: FC = () => {
             </Link>
           </li>
           <li>
-            <Link href="/contacts">Контакты</Link>
+            <Link href="/contacts/#header" scroll={false}>
+              Контакты
+            </Link>
           </li>
         </ul>
       </nav>

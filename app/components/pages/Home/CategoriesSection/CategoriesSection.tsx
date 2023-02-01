@@ -9,14 +9,14 @@ import { Autoplay } from "swiper";
 import { motion } from "framer-motion";
 import Heading from "@/components/ui/Heading/Heading";
 
-import categoryCarB from "/public/images/category_car_b.jpg";
-import categoryCarC from "/public/images/category_car_c.jpg";
-import categoryCarCE from "/public/images/category_car_ce.jpg";
-import categoryCarD from "/public/images/category_car_d.jpg";
+import categoryCarB from "/app/images/oversize/category_car_b.jpg";
+import categoryCarC from "/app/images/oversize/category_car_c.jpg";
+import categoryCarCE from "/app/images/oversize/category_car_ce.jpg";
+import categoryCarD from "/app/images/oversize/category_car_d.jpg";
 
-import price from "/public/images/price.png";
-import theory from "/public/images/theory.png";
-import practice from "/public/images/practice.png";
+import price from "/app/images/icons/price.png";
+import theory from "/app/images/icons/theory.png";
+import practice from "/app/images/icons/practice.png";
 
 const CategoriesSection: FC = () => {
   return (

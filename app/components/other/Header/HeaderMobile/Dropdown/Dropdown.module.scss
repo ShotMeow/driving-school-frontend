@@ -1,4 +1,4 @@
-@import "/app/variables";
+@import "@/styles/variables";
 
 .overlay {
   @apply fixed opacity-0 pointer-events-none w-full h-full left-0 top-0 z-20 transition-all;

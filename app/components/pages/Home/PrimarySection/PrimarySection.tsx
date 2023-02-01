@@ -13,11 +13,11 @@ import Image from "next/image";
 import { Autoplay } from "swiper";
 import Link from "next/link";
 
-import car from "/public/images/car.png";
-import chart from "/public/images/chart.png";
-import fleet from "/public/images/fleet.png";
-import instructor from "/public/images/instructor.png";
-import discount from "/public/images/discount.png";
+import car from "/app/images/oversize/car.png";
+import chart from "/app/images/icons/chart.png";
+import fleet from "/app/images/icons/fleet.png";
+import instructor from "/app/images/icons/instructor.png";
+import discount from "/app/images/icons/discount.png";
 
 const PrimarySection: FC = () => {
   return (

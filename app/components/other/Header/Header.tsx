@@ -9,9 +9,12 @@ import LoginModal from "@/components/other/ModalWrapper/LoginModal/LoginModal";
 import RegisterModal from "@/components/other/ModalWrapper/RegisterModal/RegisterModal";
 import dynamic from "next/dynamic";
 
-const ModalWrapper = dynamic(import("@/components/other/ModalWrapper/ModalWrapper"), {
-  ssr: false
-})
+const ModalWrapper = dynamic(
+  import("@/components/other/ModalWrapper/ModalWrapper"),
+  {
+    ssr: false
+  }
+);
 
 const Header: FC = () => {
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
