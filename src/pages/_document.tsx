@@ -6,7 +6,7 @@ const Document: NextPage = () => {
   return (
     <Html lang="ru">
       <Head>
-        <link rel="icon" type="image/png" href="/public/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <body>
         <Main />
