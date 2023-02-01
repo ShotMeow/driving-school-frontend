@@ -9,11 +9,7 @@ import logo from "/public/favicon.png";
 
 const Logo: FC = () => {
   return (
-    <Link
-      href="/src/components/pages#header"
-      scroll={false}
-      className={styles.logo}
-    >
+    <Link href="/#header" scroll={false} className={styles.logo}>
       <Image src={logo} alt="Логотип" width={48} height={51} />
       <span className={styles.title}>Автошкола</span>
     </Link>
