@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./Logo.module.scss";
 import Link from "next/link";
 
-import logo from "/src/images/logo.png";
+import logo from "/public/favicon.png";
 
 const Logo: FC = () => {
   return (
