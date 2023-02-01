@@ -11,7 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(
-  ({ title, name, dark = false, required = false, ...props }) => {
+  ({ title, name, dark = false, required = false, ...props }, ref) => {
     return (
       <label
         className={classNames({
@@ -19,7 +19,13 @@ const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(
           [styles.dark]: dark
         })}
       >
-        <input type="radio" required={required} {...props} name={name} />
+        <input
+          type="radio"
+          required={required}
+          {...props}
+          ref={ref}
+          name={name}
+        />
         <h6>{title}</h6>
       </label>
     );

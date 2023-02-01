@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import styles from "./FormSection.module.scss";
 import Heading from "@/components/ui/Heading/Heading";
-import Input from "@/components/ui/Input/Input";
+import InputSecondary from "@/components/ui/Input/InputSecondary/InputSecondary";
 import Radio from "@/components/ui/Radio/Radio";
 import LongArrow from "@/components/other/Icons/LongArrow";
 
@@ -19,14 +19,14 @@ const FormSection: FC = () => {
       <Heading>Подробная заявка на обучение</Heading>
       <form className={styles.form}>
         <div className={styles.inputs}>
-          <Input
+          <InputSecondary
             required
             title="Имя"
             placeholder="Введите ваше имя"
             dark
             name="name"
           />
-          <Input
+          <InputSecondary
             required
             title="Возраст"
             type="number"
@@ -34,7 +34,7 @@ const FormSection: FC = () => {
             name="age"
             dark
           />
-          <Input
+          <InputSecondary
             required
             title="Номер телефона"
             type="tel"
@@ -42,7 +42,7 @@ const FormSection: FC = () => {
             dark
             name="tel"
           />
-          <Input
+          <InputSecondary
             required
             title="Электронная почта"
             type="email"

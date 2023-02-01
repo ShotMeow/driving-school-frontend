@@ -5,7 +5,7 @@ import React, {
 } from "react";
 
 import styles from "./InputPrimary.module.scss";
-import InputPhone from "@/components/ui/Input/InputPrimary/InputPhone";
+import InputPrimaryPhone from "@/components/ui/Input/InputPrimary/InputPrimaryPhone/InputPrimaryPhone";
 import classNames from "classnames";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -25,10 +25,9 @@ const InputPrimary = forwardRef<HTMLInputElement, Props>(
       >
         <label>
           {props.type === "tel" ? (
-            <InputPhone
+            <InputPrimaryPhone
               placeholder={title}
               className={"peer"}
-              ref={ref}
               {...props}
             />
           ) : (

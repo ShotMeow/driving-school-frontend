@@ -3,7 +3,8 @@ import React, { FC } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./ContactsSection.module.scss";
-import Input from "@/components/ui/Input/Input";
+
+import InputSecondary from "@/components/ui/Input/InputSecondary/InputSecondary";
 import Button from "@/components/ui/Button/Button";
 import Arrow from "@/components/other/Icons/Arrow";
 import Phone from "@/components/other/Icons/Phone";
@@ -28,10 +29,9 @@ const ContactsSection: FC = () => {
         </div>
         <form>
           <div>
-            <Input title="Имя" name="name" placeholder="Введите ваше имя" />
-            <Input
+            <InputSecondary title="Имя" placeholder="Введите ваше имя" />
+            <InputSecondary
               title="Номер телефона"
-              name="tel"
               type="tel"
               placeholder="Введите номер вашего телефона"
             />
