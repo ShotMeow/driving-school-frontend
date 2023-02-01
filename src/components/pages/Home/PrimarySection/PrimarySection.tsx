@@ -33,7 +33,7 @@ const PrimarySection: FC = () => {
           Научитесь водить уже через 3 месяца. Предостовляем высококачественные
           уроки вождения с 2000 года и выпускаем более 450 студентов в месяц.
         </p>
-        <Link href="/src/components/pages#form" scroll={false}>
+        <Link href="/#form" scroll={false}>
           <Button primary>
             Записаться <Arrow />
           </Button>
