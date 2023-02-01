@@ -1,9 +1,0 @@
-@import "../../../styles/variables";
-
-.heading {
-  @apply text-5xl font-black text-center;
-
-  @media (max-width: $adaptive-max-breakpoint) {
-    @apply text-3xl text-left;
-  }
-}
