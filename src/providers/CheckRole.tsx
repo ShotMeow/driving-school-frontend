@@ -10,7 +10,6 @@ const CheckRole: FC<PropsWithChildren<TypeComponentAuthField>> = ({
 }) => {
   const token = useAuth();
   const { replace, pathname } = useRouter();
-  console.log(token);
 
   const Children = () => <>{children}</>;
 

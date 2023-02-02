@@ -1,0 +1,22 @@
+.card {
+  @apply bg-white shadow-md flex flex-col items-center text-center justify-center p-10 gap-8 rounded-xl;
+
+  > .info {
+    @apply flex flex-col items-center gap-4;
+    h3 {
+      @apply font-bold text-xl;
+    }
+  }
+
+  > .actions {
+    @apply flex flex-col items-center gap-4;
+
+    > .settings {
+      @apply font-medium text-sm;
+    }
+
+    > button {
+      @apply px-16 py-2;
+    }
+  }
+}
