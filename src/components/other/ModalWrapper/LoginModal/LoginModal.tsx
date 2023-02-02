@@ -43,35 +43,44 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   } = useForm<LoginFields>(validationOpt);
 
   const onSubmit: SubmitHandler<LoginFields> = (data) => {
-    login(data).then((data: any) => {
-      if (data.error) {
-        switch (data.error.data.field) {
-          case "password":
-            setError("password", {
-              message: data.error.data.message
-            });
-            break;
-          case "all":
-            setError("email", {
-              message: "ㅤ"
-            });
-            setError("password", {
-              message: data.error.data.message
-            });
-            break;
-          default:
-            setError("email", {
-              message: "ㅤ"
-            });
-            setError("password", {
-              message: "Ошибка сервера. Попробуйте позже"
-            });
-            break;
+    try {
+      login(data).then((data: any) => {
+        if (data.error) {
+          switch (data.error.data.field) {
+            case "password":
+              setError("password", {
+                message: data.error.data.message
+              });
+              break;
+            case "all":
+              setError("email", {
+                message: "ㅤ"
+              });
+              setError("password", {
+                message: data.error.data.message
+              });
+              break;
+            default:
+              setError("email", {
+                message: "ㅤ"
+              });
+              setError("password", {
+                message: "Ошибка сервера. Попробуйте позже"
+              });
+              break;
+          }
+        } else {
+          router.push("/profile");
         }
-      } else {
-        router.push("/profile");
-      }
-    });
+      });
+    } catch (error) {
+      setError("email", {
+        message: "ㅤ"
+      });
+      setError("password", {
+        message: "Ошибка сервера. Попробуйте позже"
+      });
+    }
   };
 
   return (
