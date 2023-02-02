@@ -8,6 +8,10 @@ import Logo from "../../../../UI/Logo/Logo";
 import Cross from "../../../Icons/Cross";
 import classNames from "classnames";
 import { createFocusTrap } from "focus-trap";
+import { useAuth } from "@/hooks/useAuth";
+import { logout } from "@/store/auth/auth.actions";
+import { useRouter } from "next/router";
+import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 
 interface Props {
   isDropdown: boolean;
@@ -17,6 +21,12 @@ interface Props {
 
 const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
   const ref = useRef<HTMLDivElement | null>(null);
+  const dispatch = useTypedDispatch();
+  const { pathname, push } = useRouter();
+
+  const handleLogout = () => {
+    dispatch(logout()).then(() => push("/"));
+  };
 
   useEffect(() => {
     const trap = createFocusTrap(ref.current as HTMLDivElement, {
@@ -84,13 +94,31 @@ const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
           >
             +7 (985) 775-12-62
           </Button>
-          <Button
-            onClick={() => setIsModalShow(true)}
-            className={styles.authorize}
-            secondary
-          >
-            Авторизация
-          </Button>
+          {useAuth() ? (
+            pathname.includes("profile") ? (
+              <Button
+                onClick={handleLogout}
+                className={styles.profile}
+                secondary
+              >
+                Выйти
+              </Button>
+            ) : (
+              <Link href="/profile">
+                <Button className={styles.profile} secondary>
+                  Профиль
+                </Button>
+              </Link>
+            )
+          ) : (
+            <Button
+              onClick={() => setIsModalShow(true)}
+              className={styles.authorize}
+              secondary
+            >
+              Авторизация
+            </Button>
+          )}
         </div>
       </div>
     </div>,

@@ -5,12 +5,23 @@ import styles from "./HeaderDesktop.module.scss";
 import Logo from "../../../UI/Logo/Logo";
 import Link from "next/link";
 import Button from "../../../UI/Button/Button";
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/router";
+import { logout } from "@/store/auth/auth.actions";
+import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 
 interface Props {
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const HeaderDesktop: FC<Props> = ({ setIsModalShow }) => {
+  const dispatch = useTypedDispatch();
+  const { pathname, push } = useRouter();
+
+  const handleLogout = () => {
+    dispatch(logout()).then(() => push("/"));
+  };
+
   return (
     <header className={styles.desktop}>
       <div className={styles.about}>
@@ -41,13 +52,27 @@ const HeaderDesktop: FC<Props> = ({ setIsModalShow }) => {
         >
           +7 (985) 775-12-62
         </Button>
-        <Button
-          onClick={() => setIsModalShow((prev) => !prev)}
-          className={styles.authorize}
-          secondary
-        >
-          Авторизация
-        </Button>
+        {useAuth() ? (
+          pathname.includes("profile") ? (
+            <Button onClick={handleLogout} className={styles.profile} secondary>
+              Выйти
+            </Button>
+          ) : (
+            <Link href="/profile">
+              <Button className={styles.profile} secondary>
+                Профиль
+              </Button>
+            </Link>
+          )
+        ) : (
+          <Button
+            onClick={() => setIsModalShow((prev) => !prev)}
+            className={styles.authorize}
+            secondary
+          >
+            Авторизация
+          </Button>
+        )}
       </div>
     </header>
   );

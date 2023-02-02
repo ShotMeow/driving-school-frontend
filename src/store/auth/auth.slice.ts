@@ -14,23 +14,18 @@ export const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
         state.token = payload.token;
-        localStorage.setItem("token", payload.token);
       })
       .addCase(register.rejected, (state) => {
         state.token = "";
-        localStorage.removeItem("token");
       })
       .addCase(login.fulfilled, (state, { payload }) => {
         state.token = payload.token;
-        localStorage.setItem("token", payload.token);
       })
       .addCase(login.rejected, (state) => {
         state.token = "";
-        localStorage.removeItem("token");
       })
       .addCase(logout.fulfilled, (state) => {
         state.token = "";
-        localStorage.removeItem("token");
       });
   }
 });
