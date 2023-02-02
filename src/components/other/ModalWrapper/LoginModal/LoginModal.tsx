@@ -85,6 +85,7 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.primary}>
         <Controller
           name="email"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary
@@ -97,6 +98,7 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         />
         <Controller
           name="password"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary

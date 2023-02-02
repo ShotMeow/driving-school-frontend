@@ -115,6 +115,7 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.primary}>
         <Controller
           name="fio"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary title="ФИО" error={errors.fio?.message} {...field} />
@@ -122,6 +123,7 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         />
         <Controller
           name="phone"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary
@@ -134,6 +136,7 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         />
         <Controller
           name="email"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary
@@ -146,6 +149,7 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         />
         <Controller
           name="password"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary
@@ -158,6 +162,7 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         />
         <Controller
           name="repeatPassword"
+          defaultValue={""}
           control={control}
           render={({ field }) => (
             <InputPrimary
