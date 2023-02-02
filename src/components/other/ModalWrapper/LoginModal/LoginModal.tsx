@@ -43,8 +43,9 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   } = useForm<LoginFields>(validationOpt);
 
   const onSubmit: SubmitHandler<LoginFields> = (data) => {
-    try {
-      login(data).then((data: any) => {
+    login(data)
+      .then((data: any) => {
+        console.log("Then", data);
         if (data.error) {
           switch (data.error.data.field) {
             case "password":
@@ -72,15 +73,8 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         } else {
           router.push("/profile");
         }
-      });
-    } catch (error) {
-      setError("email", {
-        message: "ㅤ"
-      });
-      setError("password", {
-        message: "Ошибка сервера. Попробуйте позже"
-      });
-    }
+      })
+      .catch((error) => console.log("Error", error));
   };
 
   return (
