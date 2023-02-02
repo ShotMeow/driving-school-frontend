@@ -45,8 +45,15 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   const onSubmit: SubmitHandler<LoginFields> = (data) => {
     login(data)
       .then((data: any) => {
-        console.log("Then", data);
         if (data.error) {
+          if (data.error.status === 404) {
+            setError("email", {
+              message: "ㅤ"
+            });
+            setError("password", {
+              message: "Ошибка сервера. Попробуйте позже"
+            });
+          }
           switch (data.error.data.field) {
             case "password":
               setError("password", {

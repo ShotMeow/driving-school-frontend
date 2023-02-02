@@ -76,8 +76,24 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
     !fio[2] && Reflect.deleteProperty(body, "patronymic");
 
     register(body).then((data: any) => {
-      console.log(data);
       if (data.error) {
+        if (data.error.status === 404) {
+          setError("fio", {
+            message: "ㅤ"
+          });
+          setError("phone", {
+            message: "ㅤ"
+          });
+          setError("email", {
+            message: "ㅤ"
+          });
+          setError("password", {
+            message: "ㅤ"
+          });
+          setError("repeatPassword", {
+            message: "Ошибка сервера. Попробуйте позже"
+          });
+        }
         switch (data.error.data.field) {
           case "phone":
             setError("phone", {
@@ -90,10 +106,19 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
             });
             break;
           default:
+            setError("fio", {
+              message: "ㅤ"
+            });
+            setError("phone", {
+              message: "ㅤ"
+            });
             setError("email", {
               message: "ㅤ"
             });
             setError("password", {
+              message: "ㅤ"
+            });
+            setError("repeatPassword", {
               message: "Ошибка сервера. Попробуйте позже"
             });
             break;
