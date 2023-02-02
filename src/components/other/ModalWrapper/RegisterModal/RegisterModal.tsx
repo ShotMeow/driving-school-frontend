@@ -7,6 +7,10 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useTypedDispatch } from "@/hooks/useTypedDispatch";
+import { register } from "@/store/auth/auth.actions";
+import { RegisterType } from "@/store/auth/auth.types";
+import { useRouter } from "next/navigation";
 
 interface Props {
   setModalType: React.Dispatch<React.SetStateAction<"login" | "register">>;
@@ -22,6 +26,9 @@ interface RegisterFields {
 }
 
 const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
+  const dispatch = useTypedDispatch();
+  const router = useRouter();
+
   const formSchema = Yup.object().shape({
     fio: Yup.string()
       .required("Введите ваше ФИО")
@@ -53,11 +60,40 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   const {
     handleSubmit,
     control,
+    setError,
     formState: { errors }
   } = useForm<RegisterFields>(validationOpt);
 
   const onSubmit: SubmitHandler<RegisterFields> = (data) => {
-    console.log(data);
+    const fio = data.fio.split(" ");
+
+    const body: RegisterType = {
+      surname: fio[0],
+      name: fio[1],
+      patronymic: fio[2],
+      ...data
+    };
+
+    !fio[2] && Reflect.deleteProperty(body, "patronymic");
+
+    return dispatch(register(body)).then((data: any) => {
+      if (data.error) {
+        const message = data.payload.response.data.message;
+        if (data.payload.response.data.field === "phone") {
+          setError("phone", {
+            type: "custom",
+            message: message
+          });
+        } else if (data.payload.response.data.field === "email") {
+          setError("email", {
+            type: "custom",
+            message: message
+          });
+        }
+      } else {
+        router.push("/profile");
+      }
+    });
   };
 
   return (

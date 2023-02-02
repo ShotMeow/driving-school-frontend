@@ -7,18 +7,22 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { login, register } from "@/store/auth/auth.actions";
+import { useTypedDispatch } from "@/hooks/useTypedDispatch";
+import { LoginType } from "@/store/auth/auth.types";
+import { useRouter } from "next/navigation";
 
 interface Props {
   setModalType: React.Dispatch<React.SetStateAction<"login" | "register">>;
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface LoginFields {
-  email: string;
-  password: string;
-}
+interface LoginFields extends LoginType {}
 
 const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
+  const dispatch = useTypedDispatch();
+  const router = useRouter();
+
   const formSchema = Yup.object().shape({
     email: Yup.string()
       .required("Введите E-mail")
@@ -35,11 +39,27 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   const {
     handleSubmit,
     control,
+    setError,
     formState: { errors }
   } = useForm<LoginFields>(validationOpt);
 
   const onSubmit: SubmitHandler<LoginFields> = (data) => {
-    console.log(data);
+    return dispatch(login(data)).then((data: any) => {
+      console.log(data);
+      if (data.error) {
+        const message = data.payload.response.data.message;
+        setError("email", {
+          type: "custom",
+          message: "ㅤ"
+        });
+        setError("password", {
+          type: "custom",
+          message: message
+        });
+      } else {
+        router.push("/profile");
+      }
+    });
   };
 
   return (
