@@ -9,9 +9,9 @@ import Cross from "../../../Icons/Cross";
 import classNames from "classnames";
 import { createFocusTrap } from "focus-trap";
 import { useAuth } from "@/hooks/useAuth";
-import { logout } from "@/store/auth/auth.actions";
 import { useRouter } from "next/router";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
+import { logout } from "@/store/auth/auth.slice";
 
 interface Props {
   isDropdown: boolean;
@@ -22,10 +22,10 @@ interface Props {
 const Dropdown: FC<Props> = ({ setIsModalShow, isDropdown, setIsDropdown }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const dispatch = useTypedDispatch();
-  const { pathname, push } = useRouter();
+  const { pathname } = useRouter();
 
   const handleLogout = () => {
-    dispatch(logout()).then(() => push("/"));
+    dispatch(logout());
   };
 
   useEffect(() => {

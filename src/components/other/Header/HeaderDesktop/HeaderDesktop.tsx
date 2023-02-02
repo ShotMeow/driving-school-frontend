@@ -7,8 +7,8 @@ import Link from "next/link";
 import Button from "../../../UI/Button/Button";
 import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/router";
-import { logout } from "@/store/auth/auth.actions";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
+import { logout } from "@/store/auth/auth.slice";
 
 interface Props {
   setIsModalShow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,10 +16,10 @@ interface Props {
 
 const HeaderDesktop: FC<Props> = ({ setIsModalShow }) => {
   const dispatch = useTypedDispatch();
-  const { pathname, push } = useRouter();
+  const { pathname } = useRouter();
 
   const handleLogout = () => {
-    dispatch(logout()).then(() => push("/"));
+    dispatch(logout());
   };
 
   return (

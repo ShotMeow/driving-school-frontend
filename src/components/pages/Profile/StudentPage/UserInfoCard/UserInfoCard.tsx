@@ -5,9 +5,9 @@ import Avatar from "@/components/other/Icons/Avatar";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import { UserRole } from "@/store/api/api.types";
-import { logout } from "@/store/auth/auth.actions";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 import { useRouter } from "next/navigation";
+import { logout } from "@/store/auth/auth.slice";
 
 interface Props {
   surname: string;
@@ -18,7 +18,6 @@ interface Props {
 
 const UserInfoCard: FC<Props> = ({ surname, role, name, patronymic }) => {
   const dispatch = useTypedDispatch();
-  const router = useRouter();
 
   const userRole = useMemo(() => {
     if (role === UserRole.student) return "Студент";
@@ -27,7 +26,7 @@ const UserInfoCard: FC<Props> = ({ surname, role, name, patronymic }) => {
   }, [role]);
 
   const handleLogout = () => {
-    dispatch(logout()).then(() => router.push("/"));
+    dispatch(logout());
   };
 
   return (

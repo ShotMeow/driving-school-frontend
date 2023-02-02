@@ -13,5 +13,5 @@ export interface LoginType {
 }
 
 export interface ResponseType {
-  token: string;
+  token: string | null;
 }

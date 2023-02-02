@@ -7,10 +7,9 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { login, register } from "@/store/auth/auth.actions";
-import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 import { LoginType } from "@/store/auth/auth.types";
 import { useRouter } from "next/navigation";
+import { api } from "@/store/api/api";
 
 interface Props {
   setModalType: React.Dispatch<React.SetStateAction<"login" | "register">>;
@@ -20,8 +19,8 @@ interface Props {
 interface LoginFields extends LoginType {}
 
 const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
-  const dispatch = useTypedDispatch();
   const router = useRouter();
+  const [login] = api.useLoginMutation();
 
   const formSchema = Yup.object().shape({
     email: Yup.string()
@@ -44,18 +43,31 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   } = useForm<LoginFields>(validationOpt);
 
   const onSubmit: SubmitHandler<LoginFields> = (data) => {
-    return dispatch(login(data)).then((data: any) => {
-      console.log(data);
+    login(data).then((data: any) => {
       if (data.error) {
-        const message = data.payload.response.data.message;
-        setError("email", {
-          type: "custom",
-          message: "ㅤ"
-        });
-        setError("password", {
-          type: "custom",
-          message: message
-        });
+        switch (data.error.data.field) {
+          case "password":
+            setError("password", {
+              message: data.error.data.message
+            });
+            break;
+          case "all":
+            setError("email", {
+              message: "ㅤ"
+            });
+            setError("password", {
+              message: data.error.data.message
+            });
+            break;
+          default:
+            setError("email", {
+              message: "ㅤ"
+            });
+            setError("password", {
+              message: "Ошибка сервера. Попробуйте позже"
+            });
+            break;
+        }
       } else {
         router.push("/profile");
       }

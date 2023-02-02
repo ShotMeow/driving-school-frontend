@@ -7,9 +7,8 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useTypedDispatch } from "@/hooks/useTypedDispatch";
-import { register } from "@/store/auth/auth.actions";
 import { RegisterType } from "@/store/auth/auth.types";
+import { api } from "@/store/api/api";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -26,7 +25,7 @@ interface RegisterFields {
 }
 
 const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
-  const dispatch = useTypedDispatch();
+  const [register] = api.useRegisterMutation();
   const router = useRouter();
 
   const formSchema = Yup.object().shape({
@@ -76,19 +75,28 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
 
     !fio[2] && Reflect.deleteProperty(body, "patronymic");
 
-    return dispatch(register(body)).then((data: any) => {
+    register(body).then((data: any) => {
+      console.log(data);
       if (data.error) {
-        const message = data.payload.response.data.message;
-        if (data.payload.response.data.field === "phone") {
-          setError("phone", {
-            type: "custom",
-            message: message
-          });
-        } else if (data.payload.response.data.field === "email") {
-          setError("email", {
-            type: "custom",
-            message: message
-          });
+        switch (data.error.data.field) {
+          case "phone":
+            setError("phone", {
+              message: data.error.data.message
+            });
+            break;
+          case "email":
+            setError("email", {
+              message: data.error.data.message
+            });
+            break;
+          default:
+            setError("email", {
+              message: "ㅤ"
+            });
+            setError("password", {
+              message: "Ошибка сервера. Попробуйте позже"
+            });
+            break;
         }
       } else {
         router.push("/profile");
