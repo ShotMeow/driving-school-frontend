@@ -1,0 +1,15 @@
+.card {
+  @apply bg-white shadow-md rounded-xl p-6 flex flex-col gap-4;
+
+  > h4 {
+    @apply font-bold flex items-center gap-4;
+  }
+
+  > ul {
+    @apply space-y-4 font-medium;
+
+    .active {
+      @apply font-bold;
+    }
+  }
+}

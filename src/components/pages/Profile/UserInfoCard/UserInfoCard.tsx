@@ -1,29 +1,29 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 
 import styles from "./UserInfoCard.module.scss";
 import Avatar from "@/components/other/Icons/Avatar";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
-import { UserRole } from "@/store/api/api.types";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
-import { useRouter } from "next/navigation";
 import { logout } from "@/store/auth/auth.slice";
+import { Roles } from "@/types/user.types";
 
 interface Props {
   surname: string;
   name: string;
+  type: Roles;
   patronymic?: string;
-  role?: UserRole;
+  category?: string;
 }
 
-const UserInfoCard: FC<Props> = ({ surname, role, name, patronymic }) => {
+const UserInfoCard: FC<Props> = ({
+  surname,
+  category,
+  name,
+  type,
+  patronymic
+}) => {
   const dispatch = useTypedDispatch();
-
-  const userRole = useMemo(() => {
-    if (role === UserRole.student) return "Студент";
-    else if (role === UserRole.teacher) return "Учитель";
-    else if (role === UserRole.admin) return "Администратор";
-  }, [role]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -37,7 +37,14 @@ const UserInfoCard: FC<Props> = ({ surname, role, name, patronymic }) => {
           <h3>
             {surname} {name[0]}. {patronymic && patronymic[0] + "."}
           </h3>
-          <p>{userRole}</p>
+          {type === Roles.ADMIN && <p>Администратор</p>}
+          {type === Roles.THEORY_TEACHER && <p>Учитель теории</p>}
+          {type === Roles.PRACTICE_TEACHER && <p>Учитель практики</p>}
+          {type === Roles.STUDENT && category && (
+            <p>
+              Категория <span>{category}</span>
+            </p>
+          )}
         </div>
       </div>
       <div className={styles.actions}>

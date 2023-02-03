@@ -1,0 +1,28 @@
+.item {
+  @apply grid items-center;
+  grid-template-columns: 2fr 2fr 1fr;
+
+  .about {
+    @apply flex items-center gap-4;
+
+    svg {
+      @apply w-16;
+    }
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+  }
+
+  .role {
+    @apply pl-6;
+  }
+
+  .actions {
+    @apply flex gap-4;
+
+    > button {
+      @apply px-6 py-2;
+    }
+  }
+}

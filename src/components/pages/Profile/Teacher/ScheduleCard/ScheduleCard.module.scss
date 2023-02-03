@@ -1,0 +1,11 @@
+.card {
+  @apply bg-white shadow-md rounded-xl p-6 text-center flex flex-col items-center gap-4;
+
+  > h4 {
+    @apply font-bold;
+  }
+
+  > button {
+    @apply px-8 py-2;
+  }
+}

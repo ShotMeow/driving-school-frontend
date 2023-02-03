@@ -7,7 +7,7 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { LoginType } from "@/store/auth/auth.types";
+import { LoginType } from "@/types/auth.types";
 import { useRouter } from "next/navigation";
 import { api } from "@/store/api/api";
 

@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { TypeRootState } from "@/store";
-import { UserType } from "@/store/api/api.types";
-import { LoginType, RegisterType, ResponseType } from "@/store/auth/auth.types";
+import { LoginType, RegisterType, ResponseType } from "@/types/auth.types";
 import { logout, setToken } from "@/store/auth/auth.slice";
+import { Roles, UserType } from "@/types/user.types";
+import { GroupType } from "@/types/group.types";
 
 export const api = createApi({
   reducerPath: "api",
-  tagTypes: ["Profile"],
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
     prepareHeaders: (headers, { getState }) => {
@@ -48,7 +48,28 @@ export const api = createApi({
     }),
     getProfile: builder.query<UserType, void>({
       query: () => `/users/profile`,
-      providesTags: () => [{ type: "Profile" }]
+      forceRefetch: () => true
+    }),
+    getGroupByAuth: builder.query<GroupType, void>({
+      query: () => `/users/profile/group`,
+      forceRefetch: () => true
+    }),
+    getGroupById: builder.query<GroupType, number>({
+      query: (arg) => `/users/profile/group/${arg}`,
+      forceRefetch: () => true
+    }),
+    getAllGroups: builder.query<GroupType[], void>({
+      query: () => `/groups`,
+      forceRefetch: () => true
+    }),
+    getUsersByType: builder.query<UserType[], Roles>({
+      query: (role) => {
+        return {
+          url: "/users/filter",
+          params: { role }
+        };
+      },
+      forceRefetch: () => true
     })
   })
 });

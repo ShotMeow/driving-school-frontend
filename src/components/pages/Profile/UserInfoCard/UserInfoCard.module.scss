@@ -6,6 +6,11 @@
     h3 {
       @apply font-bold text-xl;
     }
+    p {
+      > span {
+        @apply text-primary font-bold;
+      }
+    }
   }
 
   > .actions {

@@ -1,0 +1,14 @@
+.section {
+  > ul {
+    @apply bg-white rounded-xl px-10 flex flex-col;
+
+    > li {
+      @apply border-b py-6;
+      border-color: #b9b9b9;
+
+      &:last-child {
+        @apply border-none;
+      }
+    }
+  }
+}
