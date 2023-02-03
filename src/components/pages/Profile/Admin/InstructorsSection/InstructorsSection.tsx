@@ -1,24 +1,30 @@
-import React, { FC } from "react";
-import { api } from "@/store/api/api";
-import { Roles } from "@/types/user.types";
+import React, { FC, useState } from "react";
+import { UserType } from "@/types/user.types";
 
 import styles from "./InstructorsSection.module.scss";
 import InstructorItem from "@/components/pages/Profile/Admin/InstructorsSection/InstructorItem/InstructorItem";
+import InstructorsSearch from "@/components/pages/Profile/Admin/InstructorsSection/InstructorsSearch/InstructorsSearch";
+import Button from "@/components/UI/Button/Button";
 
 const InstructorsSection: FC = () => {
-  const theory = api.useGetUsersByTypeQuery(Roles.THEORY_TEACHER).data;
-  const practice = api.useGetUsersByTypeQuery(Roles.PRACTICE_TEACHER).data;
+  const [instuctors, setInstructors] = useState<UserType[]>([]);
+
   return (
     <section className={styles.section}>
-      {theory && practice && (
+      <InstructorsSearch setInstructors={setInstructors} />
+      <div>
+        <div>
+          <h2>Преподаватели ({instuctors.length})</h2>
+          <Button primary>Добавить преподавателя</Button>
+        </div>
         <ul>
-          {theory.concat(practice).map((teacher) => (
+          {instuctors.map((teacher) => (
             <li key={teacher.id}>
               <InstructorItem teacher={teacher} />
             </li>
           ))}
         </ul>
-      )}
+      </div>
     </section>
   );
 };

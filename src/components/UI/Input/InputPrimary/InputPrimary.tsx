@@ -15,13 +15,16 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const InputPrimary = forwardRef<HTMLInputElement, Props>(
-  ({ title, error, ...props }, ref) => {
+  ({ title, error, className, ...props }, ref) => {
     return (
       <div
-        className={classNames({
-          [styles.input]: true,
-          [styles.error]: error
-        })}
+        className={classNames(
+          {
+            [styles.input]: true,
+            [styles.error]: error
+          },
+          className
+        )}
       >
         <label>
           {props.type === "tel" ? (

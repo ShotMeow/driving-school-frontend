@@ -1,14 +1,29 @@
 .section {
-  > ul {
-    @apply bg-white rounded-xl px-10 flex flex-col;
-
-    > li {
-      @apply border-b py-6;
-      border-color: #b9b9b9;
-
-      &:last-child {
-        @apply border-none;
+  @apply space-y-4;
+  > div {
+    @apply bg-white rounded-xl shadow-md px-10 py-6 flex flex-col;
+    > div {
+      @apply flex gap-4 items-center;
+      h2 {
+        @apply text-xl font-bold;
+      }
+      button {
+        @apply text-base px-4 py-1;
       }
     }
+    > ul {
+      > li {
+        @apply border-b py-6;
+        border-color: #b9b9b9;
+
+        &:last-child {
+          @apply border-none;
+        }
+      }
+    }
+  }
+
+  .error {
+    @apply text-red-500 flex gap-4 pt-8;
   }
 }

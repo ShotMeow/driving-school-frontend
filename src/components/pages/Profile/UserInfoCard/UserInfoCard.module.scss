@@ -13,15 +13,7 @@
     }
   }
 
-  > .actions {
-    @apply flex flex-col items-center gap-4;
-
-    > .settings {
-      @apply font-medium text-sm;
-    }
-
-    > button {
-      @apply px-16 py-2;
-    }
+  > button {
+    @apply px-16 py-2;
   }
 }

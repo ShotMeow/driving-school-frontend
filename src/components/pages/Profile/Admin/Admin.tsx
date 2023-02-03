@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Admin: FC<Props> = ({ user }) => {
-  const [section, setSection] = useState<1 | 2 | 3 | 4>(1);
+  const [section, setSection] = useState<1 | 2 | 3>(1);
   return (
     <main className={styles.main}>
       <div className={styles.left}>

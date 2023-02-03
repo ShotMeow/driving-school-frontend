@@ -2,7 +2,6 @@ import React, { FC } from "react";
 
 import styles from "./UserInfoCard.module.scss";
 import Avatar from "@/components/other/Icons/Avatar";
-import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 import { logout } from "@/store/auth/auth.slice";
@@ -47,14 +46,9 @@ const UserInfoCard: FC<Props> = ({
           )}
         </div>
       </div>
-      <div className={styles.actions}>
-        <Link className={styles.settings} href="/profile/settings">
-          Настройки
-        </Link>
-        <Button onClick={handleLogout} primary>
-          Выход
-        </Button>
-      </div>
+      <Button onClick={handleLogout} primary>
+        Выход
+      </Button>
     </aside>
   );
 };

@@ -1,0 +1,19 @@
+.article {
+  @apply bg-white rounded-xl px-10 flex gap-6 py-8;
+
+  .input {
+    @apply w-full;
+  }
+
+  .search {
+    @apply px-14 py-2;
+  }
+
+  .filter {
+    @apply px-6 py-2 gap-2;
+
+    > svg {
+      @apply w-4;
+    }
+  }
+}

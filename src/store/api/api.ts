@@ -58,18 +58,25 @@ export const api = createApi({
       query: (arg) => `/users/profile/group/${arg}`,
       forceRefetch: () => true
     }),
-    getAllGroups: builder.query<GroupType[], void>({
-      query: () => `/groups`,
-      forceRefetch: () => true
-    }),
-    getUsersByType: builder.query<UserType[], Roles>({
-      query: (role) => {
+    getAllGroups: builder.query<GroupType[], { search?: string }>({
+      query: (arg) => {
         return {
-          url: "/users/filter",
-          params: { role }
+          url: `/groups`,
+          params: { search: arg.search }
         };
       },
       forceRefetch: () => true
-    })
+    }),
+    getUsersByType: builder.query<UserType[], { role: Roles; search?: string }>(
+      {
+        query: (arg) => {
+          return {
+            url: "/users/filter",
+            params: { role: arg.role, search: arg.search }
+          };
+        },
+        forceRefetch: () => true
+      }
+    )
   })
 });
