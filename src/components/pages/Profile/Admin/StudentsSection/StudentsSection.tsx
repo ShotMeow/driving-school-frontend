@@ -8,7 +8,6 @@ import Button from "@/components/UI/Button/Button";
 
 const StudentsSection: FC = () => {
   const [students, setStudents] = useState<UserType[]>([]);
-
   return (
     <section className={styles.section}>
       <StudentSearch setStudents={setStudents} />

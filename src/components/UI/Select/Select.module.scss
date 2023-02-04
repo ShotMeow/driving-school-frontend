@@ -1,0 +1,10 @@
+.select {
+  @apply space-y-2;
+  h5 {
+    @apply font-bold;
+  }
+
+  select {
+    @apply text-gray border-gray border rounded-sm pl-2 pr-14 py-2;
+  }
+}

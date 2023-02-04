@@ -4,7 +4,7 @@ import styles from "./StudentSearch.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
 import Burger from "@/components/other/Icons/Burger";
-import { Roles, UserType } from "@/types/user.types";
+import { UserType } from "@/types/user.types";
 import { api } from "@/store/api/api";
 import { useDebounce } from "@/hooks/useDebounce";
 
@@ -16,8 +16,7 @@ const StudentSearch: FC<Props> = ({ setStudents }) => {
   const [value, setValue] = useState<string>("");
   const debounce = useDebounce<string>(value, 500);
 
-  const { data } = api.useGetUsersByTypeQuery({
-    role: Roles.STUDENT,
+  const { data } = api.useGetStudentWithGroupQuery({
     search: debounce
   });
 

@@ -10,6 +10,7 @@ interface Props {
 }
 
 const GroupItem: FC<Props> = ({ group }) => {
+  console.log(group);
   return (
     <article className={styles.item}>
       <div className={styles.about}>
@@ -17,7 +18,7 @@ const GroupItem: FC<Props> = ({ group }) => {
         <div className={styles.info}>
           <h3>Группа №{group.id}</h3>
           <p>
-            Категория: <span>{group.category.category}</span>
+            Категория: <span>{group.category.value}</span>
           </p>
         </div>
       </div>

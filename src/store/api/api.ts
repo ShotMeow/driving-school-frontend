@@ -3,7 +3,8 @@ import { TypeRootState } from "@/store";
 import { LoginType, RegisterType, ResponseType } from "@/types/auth.types";
 import { logout, setToken } from "@/store/auth/auth.slice";
 import { Roles, UserType } from "@/types/user.types";
-import { GroupType } from "@/types/group.types";
+import { CreateGroupType, GroupType } from "@/types/group.types";
+import { CategoryType } from "@/types/category.types";
 
 export const api = createApi({
   reducerPath: "api",
@@ -77,6 +78,26 @@ export const api = createApi({
         },
         forceRefetch: () => true
       }
-    )
+    ),
+    getStudentWithGroup: builder.query<UserType[], { search?: string }>({
+      query: (arg) => {
+        return {
+          url: "/users/students",
+          params: { search: arg.search }
+        };
+      },
+      forceRefetch: () => true
+    }),
+    getCategories: builder.query<CategoryType[], void>({
+      query: () => `/categories`,
+      forceRefetch: () => true
+    }),
+    createGroup: builder.mutation<GroupType, CreateGroupType>({
+      query: (body) => ({
+        url: `/groups/create`,
+        method: "PUT",
+        body: body
+      })
+    })
   })
 });

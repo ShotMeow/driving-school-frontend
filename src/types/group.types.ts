@@ -7,3 +7,9 @@ export interface GroupType {
   theoryTeacher: UserType;
   category: CategoryType;
 }
+
+export interface CreateGroupType {
+  practice_teacher: number;
+  theory_teacher: number;
+  category: string;
+}
