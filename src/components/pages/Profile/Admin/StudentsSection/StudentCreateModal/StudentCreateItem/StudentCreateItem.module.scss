@@ -1,0 +1,41 @@
+.item {
+  @apply flex items-center justify-between;
+
+  .about {
+    @apply flex items-center gap-4;
+
+    svg {
+      @apply w-16;
+    }
+
+    .info {
+      h3 {
+        @apply text-xl font-bold;
+      }
+      p {
+        span {
+          @apply text-primary font-bold;
+        }
+      }
+    }
+  }
+
+  .teachers {
+    @apply flex flex-col items-center text-center gap-2;
+    h4 {
+      @apply font-bold;
+    }
+  }
+
+  .actions {
+    @apply flex items-center gap-4;
+
+    label {
+      @apply flex items-center gap-4 space-y-0;
+    }
+
+    > button {
+      @apply px-6 py-2;
+    }
+  }
+}

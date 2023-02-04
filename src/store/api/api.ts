@@ -16,6 +16,7 @@ export const api = createApi({
       return headers;
     }
   }),
+  tagTypes: ["Profile", "Group", "Student", "Instructor"],
   endpoints: (builder) => ({
     register: builder.mutation<ResponseType, RegisterType>({
       query: (body) => ({
@@ -23,6 +24,7 @@ export const api = createApi({
         method: "POST",
         body: body
       }),
+      invalidatesTags: ["Profile"],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
@@ -38,6 +40,7 @@ export const api = createApi({
         method: "POST",
         body: body
       }),
+      invalidatesTags: ["Profile"],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
@@ -49,7 +52,7 @@ export const api = createApi({
     }),
     getProfile: builder.query<UserType, void>({
       query: () => `/users/profile`,
-      forceRefetch: () => true
+      providesTags: ["Profile"]
     }),
     getGroupByAuth: builder.query<GroupType, void>({
       query: () => `/users/profile/group`,
@@ -66,7 +69,8 @@ export const api = createApi({
           params: { search: arg.search }
         };
       },
-      forceRefetch: () => true
+      forceRefetch: () => true,
+      providesTags: ["Group"]
     }),
     getUsersByType: builder.query<UserType[], { role: Roles; search?: string }>(
       {
@@ -76,17 +80,24 @@ export const api = createApi({
             params: { role: arg.role, search: arg.search }
           };
         },
+        providesTags: ["Instructor"],
         forceRefetch: () => true
       }
     ),
-    getStudentWithGroup: builder.query<UserType[], { search?: string }>({
+    getStudentsWithGroup: builder.query<UserType[], { search?: string }>({
       query: (arg) => {
         return {
           url: "/users/students",
           params: { search: arg.search }
         };
       },
-      forceRefetch: () => true
+      forceRefetch: () => true,
+      providesTags: ["Student"]
+    }),
+    getStudentsWithoutGroup: builder.query<UserType[], void>({
+      query: () => `/users/students/without`,
+      forceRefetch: () => true,
+      providesTags: ["Student"]
     }),
     getCategories: builder.query<CategoryType[], void>({
       query: () => `/categories`,
@@ -97,7 +108,46 @@ export const api = createApi({
         url: `/groups/create`,
         method: "PUT",
         body: body
-      })
+      }),
+      invalidatesTags: ["Group"]
+    }),
+    deleteGroup: builder.mutation<GroupType, number>({
+      query: (id) => ({
+        url: `/groups/delete/${id}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["Group"]
+    }),
+    addStudentToGroup: builder.mutation<
+      UserType[],
+      { studentId: number; groupId: number }
+    >({
+      query: (arg) => ({
+        url: `/groups/create/student/${arg.groupId}/${arg.studentId}`,
+        method: "PUT"
+      }),
+      invalidatesTags: ["Student"]
+    }),
+    deleteStudentWithGroup: builder.mutation<
+      UserType,
+      { studentId: number; groupId: number }
+    >({
+      query: (arg) => ({
+        url: `/groups/delete/student/${arg.groupId}/${arg.studentId}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["Student"]
+    }),
+    changeUserRole: builder.mutation<
+      UserType,
+      { userId: number; role: string }
+    >({
+      query: (arg) => ({
+        url: `/users/${arg.userId}`,
+        method: "PATCH",
+        params: { role: arg.role }
+      }),
+      invalidatesTags: ["Instructor", "Student"]
     })
   })
 });

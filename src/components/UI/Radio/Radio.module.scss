@@ -38,8 +38,40 @@
   }
 
   &.dark {
-    > h6 {
-      @apply text-gray;
+    > input {
+      @apply absolute opacity-0;
+
+      &:checked {
+        + h6 {
+          @apply text-gray;
+        }
+      }
+    }
+
+    > &::before {
+      @apply w-8 h-8 rounded-full border border-gray block;
+      content: "";
+    }
+
+    > &::after {
+      @apply w-4 h-4 rounded-full bg-gray absolute left-2 hidden;
+      content: "";
+    }
+
+    &:has(:checked)::before {
+      @apply border-gray border-2;
+    }
+
+    &:has(:focus)::before {
+      @apply border-gray border-2;
+    }
+
+    &:has(:checked)::after {
+      @apply block;
+    }
+
+    &:has(:focus)::after {
+      @apply block;
     }
   }
 }

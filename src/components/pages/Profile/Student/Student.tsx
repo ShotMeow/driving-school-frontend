@@ -22,7 +22,7 @@ const Student: FC<Props> = ({ user }) => {
           name={user.name}
           patronymic={user.patronymic}
           type={user.role}
-          category={data && data.category.category}
+          category={data && data.category.value}
         />
         {data && (
           <TeachersCard

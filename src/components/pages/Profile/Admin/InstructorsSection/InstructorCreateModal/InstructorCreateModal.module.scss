@@ -1,0 +1,17 @@
+@import "@/styles/variables";
+
+.modal {
+  width: 1000px;
+
+  @media (max-width: $adaptive-max-breakpoint) {
+    @apply w-full h-full;
+  }
+
+  header {
+    @apply flex items-center justify-between;
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+  }
+}

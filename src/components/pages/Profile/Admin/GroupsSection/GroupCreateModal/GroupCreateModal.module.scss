@@ -1,0 +1,41 @@
+@import "@/styles/variables";
+
+.modal {
+  width: 600px;
+
+  @media (max-width: $adaptive-max-breakpoint) {
+    @apply w-full h-full;
+  }
+
+  header {
+    @apply flex items-center justify-between;
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+  }
+
+  .body {
+    .group {
+      @apply flex items-center gap-4;
+
+      h4 {
+        @apply font-bold;
+      }
+      svg {
+        @apply w-16;
+      }
+    }
+
+    form {
+      @apply space-y-4;
+      > div {
+        @apply flex gap-4;
+      }
+
+      button {
+        @apply px-6 py-2;
+      }
+    }
+  }
+}

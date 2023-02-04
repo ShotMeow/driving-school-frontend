@@ -1,16 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import styles from "./GroupItem.module.scss";
 import { GroupType } from "@/types/group.types";
 import Button from "@/components/UI/Button/Button";
 import GroupAvatar from "@/components/other/Icons/GroupAvatar";
+import GroupDeleteModal from "@/components/pages/Profile/Admin/GroupsSection/GroupDeleteModal/GroupDeleteModal";
+import { AnimatePresence } from "framer-motion";
 
 interface Props {
   group: GroupType;
 }
 
 const GroupItem: FC<Props> = ({ group }) => {
-  console.log(group);
+  const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
+
   return (
     <article className={styles.item}>
       <div className={styles.about}>
@@ -42,8 +45,19 @@ const GroupItem: FC<Props> = ({ group }) => {
       </div>
       <div className={styles.actions}>
         <Button primary>Редактировать</Button>
-        <Button secondary>Удалить</Button>
+        <Button onClick={() => setModalDeleteShown(true)} secondary>
+          Удалить
+        </Button>
       </div>
+      <AnimatePresence>
+        {modalDeleteShown && (
+          <GroupDeleteModal
+            groupId={group.id}
+            modalShown={modalDeleteShown}
+            setModalShown={setModalDeleteShown}
+          />
+        )}
+      </AnimatePresence>
     </article>
   );
 };

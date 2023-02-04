@@ -5,16 +5,22 @@ import StudentItem from "@/components/pages/Profile/Admin/StudentsSection/Studen
 import styles from "./StudentsSection.module.scss";
 import StudentSearch from "@/components/pages/Profile/Admin/StudentsSection/StudentSearch/StudentSearch";
 import Button from "@/components/UI/Button/Button";
+import StudentCreateModal from "@/components/pages/Profile/Admin/StudentsSection/StudentCreateModal/StudentCreateModal";
+import { AnimatePresence } from "framer-motion";
 
 const StudentsSection: FC = () => {
   const [students, setStudents] = useState<UserType[]>([]);
+  const [modalCreateShown, setModalCreateShown] = useState<boolean>(false);
+
   return (
     <section className={styles.section}>
       <StudentSearch setStudents={setStudents} />
       <div>
         <div>
           <h2>Ученики ({students.length})</h2>
-          <Button primary>Создать пользователя</Button>
+          <Button onClick={() => setModalCreateShown(true)} primary>
+            Добавить ученика
+          </Button>
         </div>
         <ul>
           {students.map((user) => (
@@ -24,6 +30,14 @@ const StudentsSection: FC = () => {
           ))}
         </ul>
       </div>
+      <AnimatePresence>
+        {modalCreateShown && (
+          <StudentCreateModal
+            modalShown={modalCreateShown}
+            setModalShown={setModalCreateShown}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };

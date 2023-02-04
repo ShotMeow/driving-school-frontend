@@ -1,7 +1,6 @@
 import React, { FC, FormEvent, useState } from "react";
 import { api } from "@/store/api/api";
 import { UserType } from "@/types/user.types";
-import styles from "@/components/pages/Profile/Admin/GroupsSection/GroupsSection.module.scss";
 import ExitThin from "@/components/other/Icons/ExitThin";
 import GroupAvatar from "@/components/other/Icons/GroupAvatar";
 import Select, { SelectTypes } from "@/components/UI/Select/Select";
@@ -9,8 +8,9 @@ import Button from "@/components/UI/Button/Button";
 import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import { CategoryType } from "@/types/category.types";
 
+import styles from "./GroupCreateModal.module.scss";
+
 interface Props {
-  groupsLength: number;
   modalShown: boolean;
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
   theoryTeachers: UserType[];
@@ -21,18 +21,19 @@ interface Props {
 const GroupCreateModal: FC<Props> = ({
   modalShown,
   setModalShown,
-  groupsLength,
   theoryTeachers,
   practiceTeachers,
   categories
 }) => {
   const [theoryTeacherId, setTheoryTeacherId] = useState<number>(
-    theoryTeachers[0].id || 0
+    theoryTeachers.length ? theoryTeachers[0].id : 0
   );
   const [practiceTeacherId, setPracticeTeacherId] = useState<number>(
-    practiceTeachers[0].id || 0
+    practiceTeachers.length ? practiceTeachers[0].id : 0
   );
-  const [category, setCategory] = useState<string>(categories[0].value);
+  const [category, setCategory] = useState<string>(
+    categories.length ? categories[0].value : ""
+  );
 
   const [createGroup] = api.useCreateGroupMutation();
 
@@ -62,7 +63,7 @@ const GroupCreateModal: FC<Props> = ({
       <div className={styles.body}>
         <div className={styles.group}>
           <GroupAvatar />
-          <h4>Группа №{groupsLength + 1}</h4>
+          <h4>Новая группа</h4>
         </div>
         {theoryTeachers && practiceTeachers && categories && (
           <form onSubmit={(event) => handleSubmit(event)}>

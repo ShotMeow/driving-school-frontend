@@ -1,17 +1,21 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import styles from "./StudentItem.module.scss";
 import Avatar from "@/components/other/Icons/Avatar";
 import { UserType } from "@/types/user.types";
 import { api } from "@/store/api/api";
 import Button from "@/components/UI/Button/Button";
+import { AnimatePresence } from "framer-motion";
+import StudentDeleteModal from "@/components/pages/Profile/Admin/StudentsSection/StudentDeleteModal/StudentDeleteModal";
 
 interface Props {
   user: UserType;
 }
 
 const StudentItem: FC<Props> = ({ user }) => {
+  const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
   const { data } = api.useGetGroupByIdQuery(user.id);
+
   return (
     <article className={styles.item}>
       <div className={styles.about}>
@@ -23,7 +27,7 @@ const StudentItem: FC<Props> = ({ user }) => {
           </h3>
           {data && (
             <p>
-              Категория: <span>{data.category.category}</span>
+              Категория: <span>{data.category.value}</span>
             </p>
           )}
         </div>
@@ -50,8 +54,22 @@ const StudentItem: FC<Props> = ({ user }) => {
       )}
       <div className={styles.actions}>
         <Button primary>Редактировать</Button>
-        <Button secondary>Отчислить</Button>
+        <Button onClick={() => setModalDeleteShown(true)} secondary>
+          Отчислить
+        </Button>
       </div>
+      {data && (
+        <AnimatePresence>
+          {modalDeleteShown && (
+            <StudentDeleteModal
+              modalShown={modalDeleteShown}
+              setModalShown={setModalDeleteShown}
+              userId={user.id}
+              groupId={data.id}
+            />
+          )}
+        </AnimatePresence>
+      )}
     </article>
   );
 };

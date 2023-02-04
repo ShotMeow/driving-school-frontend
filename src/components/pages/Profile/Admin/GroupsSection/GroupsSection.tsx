@@ -12,7 +12,7 @@ import GroupCreateModal from "@/components/pages/Profile/Admin/GroupsSection/Gro
 
 const GroupsSection: FC = () => {
   const [groups, setGroups] = useState<GroupType[]>([]);
-  const [modalShown, setModalShown] = useState<boolean>(false);
+  const [modalCreateShown, setModalCreateShown] = useState<boolean>(false);
 
   const theoryTeachers = api.useGetUsersByTypeQuery({
     role: Roles.THEORY_TEACHER
@@ -26,11 +26,11 @@ const GroupsSection: FC = () => {
 
   return (
     <section className={styles.section}>
-      <GroupSearch modalShown={modalShown} setGroups={setGroups} />
+      <GroupSearch setGroups={setGroups} />
       <div>
         <div>
           <h2>Группы ({groups.length})</h2>
-          <Button onClick={() => setModalShown(true)} primary>
+          <Button onClick={() => setModalCreateShown(true)} primary>
             Создать группу
           </Button>
         </div>
@@ -43,16 +43,18 @@ const GroupsSection: FC = () => {
         </ul>
       </div>
       <AnimatePresence>
-        {modalShown && theoryTeachers && practiceTeachers && categories && (
-          <GroupCreateModal
-            modalShown={modalShown}
-            setModalShown={setModalShown}
-            groupsLength={groups.length}
-            theoryTeachers={theoryTeachers}
-            practiceTeachers={practiceTeachers}
-            categories={categories}
-          />
-        )}
+        {modalCreateShown &&
+          theoryTeachers &&
+          practiceTeachers &&
+          categories && (
+            <GroupCreateModal
+              modalShown={modalCreateShown}
+              setModalShown={setModalCreateShown}
+              theoryTeachers={theoryTeachers}
+              practiceTeachers={practiceTeachers}
+              categories={categories}
+            />
+          )}
       </AnimatePresence>
     </section>
   );

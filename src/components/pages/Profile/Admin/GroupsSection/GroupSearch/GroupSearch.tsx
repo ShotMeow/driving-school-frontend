@@ -10,22 +10,17 @@ import { GroupType } from "@/types/group.types";
 
 interface Props {
   setGroups: React.Dispatch<React.SetStateAction<GroupType[]>>;
-  modalShown: boolean;
 }
 
-const GroupSearch: FC<Props> = ({ modalShown, setGroups }) => {
+const GroupSearch: FC<Props> = ({ setGroups }) => {
   const [value, setValue] = useState<string>("");
   const debounce = useDebounce<string>(value, 500);
 
-  const { data, refetch } = api.useGetAllGroupsQuery({ search: debounce });
+  const { data } = api.useGetAllGroupsQuery({ search: debounce });
 
   useEffect(() => {
     data && setGroups(data);
   }, [data, setGroups]);
-
-  useEffect(() => {
-    refetch();
-  }, [modalShown, refetch]);
 
   return (
     <article className={styles.article}>

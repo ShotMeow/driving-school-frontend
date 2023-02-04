@@ -16,7 +16,7 @@ const StudentSearch: FC<Props> = ({ setStudents }) => {
   const [value, setValue] = useState<string>("");
   const debounce = useDebounce<string>(value, 500);
 
-  const { data } = api.useGetStudentWithGroupQuery({
+  const { data } = api.useGetStudentsWithGroupQuery({
     search: debounce
   });
 

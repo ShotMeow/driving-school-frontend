@@ -5,13 +5,12 @@ import classNames from "classnames";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
-  name: string;
   dark?: boolean;
   required?: boolean;
 }
 
 const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(
-  ({ title, name, dark = false, required = false, ...props }, ref) => {
+  ({ title, dark = false, required = false, ...props }, ref) => {
     return (
       <label
         className={classNames({
@@ -19,13 +18,7 @@ const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(
           [styles.dark]: dark
         })}
       >
-        <input
-          type="radio"
-          required={required}
-          {...props}
-          ref={ref}
-          name={name}
-        />
+        <input type="radio" required={required} {...props} ref={ref} />
         <h6>{title}</h6>
       </label>
     );

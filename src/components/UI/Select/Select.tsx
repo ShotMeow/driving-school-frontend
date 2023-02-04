@@ -5,7 +5,8 @@ import classNames from "classnames";
 
 export enum SelectTypes {
   Users,
-  Categories
+  Categories,
+  Groups
 }
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -44,13 +45,24 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
           ))}
         </select>
       )}
-      {type !== SelectTypes.Categories && type !== SelectTypes.Users && (
+      {type === SelectTypes.Groups && (
         <select {...props}>
           {options.map((option) => (
-            <option key={option}>{option}</option>
+            <option key={option.id} value={option.id}>
+              № {option.id}
+            </option>
           ))}
         </select>
       )}
+      {type !== SelectTypes.Categories &&
+        type !== SelectTypes.Users &&
+        type !== SelectTypes.Groups && (
+          <select {...props}>
+            {options.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        )}
     </label>
   );
 };
