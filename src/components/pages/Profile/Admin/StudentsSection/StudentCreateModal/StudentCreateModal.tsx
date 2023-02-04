@@ -21,7 +21,7 @@ const StudentCreateModal: FC<Props> = ({ modalShown, setModalShown }) => {
       setIsShow={setModalShown}
     >
       <header>
-        <h3>Добавить ученика ({users && users.length})</h3>
+        <h3>Добавить ученика {users && `(${users.length})`}</h3>
         <button onClick={() => setModalShown(false)}>
           <ExitThin />
         </button>

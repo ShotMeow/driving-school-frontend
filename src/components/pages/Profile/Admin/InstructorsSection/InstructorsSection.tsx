@@ -7,13 +7,10 @@ import InstructorsSearch from "@/components/pages/Profile/Admin/InstructorsSecti
 import Button from "@/components/UI/Button/Button";
 import { AnimatePresence } from "framer-motion";
 import InstructorCreateModal from "@/components/pages/Profile/Admin/InstructorsSection/InstructorCreateModal/InstructorCreateModal";
-import { api } from "@/store/api/api";
 
 const InstructorsSection: FC = () => {
   const [modalCreateShown, setModalCreateShown] = useState<boolean>(false);
   const [instructors, setInstructors] = useState<UserType[]>([]);
-
-  const studentsWithoutGroup = api.useGetStudentsWithoutGroupQuery().data;
 
   return (
     <section className={styles.section}>
@@ -34,11 +31,10 @@ const InstructorsSection: FC = () => {
         </ul>
       </div>
       <AnimatePresence>
-        {modalCreateShown && studentsWithoutGroup && (
+        {modalCreateShown && (
           <InstructorCreateModal
             modalShown={modalCreateShown}
             setModalShown={setModalCreateShown}
-            users={studentsWithoutGroup}
           />
         )}
       </AnimatePresence>

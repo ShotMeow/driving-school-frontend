@@ -44,15 +44,15 @@ const GroupsSection: FC = () => {
       </div>
       <AnimatePresence>
         {modalCreateShown &&
+          categories &&
           theoryTeachers &&
-          practiceTeachers &&
-          categories && (
+          practiceTeachers && (
             <GroupCreateModal
               modalShown={modalCreateShown}
               setModalShown={setModalCreateShown}
+              categories={categories}
               theoryTeachers={theoryTeachers}
               practiceTeachers={practiceTeachers}
-              categories={categories}
             />
           )}
       </AnimatePresence>
