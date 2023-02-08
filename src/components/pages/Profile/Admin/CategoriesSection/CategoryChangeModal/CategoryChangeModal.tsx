@@ -1,11 +1,11 @@
 import React, { FC, FormEvent, useState } from "react";
-import { api } from "@/store/api/api";
 import ExitThin from "@/components/other/Icons/ExitThin";
 import Button from "@/components/UI/Button/Button";
 import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 
 import styles from "./CategoryChangeModal.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
+import { categoriesApi } from "@/store/api/categories.api";
 
 interface Props {
   modalShown: boolean;
@@ -19,7 +19,7 @@ const CategoryChangeModal: FC<Props> = ({
   setModalShown
 }) => {
   const [value, setValue] = useState<string>("");
-  const [changeCategory] = api.useChangeCategoryMutation();
+  const [changeCategory] = categoriesApi.useChangeCategoryMutation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

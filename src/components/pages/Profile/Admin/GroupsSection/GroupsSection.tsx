@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import { api } from "@/store/api/api";
 import { Roles } from "@/types/user.types";
 import GroupCreateModal from "@/components/pages/Profile/Admin/GroupsSection/GroupCreateModal/GroupCreateModal";
+import { categoriesApi } from "@/store/api/categories.api";
 
 const GroupsSection: FC = () => {
   const [groups, setGroups] = useState<GroupType[]>([]);
@@ -22,7 +23,7 @@ const GroupsSection: FC = () => {
     role: Roles.PRACTICE_TEACHER
   }).data;
 
-  const categories = api.useGetCategoriesQuery({}).data;
+  const categories = categoriesApi.useGetCategoriesQuery({}).data;
 
   return (
     <section className={styles.section}>

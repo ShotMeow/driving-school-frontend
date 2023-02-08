@@ -1,11 +1,11 @@
 import React, { FC, FormEvent, useState } from "react";
-import { api } from "@/store/api/api";
 import ExitThin from "@/components/other/Icons/ExitThin";
 import Button from "@/components/UI/Button/Button";
 import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 
 import styles from "./CategoryCreateModal.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
+import { categoriesApi } from "@/store/api/categories.api";
 
 interface Props {
   modalShown: boolean;
@@ -14,7 +14,7 @@ interface Props {
 
 const CategoryCreateModal: FC<Props> = ({ modalShown, setModalShown }) => {
   const [value, setValue] = useState<string>("");
-  const [createCategory] = api.useCreateCategoryMutation();
+  const [createCategory] = categoriesApi.useCreateCategoryMutation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

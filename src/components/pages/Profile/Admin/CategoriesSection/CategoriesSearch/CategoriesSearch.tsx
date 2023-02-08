@@ -4,9 +4,9 @@ import styles from "./CategoriesSearch.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
 import Burger from "@/components/other/Icons/Burger";
-import { api } from "@/store/api/api";
 import { useDebounce } from "@/hooks/useDebounce";
 import { CategoryType } from "@/types/category.types";
+import { categoriesApi } from "@/store/api/categories.api";
 
 interface Props {
   setCategories: React.Dispatch<React.SetStateAction<CategoryType[]>>;
@@ -16,7 +16,7 @@ const CategoriesSearch: FC<Props> = ({ setCategories }) => {
   const [value, setValue] = useState<string>("");
   const debounce = useDebounce<string>(value, 500);
 
-  const { data } = api.useGetCategoriesQuery({ search: debounce });
+  const { data } = categoriesApi.useGetCategoriesQuery({ search: debounce });
 
   useEffect(() => {
     data && setCategories(data);

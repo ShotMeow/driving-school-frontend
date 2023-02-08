@@ -4,7 +4,6 @@ import { LoginType, RegisterType, ResponseType } from "@/types/auth.types";
 import { logout, setToken } from "@/store/auth/auth.slice";
 import { Roles, UserType } from "@/types/user.types";
 import { CreateGroupType, GroupType } from "@/types/group.types";
-import { CategoryType } from "@/types/category.types";
 
 export const api = createApi({
   reducerPath: "api",
@@ -98,41 +97,6 @@ export const api = createApi({
       query: () => `/users/students/without`,
       forceRefetch: () => true,
       providesTags: ["Student"]
-    }),
-    getCategories: builder.query<CategoryType[], { search?: string }>({
-      query: (arg) => ({
-        url: `/categories`,
-        params: { search: arg.search }
-      }),
-      forceRefetch: () => true,
-      providesTags: ["Category"]
-    }),
-    createCategory: builder.mutation<CategoryType, string>({
-      query: (category) => ({
-        url: "/categories/create",
-        method: "PUT",
-        params: { category: category }
-      }),
-      invalidatesTags: ["Category"]
-    }),
-    changeCategory: builder.mutation<
-      CategoryType,
-      { categoryId: number; value: string }
-    >({
-      query: (args) => ({
-        url: "/categories/change",
-        method: "PATCH",
-        params: { categoryId: args.categoryId, value: args.value }
-      }),
-      invalidatesTags: ["Category"]
-    }),
-    deleteCategory: builder.mutation<CategoryType, number>({
-      query: (categoryId) => ({
-        url: "/categories/delete",
-        method: "DELETE",
-        params: { categoryId: categoryId }
-      }),
-      invalidatesTags: ["Category"]
     }),
     createGroup: builder.mutation<GroupType, CreateGroupType>({
       query: (body) => ({
