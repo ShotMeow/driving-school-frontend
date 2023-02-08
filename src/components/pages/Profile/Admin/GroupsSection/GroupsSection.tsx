@@ -22,7 +22,7 @@ const GroupsSection: FC = () => {
     role: Roles.PRACTICE_TEACHER
   }).data;
 
-  const categories = api.useGetCategoriesQuery().data;
+  const categories = api.useGetCategoriesQuery({}).data;
 
   return (
     <section className={styles.section}>
