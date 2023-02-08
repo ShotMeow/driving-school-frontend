@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 interface Props {
   section: 1 | 2 | 3 | 4;
-  setSection: React.Dispatch<React.SetStateAction<1 | 2 | 3>>;
+  setSection: React.Dispatch<React.SetStateAction<1 | 2 | 3 | 4>>;
 }
 
 const NavigationCard: FC<Props> = ({ section, setSection }) => {
@@ -44,6 +44,16 @@ const NavigationCard: FC<Props> = ({ section, setSection }) => {
             onClick={() => setSection(3)}
           >
             Инструктора
+          </button>
+        </li>
+        <li>
+          <button
+            className={classNames({
+              [styles.active]: section === 4
+            })}
+            onClick={() => setSection(4)}
+          >
+            Категории
           </button>
         </li>
       </ul>

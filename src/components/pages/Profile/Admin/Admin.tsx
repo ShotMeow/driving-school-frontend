@@ -7,13 +7,14 @@ import NavigationCard from "@/components/pages/Profile/Admin/NavigationCard/Navi
 import StudentsSection from "@/components/pages/Profile/Admin/StudentsSection/StudentsSection";
 import GroupsSection from "@/components/pages/Profile/Admin/GroupsSection/GroupsSection";
 import InstructorsSection from "@/components/pages/Profile/Admin/InstructorsSection/InstructorsSection";
+import CategoriesSection from "@/components/pages/Profile/Admin/CategoriesSection/CategoriesSection";
 
 interface Props {
   user: UserType;
 }
 
 const Admin: FC<Props> = ({ user }) => {
-  const [section, setSection] = useState<1 | 2 | 3>(1);
+  const [section, setSection] = useState<1 | 2 | 3 | 4>(1);
   return (
     <main className={styles.main}>
       <div className={styles.left}>
@@ -29,6 +30,7 @@ const Admin: FC<Props> = ({ user }) => {
         {section === 1 && <StudentsSection />}
         {section === 2 && <GroupsSection />}
         {section === 3 && <InstructorsSection />}
+        {section === 4 && <CategoriesSection />}
       </>
     </main>
   );

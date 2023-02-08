@@ -1,0 +1,14 @@
+.modal {
+  @apply space-y-10;
+  h4 {
+    @apply text-xl font-bold;
+  }
+
+  .actions {
+    @apply flex justify-center gap-4;
+
+    button {
+      @apply px-12 py-2;
+    }
+  }
+}

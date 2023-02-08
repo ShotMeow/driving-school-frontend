@@ -1,0 +1,15 @@
+.item {
+  @apply flex items-center justify-between;
+
+  p {
+    @apply text-xl font-bold;
+  }
+
+  .actions {
+    @apply flex gap-4;
+
+    > button {
+      @apply px-6 py-2;
+    }
+  }
+}
