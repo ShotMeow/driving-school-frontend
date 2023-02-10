@@ -21,17 +21,13 @@
   }
 
   .teachers {
-    @apply flex flex-col items-center text-center gap-2;
+    @apply flex items-center text-center gap-10;
     h4 {
       @apply font-bold;
     }
   }
 
-  .actions {
-    @apply flex gap-4;
-
-    > button {
-      @apply px-6 py-2;
-    }
+  > button {
+    @apply px-6 py-2;
   }
 }

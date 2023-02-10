@@ -5,12 +5,12 @@ import Avatar from "@/components/other/Icons/Avatar";
 import Button from "@/components/UI/Button/Button";
 import { useTypedDispatch } from "@/hooks/useTypedDispatch";
 import { logout } from "@/store/auth/auth.slice";
-import { Roles } from "@/types/user.types";
+import { UserRole } from "@/store/api/users/users.types";
 
 interface Props {
   surname: string;
   name: string;
-  type: Roles;
+  role: UserRole;
   patronymic?: string;
   category?: string;
 }
@@ -19,7 +19,7 @@ const UserInfoCard: FC<Props> = ({
   surname,
   category,
   name,
-  type,
+  role,
   patronymic
 }) => {
   const dispatch = useTypedDispatch();
@@ -36,10 +36,10 @@ const UserInfoCard: FC<Props> = ({
           <h3>
             {surname} {name[0]}. {patronymic && patronymic[0] + "."}
           </h3>
-          {type === Roles.ADMIN && <p>Администратор</p>}
-          {type === Roles.THEORY_TEACHER && <p>Учитель теории</p>}
-          {type === Roles.PRACTICE_TEACHER && <p>Учитель практики</p>}
-          {type === Roles.STUDENT && category && (
+          {role === UserRole.ADMIN && <p>Администратор</p>}
+          {role === UserRole.THEORY_TEACHER && <p>Учитель теории</p>}
+          {role === UserRole.PRACTICE_TEACHER && <p>Учитель практики</p>}
+          {role === UserRole.STUDENT && category && (
             <p>
               Категория <span>{category}</span>
             </p>

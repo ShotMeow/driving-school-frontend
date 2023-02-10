@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { UserType } from "@/types/user.types";
 
 import styles from "./InstructorsSection.module.scss";
 import InstructorItem from "@/components/pages/Profile/Admin/InstructorsSection/InstructorItem/InstructorItem";
@@ -7,6 +6,7 @@ import InstructorsSearch from "@/components/pages/Profile/Admin/InstructorsSecti
 import Button from "@/components/UI/Button/Button";
 import { AnimatePresence } from "framer-motion";
 import InstructorCreateModal from "@/components/pages/Profile/Admin/InstructorsSection/InstructorCreateModal/InstructorCreateModal";
+import { UserType } from "@/store/api/users/users.types";
 
 const InstructorsSection: FC = () => {
   const [modalCreateShown, setModalCreateShown] = useState<boolean>(false);

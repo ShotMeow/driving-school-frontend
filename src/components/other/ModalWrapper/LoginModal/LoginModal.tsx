@@ -7,9 +7,9 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { LoginType } from "@/types/auth.types";
 import { useRouter } from "next/navigation";
-import { api } from "@/store/api/api";
+import { authApi } from "@/store/api/auth/auth.api";
+import { LoginType } from "@/store/api/auth/auth.types";
 
 interface Props {
   setModalType: React.Dispatch<React.SetStateAction<"login" | "register">>;
@@ -20,7 +20,7 @@ interface LoginFields extends LoginType {}
 
 const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
   const router = useRouter();
-  const [login] = api.useLoginMutation();
+  const [login] = authApi.useLoginMutation();
 
   const formSchema = Yup.object().shape({
     email: Yup.string()
@@ -57,7 +57,7 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
           switch (data.error.data.field) {
             case "password":
               setError("password", {
-                message: data.error.data.message
+                message: data.error.data.error
               });
               break;
             case "all":
@@ -65,7 +65,7 @@ const LoginModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
                 message: "ㅤ"
               });
               setError("password", {
-                message: data.error.data.message
+                message: data.error.data.error
               });
               break;
             default:

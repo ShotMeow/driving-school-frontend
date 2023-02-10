@@ -1,14 +1,14 @@
 import React, { FC, FormEvent, useState } from "react";
-import { api } from "@/store/api/api";
-import { UserType } from "@/types/user.types";
 import ExitThin from "@/components/other/Icons/ExitThin";
 import GroupAvatar from "@/components/other/Icons/GroupAvatar";
 import Select, { SelectTypes } from "@/components/UI/Select/Select";
 import Button from "@/components/UI/Button/Button";
 import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
-import { CategoryType } from "@/types/category.types";
 
 import styles from "./GroupCreateModal.module.scss";
+import { CategoryType } from "@/store/api/categories/categories.types";
+import { UserType } from "@/store/api/users/users.types";
+import { groupsApi } from "@/store/api/groups/groups.api";
 
 interface Props {
   modalShown: boolean;
@@ -31,19 +31,19 @@ const GroupCreateModal: FC<Props> = ({
   const [practiceTeacherId, setPracticeTeacherId] = useState<number>(
     practiceTeachers.length ? practiceTeachers[0].id : 0
   );
-  const [category, setCategory] = useState<string>(
-    categories.length ? categories[0].value : ""
+  const [categoryId, setCategoryId] = useState<number>(
+    categories.length ? categories[0].id : 0
   );
 
-  const [createGroup] = api.useCreateGroupMutation();
+  const [createGroup] = groupsApi.useCreateGroupMutation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (theoryTeacherId && practiceTeacherId && category) {
+    if (theoryTeacherId && practiceTeacherId && categoryId) {
       createGroup({
-        theory_teacher: theoryTeacherId,
-        practice_teacher: practiceTeacherId,
-        category: category
+        theoryTeacherId: theoryTeacherId,
+        practiceTeacherId: practiceTeacherId,
+        categoryId: categoryId
       }).then(() => setModalShown(false));
     }
   };
@@ -84,7 +84,7 @@ const GroupCreateModal: FC<Props> = ({
               />
               <Select
                 title="Категория"
-                onChange={(event) => setCategory(event.target.value)}
+                onChange={(event) => setCategoryId(+event.target.value)}
                 type={SelectTypes.Categories}
                 required
                 options={categories}

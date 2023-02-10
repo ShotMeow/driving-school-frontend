@@ -3,7 +3,7 @@ import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import Button from "@/components/UI/Button/Button";
 
 import styles from "./CategoryDeleteModal.module.scss";
-import { categoriesApi } from "@/store/api/categories.api";
+import { categoriesApi } from "@/store/api/categories/categories.api";
 
 interface Props {
   modalShown: boolean;
@@ -19,7 +19,7 @@ const CategoryDeleteModal: FC<Props> = ({
   const [deleteCategory] = categoriesApi.useDeleteCategoryMutation();
 
   const handleSubmit = () => {
-    deleteCategory(categoryId).then(() => setModalShown(false));
+    deleteCategory({ categoryId: categoryId }).then(() => setModalShown(false));
   };
 
   return (

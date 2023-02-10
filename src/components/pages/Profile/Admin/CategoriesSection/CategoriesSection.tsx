@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import CategoriesSearch from "@/components/pages/Profile/Admin/CategoriesSection/CategoriesSearch/CategoriesSearch";
 import CategoryCreateModal from "@/components/pages/Profile/Admin/CategoriesSection/CategoryCreateModal/CategoryCreateModal";
 import CategoryItem from "@/components/pages/Profile/Admin/CategoriesSection/CategoryItem/CategoryItem";
-import { CategoryType } from "@/types/category.types";
+import { CategoryType } from "@/store/api/categories/categories.types";
 
 const CategoriesSection: FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);

@@ -3,9 +3,9 @@ import React, { FC, useState } from "react";
 import styles from "./CategoryItem.module.scss";
 import Button from "@/components/UI/Button/Button";
 import { AnimatePresence } from "framer-motion";
-import { CategoryType } from "@/types/category.types";
 import CategoryDeleteModal from "@/components/pages/Profile/Admin/CategoriesSection/CategoryDeleteModal/CategoryDeleteModal";
 import CategoryChangeModal from "@/components/pages/Profile/Admin/CategoriesSection/CategoryChangeModal/CategoryChangeModal";
+import { CategoryType } from "@/store/api/categories/categories.types";
 
 interface Props {
   category: CategoryType;

@@ -6,7 +6,7 @@ import { api } from "@/store/api/api";
 import Profile from "@/components/pages/Profile/Profile";
 
 const ProfilePage: NextPageAuth = () => {
-  const { data } = api.useGetProfileQuery();
+  const { data } = api.useGetAuthUserQuery();
 
   return (
     <Layout>

@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { UserType } from "@/types/user.types";
 import UserInfoCard from "@/components/pages/Profile/UserInfoCard/UserInfoCard";
 
 import styles from "../Profile.module.scss";
@@ -8,6 +7,7 @@ import StudentsSection from "@/components/pages/Profile/Admin/StudentsSection/St
 import GroupsSection from "@/components/pages/Profile/Admin/GroupsSection/GroupsSection";
 import InstructorsSection from "@/components/pages/Profile/Admin/InstructorsSection/InstructorsSection";
 import CategoriesSection from "@/components/pages/Profile/Admin/CategoriesSection/CategoriesSection";
+import { UserType } from "@/store/api/users/users.types";
 
 interface Props {
   user: UserType;
@@ -22,7 +22,7 @@ const Admin: FC<Props> = ({ user }) => {
           surname={user.surname}
           name={user.name}
           patronymic={user.patronymic}
-          type={user.role}
+          role={user.role}
         />
         <NavigationCard section={section} setSection={setSection} />
       </div>

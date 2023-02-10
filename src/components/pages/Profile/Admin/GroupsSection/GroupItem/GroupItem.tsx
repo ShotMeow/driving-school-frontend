@@ -1,11 +1,11 @@
 import React, { FC, useState } from "react";
 
 import styles from "./GroupItem.module.scss";
-import { GroupType } from "@/types/group.types";
 import Button from "@/components/UI/Button/Button";
 import GroupAvatar from "@/components/other/Icons/GroupAvatar";
 import GroupDeleteModal from "@/components/pages/Profile/Admin/GroupsSection/GroupDeleteModal/GroupDeleteModal";
 import { AnimatePresence } from "framer-motion";
+import { GroupType } from "@/store/api/groups/groups.types";
 
 interface Props {
   group: GroupType;
@@ -13,7 +13,7 @@ interface Props {
 
 const GroupItem: FC<Props> = ({ group }) => {
   const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
-
+  console.log(group);
   return (
     <article className={styles.item}>
       <div className={styles.about}>

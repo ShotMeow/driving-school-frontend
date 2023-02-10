@@ -2,25 +2,25 @@ import React, { FC, useState } from "react";
 
 import styles from "./GroupsSection.module.scss";
 import GroupItem from "@/components/pages/Profile/Admin/GroupsSection/GroupItem/GroupItem";
-import { GroupType } from "@/types/group.types";
 import GroupSearch from "@/components/pages/Profile/Admin/GroupsSection/GroupSearch/GroupSearch";
 import Button from "@/components/UI/Button/Button";
 import { AnimatePresence } from "framer-motion";
-import { api } from "@/store/api/api";
-import { Roles } from "@/types/user.types";
 import GroupCreateModal from "@/components/pages/Profile/Admin/GroupsSection/GroupCreateModal/GroupCreateModal";
-import { categoriesApi } from "@/store/api/categories.api";
+import { GroupType } from "@/store/api/groups/groups.types";
+import { categoriesApi } from "@/store/api/categories/categories.api";
+import { UserRole } from "@/store/api/users/users.types";
+import { usersApi } from "@/store/api/users/users.api";
 
 const GroupsSection: FC = () => {
   const [groups, setGroups] = useState<GroupType[]>([]);
   const [modalCreateShown, setModalCreateShown] = useState<boolean>(false);
 
-  const theoryTeachers = api.useGetUsersByTypeQuery({
-    role: Roles.THEORY_TEACHER
+  const theoryTeachers = usersApi.useGetUsersQuery({
+    role: UserRole.THEORY_TEACHER
   }).data;
 
-  const practiceTeachers = api.useGetUsersByTypeQuery({
-    role: Roles.PRACTICE_TEACHER
+  const practiceTeachers = usersApi.useGetUsersQuery({
+    role: UserRole.PRACTICE_TEACHER
   }).data;
 
   const categories = categoriesApi.useGetCategoriesQuery({}).data;

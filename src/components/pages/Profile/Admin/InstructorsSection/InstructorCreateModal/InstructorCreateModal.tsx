@@ -4,7 +4,8 @@ import ExitThin from "@/components/other/Icons/ExitThin";
 
 import styles from "./InstructorCreateModal.module.scss";
 import InstructorCreateItem from "@/components/pages/Profile/Admin/InstructorsSection/InstructorCreateModal/InstructorCreateItem/InstructorCreateItem";
-import { api } from "@/store/api/api";
+import { usersApi } from "@/store/api/users/users.api";
+import { UserRole } from "@/store/api/users/users.types";
 
 interface Props {
   modalShown: boolean;
@@ -12,7 +13,10 @@ interface Props {
 }
 
 const InstructorCreateModal: FC<Props> = ({ modalShown, setModalShown }) => {
-  const users = api.useGetStudentsWithoutGroupQuery().data;
+  const users = usersApi.useGetUsersQuery({
+    role: UserRole.STUDENT,
+    withGroup: false
+  }).data;
 
   return (
     <ModalWrapper

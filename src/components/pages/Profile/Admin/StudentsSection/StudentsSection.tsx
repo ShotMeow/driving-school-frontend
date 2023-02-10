@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { UserType } from "@/types/user.types";
 import StudentItem from "@/components/pages/Profile/Admin/StudentsSection/StudentItem/StudentItem";
 
 import styles from "./StudentsSection.module.scss";
@@ -7,6 +6,7 @@ import StudentSearch from "@/components/pages/Profile/Admin/StudentsSection/Stud
 import Button from "@/components/UI/Button/Button";
 import StudentCreateModal from "@/components/pages/Profile/Admin/StudentsSection/StudentCreateModal/StudentCreateModal";
 import { AnimatePresence } from "framer-motion";
+import { UserType } from "@/store/api/users/users.types";
 
 const StudentsSection: FC = () => {
   const [students, setStudents] = useState<UserType[]>([]);

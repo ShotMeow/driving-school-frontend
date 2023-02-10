@@ -3,8 +3,8 @@ import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import Button from "@/components/UI/Button/Button";
 
 import styles from "./InstructorDeleteModal.module.scss";
-import { api } from "@/store/api/api";
-import { Roles } from "@/types/user.types";
+import { usersApi } from "@/store/api/users/users.api";
+import { UserRole } from "@/store/api/users/users.types";
 
 interface Props {
   modalShown: boolean;
@@ -17,12 +17,15 @@ const InstructorDeleteModal: FC<Props> = ({
   setModalShown,
   userId
 }) => {
-  const [changeUserRole] = api.useChangeUserRoleMutation();
+  const [changeUserRole] = usersApi.useChangeUserRoleMutation();
 
   const handleSubmit = () => {
-    changeUserRole({ userId: userId, role: Roles.STUDENT }).then(() =>
-      setModalShown(false)
-    );
+    changeUserRole({
+      userId: userId,
+      body: {
+        role: UserRole.STUDENT
+      }
+    }).then(() => setModalShown(false));
   };
 
   return (

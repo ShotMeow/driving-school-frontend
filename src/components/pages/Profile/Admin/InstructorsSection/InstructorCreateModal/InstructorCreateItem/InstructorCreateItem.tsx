@@ -2,10 +2,10 @@ import React, { FC, useState } from "react";
 
 import styles from "./InstructorCreateItem.module.scss";
 import Avatar from "@/components/other/Icons/Avatar";
-import { Roles, UserType } from "@/types/user.types";
 import Button from "@/components/UI/Button/Button";
-import { api } from "@/store/api/api";
 import Radio from "@/components/UI/Radio/Radio";
+import { usersApi } from "@/store/api/users/users.api";
+import { UserRole, UserType } from "@/store/api/users/users.types";
 
 interface Props {
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,16 +13,18 @@ interface Props {
 }
 
 const InstructorCreateItem: FC<Props> = ({ setModalShown, user }) => {
-  const [role, setRole] = useState<string>(Roles.THEORY_TEACHER);
-  const [changeUserRole] = api.useChangeUserRoleMutation();
+  const [role, setRole] = useState<string>("");
+  const [changeUserRole] = usersApi.useChangeUserRoleMutation();
 
   const handleSubmit = () => {
-    {
-      role &&
-        changeUserRole({ userId: user.id, role: role }).then(() =>
-          setModalShown(false)
-        );
-    }
+    console.log(role);
+    role &&
+      changeUserRole({
+        userId: user.id,
+        body: {
+          role: role
+        }
+      }).then(() => setModalShown(false));
   };
 
   return (
@@ -41,14 +43,14 @@ const InstructorCreateItem: FC<Props> = ({ setModalShown, user }) => {
           dark
           title="Учитель теории"
           name={String(user.id)}
-          value={Roles.THEORY_TEACHER}
+          value={UserRole.THEORY_TEACHER}
           onChange={(event) => setRole(event.target.value)}
         />
         <Radio
           dark
           title="Учитель практики"
           name={String(user.id)}
-          value={Roles.PRACTICE_TEACHER}
+          value={UserRole.PRACTICE_TEACHER}
           onChange={(event) => setRole(event.target.value)}
         />
       </div>

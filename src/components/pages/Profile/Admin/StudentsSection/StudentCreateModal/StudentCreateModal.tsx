@@ -3,16 +3,21 @@ import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import ExitThin from "@/components/other/Icons/ExitThin";
 
 import styles from "./StudentCreateModal.module.scss";
-import { api } from "@/store/api/api";
 import StudentCreateItem from "@/components/pages/Profile/Admin/StudentsSection/StudentCreateModal/StudentCreateItem/StudentCreateItem";
+import { usersApi } from "@/store/api/users/users.api";
+import { groupsApi } from "@/store/api/groups/groups.api";
+import { UserRole } from "@/store/api/users/users.types";
 interface Props {
   modalShown: boolean;
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const StudentCreateModal: FC<Props> = ({ modalShown, setModalShown }) => {
-  const users = api.useGetStudentsWithoutGroupQuery().data;
-  const groups = api.useGetAllGroupsQuery({}).data;
+  const users = usersApi.useGetUsersQuery({
+    role: UserRole.STUDENT,
+    withGroup: false
+  }).data;
+  const groups = groupsApi.useGetGroupsQuery({}).data;
 
   return (
     <ModalWrapper

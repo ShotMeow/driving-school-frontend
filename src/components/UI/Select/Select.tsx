@@ -39,7 +39,7 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
       {type === SelectTypes.Categories && (
         <select {...props}>
           {options.map((option) => (
-            <option key={option.id} value={option.category}>
+            <option key={option.id} value={option.id}>
               {option.value}
             </option>
           ))}

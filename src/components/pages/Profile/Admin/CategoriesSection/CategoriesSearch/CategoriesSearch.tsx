@@ -5,8 +5,8 @@ import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
 import Burger from "@/components/other/Icons/Burger";
 import { useDebounce } from "@/hooks/useDebounce";
-import { CategoryType } from "@/types/category.types";
-import { categoriesApi } from "@/store/api/categories.api";
+import { categoriesApi } from "@/store/api/categories/categories.api";
+import { CategoryType } from "@/store/api/categories/categories.types";
 
 interface Props {
   setCategories: React.Dispatch<React.SetStateAction<CategoryType[]>>;

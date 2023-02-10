@@ -3,10 +3,10 @@ import React, { FC, useState } from "react";
 import Button from "@/components/UI/Button/Button";
 
 import styles from "./InstructorItem.module.scss";
-import { Roles, UserType } from "@/types/user.types";
 import Avatar from "@/components/other/Icons/Avatar";
 import { AnimatePresence } from "framer-motion";
 import InstructorDeleteModal from "@/components/pages/Profile/Admin/InstructorsSection/InstructorDeleteModal/InstructorDeleteModal";
+import { UserRole, UserType } from "@/store/api/users/users.types";
 
 interface Props {
   teacher: UserType;
@@ -25,7 +25,7 @@ const GroupItem: FC<Props> = ({ teacher }) => {
         </h3>
       </div>
       <p className={styles.role}>
-        {teacher.role === Roles.THEORY_TEACHER
+        {teacher.role === UserRole.THEORY_TEACHER
           ? "Учитель теории"
           : "Учитель практики"}
       </p>

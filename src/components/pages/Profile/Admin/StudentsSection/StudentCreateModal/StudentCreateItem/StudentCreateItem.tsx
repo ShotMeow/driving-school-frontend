@@ -2,11 +2,11 @@ import React, { FC, useState } from "react";
 
 import styles from "./StudentCreateItem.module.scss";
 import Avatar from "@/components/other/Icons/Avatar";
-import { UserType } from "@/types/user.types";
 import Button from "@/components/UI/Button/Button";
 import Select, { SelectTypes } from "@/components/UI/Select/Select";
-import { GroupType } from "@/types/group.types";
-import { api } from "@/store/api/api";
+import { GroupType } from "@/store/api/groups/groups.types";
+import { UserType } from "@/store/api/users/users.types";
+import { groupsApi } from "@/store/api/groups/groups.api";
 
 interface Props {
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,10 +19,10 @@ const StudentCreateItem: FC<Props> = ({ setModalShown, groups, user }) => {
     groups.length ? groups[0].id : 0
   );
 
-  const [addStudentToGroup] = api.useAddStudentToGroupMutation();
+  const [addStudentToGroup] = groupsApi.usePushStudentToGroupMutation();
 
   const handleSubmit = () => {
-    addStudentToGroup({ groupId: selectedGroup, studentId: user.id }).then(() =>
+    addStudentToGroup({ groupId: selectedGroup, userId: user.id }).then(() =>
       setModalShown(false)
     );
   };

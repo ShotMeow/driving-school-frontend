@@ -5,7 +5,7 @@ import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 
 import styles from "./CategoryCreateModal.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
-import { categoriesApi } from "@/store/api/categories.api";
+import { categoriesApi } from "@/store/api/categories/categories.api";
 
 interface Props {
   modalShown: boolean;
@@ -18,7 +18,7 @@ const CategoryCreateModal: FC<Props> = ({ modalShown, setModalShown }) => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    value && createCategory(value).then(() => setModalShown(false));
+    value && createCategory({ value: value }).then(() => setModalShown(false));
   };
 
   return (

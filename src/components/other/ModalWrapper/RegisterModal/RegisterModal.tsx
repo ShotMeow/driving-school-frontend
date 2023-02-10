@@ -7,9 +7,9 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { RegisterType } from "@/types/auth.types";
-import { api } from "@/store/api/api";
 import { useRouter } from "next/navigation";
+import { authApi } from "@/store/api/auth/auth.api";
+import { RegisterType } from "@/store/api/auth/auth.types";
 
 interface Props {
   setModalType: React.Dispatch<React.SetStateAction<"login" | "register">>;
@@ -25,7 +25,7 @@ interface RegisterFields {
 }
 
 const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
-  const [register] = api.useRegisterMutation();
+  const [register] = authApi.useRegisterMutation();
   const router = useRouter();
 
   const formSchema = Yup.object().shape({
@@ -97,12 +97,12 @@ const RegisterModal: FC<Props> = ({ setIsModalShow, setModalType }) => {
         switch (data.error.data.field) {
           case "phone":
             setError("phone", {
-              message: data.error.data.message
+              message: data.error.data.error
             });
             break;
           case "email":
             setError("email", {
-              message: data.error.data.message
+              message: data.error.data.error
             });
             break;
           default:

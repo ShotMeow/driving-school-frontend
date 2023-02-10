@@ -3,7 +3,7 @@ import ModalWrapper from "@/components/other/ModalWrapper/ModalWrapper";
 import Button from "@/components/UI/Button/Button";
 
 import styles from "./StudentDeleteModal.module.scss";
-import { api } from "@/store/api/api";
+import { groupsApi } from "@/store/api/groups/groups.api";
 
 interface Props {
   modalShown: boolean;
@@ -18,10 +18,11 @@ const StudentDeleteModal: FC<Props> = ({
   userId,
   groupId
 }) => {
-  const [deleteStudentWithGroup] = api.useDeleteStudentWithGroupMutation();
+  const [deleteStudentWithGroup] =
+    groupsApi.useDeleteStudentFromGroupMutation();
 
   const handleSubmit = () => {
-    deleteStudentWithGroup({ groupId: groupId, studentId: userId }).then(() =>
+    deleteStudentWithGroup({ groupId: groupId, userId: userId }).then(() =>
       setModalShown(false)
     );
   };

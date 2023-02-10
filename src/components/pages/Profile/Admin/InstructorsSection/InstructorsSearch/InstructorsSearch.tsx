@@ -4,9 +4,9 @@ import styles from "./InstructorsSearch.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
 import Burger from "@/components/other/Icons/Burger";
-import { Roles, UserType } from "@/types/user.types";
-import { api } from "@/store/api/api";
 import { useDebounce } from "@/hooks/useDebounce";
+import { usersApi } from "@/store/api/users/users.api";
+import { UserRole, UserType } from "@/store/api/users/users.types";
 
 interface Props {
   setInstructors: React.Dispatch<React.SetStateAction<UserType[]>>;
@@ -16,12 +16,13 @@ const InstructorsSearch: FC<Props> = ({ setInstructors }) => {
   const [value, setValue] = useState<string>("");
   const debounce = useDebounce<string>(value, 500);
 
-  const theory = api.useGetUsersByTypeQuery({
-    role: Roles.THEORY_TEACHER,
+  const theory = usersApi.useGetUsersQuery({
+    role: UserRole.THEORY_TEACHER,
     search: debounce
   }).data;
-  const practice = api.useGetUsersByTypeQuery({
-    role: Roles.PRACTICE_TEACHER,
+
+  const practice = usersApi.useGetUsersQuery({
+    role: UserRole.PRACTICE_TEACHER,
     search: debounce
   }).data;
 
