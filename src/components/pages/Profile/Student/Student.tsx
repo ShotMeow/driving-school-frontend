@@ -4,16 +4,13 @@ import TeachersCard from "@/components/pages/Profile/Student/TeachersCard/Teache
 import ErrorMessage from "@/components/pages/Profile/ErrorMessage/ErrorMessage";
 
 import styles from "../Profile.module.scss";
-import { api } from "@/store/api/api";
-import { UserType } from "@/types/user.types";
+import { UserType } from "@/store/api/users/users.types";
 
 interface Props {
   user: UserType;
 }
 
 const Student: FC<Props> = ({ user }) => {
-  const { data } = api.useGetGroupByAuthQuery();
-
   return (
     <main className={styles.main}>
       <div className={styles.left}>
@@ -21,17 +18,17 @@ const Student: FC<Props> = ({ user }) => {
           surname={user.surname}
           name={user.name}
           patronymic={user.patronymic}
-          type={user.role}
-          category={data && data.category.value}
+          role={user.role}
+          category={user.group && user.group.category.value}
         />
-        {data && (
+        {user.group && (
           <TeachersCard
-            theoryTeacher={data.theoryTeacher}
-            practiceTeacher={data.practiceTeacher}
+            theoryTeacher={user.group.theoryTeacher}
+            practiceTeacher={user.group.practiceTeacher}
           />
         )}
       </div>
-      {!data ? <ErrorMessage /> : <></>}
+      {!user.group ? <ErrorMessage /> : <></>}
     </main>
   );
 };

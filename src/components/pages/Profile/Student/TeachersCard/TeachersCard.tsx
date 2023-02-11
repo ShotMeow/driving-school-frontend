@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import styles from "./TeachersCard.module.scss";
-import { UserType } from "@/types/user.types";
+import { UserType } from "@/store/api/users/users.types";
 
 interface Props {
   theoryTeacher: UserType;
