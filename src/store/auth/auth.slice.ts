@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ResponseType } from "@/types/auth.types";
+import { ResponseType } from "@/store/api/auth/auth.types";
 
 const initialState: ResponseType = {
   token: null
