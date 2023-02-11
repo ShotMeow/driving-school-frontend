@@ -16,7 +16,7 @@
       }
 
       .category {
-        @apply flex flex-col gap-4;
+        @apply flex flex-col gap-4 text-gray;
 
         label::before {
           flex-shrink: 0;
@@ -24,7 +24,7 @@
       }
 
       .group {
-        @apply flex gap-4;
+        @apply flex gap-4 text-gray;
 
         label::before {
           flex-shrink: 0;

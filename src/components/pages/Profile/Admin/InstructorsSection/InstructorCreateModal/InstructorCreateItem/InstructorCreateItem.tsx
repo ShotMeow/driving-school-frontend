@@ -40,14 +40,12 @@ const InstructorCreateItem: FC<Props> = ({ setModalShown, user }) => {
       </div>
       <div className={styles.actions}>
         <Radio
-          dark
           title="Учитель теории"
           name={String(user.id)}
           value={UserRole.THEORY_TEACHER}
           onChange={(event) => setRole(event.target.value)}
         />
         <Radio
-          dark
           title="Учитель практики"
           name={String(user.id)}
           value={UserRole.PRACTICE_TEACHER}

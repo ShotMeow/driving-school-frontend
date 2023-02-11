@@ -6,7 +6,7 @@
 
     &:checked {
       + h6 {
-        @apply text-white;
+        @apply text-black;
       }
     }
   }
@@ -17,16 +17,16 @@
   }
 
   > &::after {
-    @apply w-4 h-4 rounded-full bg-white absolute left-2 hidden;
+    @apply w-4 h-4 rounded-full bg-gray absolute left-2 hidden;
     content: "";
   }
 
   &:has(:checked)::before {
-    @apply border-white border-2;
+    @apply border-gray border-2;
   }
 
   &:has(:focus)::before {
-    @apply border-white border-2;
+    @apply border-gray border-2;
   }
 
   &:has(:checked)::after {
@@ -41,9 +41,13 @@
     > input {
       @apply absolute opacity-0;
 
+      h6 {
+        @apply text-gray;
+      }
+
       &:checked {
         + h6 {
-          @apply text-gray;
+          @apply text-white;
         }
       }
     }
@@ -54,16 +58,16 @@
     }
 
     > &::after {
-      @apply w-4 h-4 rounded-full bg-gray absolute left-2 hidden;
+      @apply w-4 h-4 rounded-full bg-white absolute left-2 hidden;
       content: "";
     }
 
     &:has(:checked)::before {
-      @apply border-gray border-2;
+      @apply border-white border-2;
     }
 
     &:has(:focus)::before {
-      @apply border-gray border-2;
+      @apply border-white border-2;
     }
 
     &:has(:checked)::after {
