@@ -11,6 +11,7 @@ interface Props {
 }
 
 const Student: FC<Props> = ({ user }) => {
+  console.log(user);
   return (
     <main className={styles.main}>
       <div className={styles.left}>

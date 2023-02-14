@@ -17,7 +17,7 @@ const TeachersCard: FC<Props> = ({ theoryTeacher, practiceTeacher }) => {
           {theoryTeacher.surname} {theoryTeacher.name[0]}.{" "}
           {theoryTeacher.patronymic && theoryTeacher.patronymic[0] + "."}
         </p>
-        <a href={`tel:${theoryTeacher.phone}`}>{theoryTeacher.phone}</a>
+        <a href={`tel:+${theoryTeacher.phone.replace(/\D/g, "")}`}>{theoryTeacher.phone}</a>
       </div>
       <div className={styles.line} />
       <div>
