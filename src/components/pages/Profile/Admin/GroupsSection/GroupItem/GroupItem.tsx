@@ -6,14 +6,21 @@ import GroupAvatar from "@/components/other/Icons/GroupAvatar";
 import GroupDeleteModal from "@/components/pages/Profile/Admin/GroupsSection/GroupDeleteModal/GroupDeleteModal";
 import { AnimatePresence } from "framer-motion";
 import { GroupType } from "@/store/api/groups/groups.types";
+import GroupChangeModal from "@/components/pages/Profile/Admin/GroupsSection/GroupChangeModal/GroupChangeModal";
+import {UserType} from "@/store/api/users/users.types";
+import {CategoryType} from "@/store/api/categories/categories.types";
 
 interface Props {
   group: GroupType;
+  theoryTeachers: UserType[];
+  practiceTeachers: UserType[];
+  categories: CategoryType[];
 }
 
-const GroupItem: FC<Props> = ({ group }) => {
+const GroupItem: FC<Props> = ({ group, theoryTeachers, practiceTeachers, categories }) => {
   const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
-  console.log(group);
+  const [modalChangeShown, setModalChangeShown] = useState<boolean>(false);
+
   return (
     <article className={styles.item}>
       <div className={styles.about}>
@@ -44,7 +51,7 @@ const GroupItem: FC<Props> = ({ group }) => {
         </div>
       </div>
       <div className={styles.actions}>
-        <Button primary>Редактировать</Button>
+        <Button onClick={() => setModalChangeShown(true)} primary>Редактировать</Button>
         <Button onClick={() => setModalDeleteShown(true)} secondary>
           Удалить
         </Button>
@@ -55,6 +62,16 @@ const GroupItem: FC<Props> = ({ group }) => {
             groupId={group.id}
             modalShown={modalDeleteShown}
             setModalShown={setModalDeleteShown}
+          />
+        )}
+        {modalChangeShown && (
+          <GroupChangeModal
+            theoryTeachers={theoryTeachers}
+            practiceTeachers={practiceTeachers}
+            categories={categories}
+            group={group}
+            modalShown={modalChangeShown}
+            setModalShown={setModalChangeShown}
           />
         )}
       </AnimatePresence>

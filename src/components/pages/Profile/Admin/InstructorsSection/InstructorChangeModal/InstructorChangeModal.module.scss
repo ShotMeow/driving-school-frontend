@@ -1,7 +1,7 @@
 @import "@/styles/variables";
 
 .modal {
-  width: 900px;
+  width: 400px;
 
   @media (max-width: $adaptive-max-breakpoint) {
     @apply w-full h-full;
@@ -16,26 +16,26 @@
   }
 
   .body {
-    .group {
+    @apply my-4;
+    .info {
       @apply flex items-center gap-4;
 
       h4 {
-        @apply font-bold;
+        @apply text-2xl font-bold;
       }
-      svg {
-        @apply w-16;
+
+      p {
+        @apply text-xl;
       }
     }
 
     form {
-      @apply space-y-4;
-      > div {
-        @apply flex flex-wrap gap-4;
-      }
+      @apply my-4 space-y-4;
 
       button {
-        @apply px-6 py-2;
+        @apply px-10 py-2 mt-4;
       }
     }
+
   }
 }

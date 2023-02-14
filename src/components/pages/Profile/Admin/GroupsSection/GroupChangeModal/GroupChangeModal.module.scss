@@ -16,25 +16,38 @@
   }
 
   .body {
-    .group {
+    @apply my-4;
+    .info {
       @apply flex items-center gap-4;
 
       h4 {
-        @apply font-bold;
+        @apply text-2xl font-bold;
       }
-      svg {
-        @apply w-16;
+
+      p {
+        @apply text-xl;
+
+        span {
+          @apply text-primary font-bold;
+        }
       }
     }
 
     form {
-      @apply space-y-4;
-      > div {
-        @apply flex flex-wrap gap-4;
+      @apply my-4;
+      .selects {
+        @apply flex flex-wrap gap-6;
       }
 
       button {
-        @apply px-6 py-2;
+        @apply px-10 py-2 mt-4;
+      }
+    }
+
+    .students {
+      @apply mt-10;
+      h4 {
+        @apply text-xl font-bold;
       }
     }
   }

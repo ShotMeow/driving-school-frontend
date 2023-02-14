@@ -52,7 +52,6 @@ const CategoryChangeModal: FC<Props> = ({
           </Button>
         </form>
       </div>
-      <div></div>
     </ModalWrapper>
   );
 };

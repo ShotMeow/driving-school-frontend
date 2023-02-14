@@ -7,6 +7,8 @@ import Avatar from "@/components/other/Icons/Avatar";
 import { AnimatePresence } from "framer-motion";
 import InstructorDeleteModal from "@/components/pages/Profile/Admin/InstructorsSection/InstructorDeleteModal/InstructorDeleteModal";
 import { UserRole, UserType } from "@/store/api/users/users.types";
+import InstructorChangeModal
+  from "@/components/pages/Profile/Admin/InstructorsSection/InstructorChangeModal/InstructorChangeModal";
 
 interface Props {
   teacher: UserType;
@@ -14,6 +16,7 @@ interface Props {
 
 const GroupItem: FC<Props> = ({ teacher }) => {
   const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
+  const [modalChangeShown, setModalChangeShown] = useState<boolean>(false);
 
   return (
     <article className={styles.item}>
@@ -30,7 +33,7 @@ const GroupItem: FC<Props> = ({ teacher }) => {
           : "Учитель практики"}
       </p>
       <div className={styles.actions}>
-        <Button primary>Редактировать</Button>
+        <Button onClick={() => setModalChangeShown(true)} primary>Редактировать</Button>
         <Button onClick={() => setModalDeleteShown(true)} secondary>
           Удалить
         </Button>
@@ -41,6 +44,13 @@ const GroupItem: FC<Props> = ({ teacher }) => {
             modalShown={modalDeleteShown}
             setModalShown={setModalDeleteShown}
             userId={teacher.id}
+          />
+        )}
+        {modalChangeShown && (
+          <InstructorChangeModal
+            modalShown={modalChangeShown}
+            setModalShown={setModalChangeShown}
+            user={teacher}
           />
         )}
       </AnimatePresence>

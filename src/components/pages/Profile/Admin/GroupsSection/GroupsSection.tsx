@@ -36,9 +36,9 @@ const GroupsSection: FC = () => {
           </Button>
         </div>
         <ul>
-          {groups.map((group) => (
+          {theoryTeachers && practiceTeachers && categories && groups.map((group) => (
             <li key={group.id}>
-              <GroupItem group={group} />
+              <GroupItem theoryTeachers={theoryTeachers} practiceTeachers={practiceTeachers} categories={categories} group={group} />
             </li>
           ))}
         </ul>

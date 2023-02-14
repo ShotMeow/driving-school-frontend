@@ -1,7 +1,7 @@
 @import "@/styles/variables";
 
 .modal {
-  width: 700px;
+  width: 800px;
 
   @media (max-width: $adaptive-max-breakpoint) {
     @apply w-full h-full;

@@ -9,9 +9,10 @@ import { UserType } from "@/store/api/users/users.types";
 
 interface Props {
   user: UserType;
+  groupId?: number;
 }
 
-const StudentItem: FC<Props> = ({ user }) => {
+const StudentItem: FC<Props> = ({ user, groupId }) => {
   const [modalDeleteShown, setModalDeleteShown] = useState<boolean>(false);
 
   return (
@@ -61,7 +62,7 @@ const StudentItem: FC<Props> = ({ user }) => {
             modalShown={modalDeleteShown}
             setModalShown={setModalDeleteShown}
             userId={user.id}
-            groupId={user.group.id}
+            groupId={groupId ? groupId : user.group.id}
           />
         )}
       </AnimatePresence>

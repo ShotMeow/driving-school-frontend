@@ -28,6 +28,7 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
       {title && <h5>{title}</h5>}
       {type === SelectTypes.Users && (
         <select {...props}>
+          <option value="" selected disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               {option.surname} {option.name[0]}.{" "}
@@ -38,6 +39,7 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
       )}
       {type === SelectTypes.Categories && (
         <select {...props}>
+          <option value="" selected disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               {option.value}
@@ -47,6 +49,7 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
       )}
       {type === SelectTypes.Groups && (
         <select {...props}>
+          <option value="" selected disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               № {option.id}
@@ -58,6 +61,7 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
         type !== SelectTypes.Users &&
         type !== SelectTypes.Groups && (
           <select {...props}>
+            <option value="" selected disabled hidden>Выберите значение</option>
             {options.map((option) => (
               <option key={option}>{option}</option>
             ))}
