@@ -1,15 +1,20 @@
 import { GroupType } from "@/store/api/groups/groups.types";
 
 export interface ScheduleType {
+  id: number;
   type: ScheduleEnum;
   startTime: string;
   endTime: string;
-  date: Date;
+  date: string;
   address?: string;
   group: GroupType;
 }
 
-export interface CreateScheduleType extends ScheduleType {
+export interface CreateScheduleType {
+  type: ScheduleEnum;
+  startTime: string;
+  endTime: string;
+  date: string;
   address?: string;
 }
 

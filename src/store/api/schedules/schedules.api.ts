@@ -7,7 +7,14 @@ import {
 
 export const schedulesApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getSchedules: builder.query<ScheduleType[], { groupId: number }>({
+    getSchedules: builder.query<ScheduleType[], { teacherId: number }>({
+      query: (args) => ({
+        url: `/schedules`,
+        params: { teacherId: args.teacherId }
+      }),
+      providesTags: ["Schedule"]
+    }),
+    getSchedule: builder.query<ScheduleType[], { groupId: number }>({
       query: (args) => `/schedules/${args.groupId}`,
       providesTags: ["Schedule"]
     }),
@@ -38,7 +45,7 @@ export const schedulesApi = api.injectEndpoints({
       { groupId: number; scheduleId: number }
     >({
       query: (args) => ({
-        url: `/categories/${args.groupId}/${args.scheduleId}`,
+        url: `/schedules/${args.groupId}/${args.scheduleId}`,
         method: "DELETE"
       }),
       invalidatesTags: ["Schedule", "Group"]

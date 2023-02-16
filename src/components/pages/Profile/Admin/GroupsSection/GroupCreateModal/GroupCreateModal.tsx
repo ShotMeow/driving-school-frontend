@@ -25,15 +25,9 @@ const GroupCreateModal: FC<Props> = ({
   practiceTeachers,
   categories
 }) => {
-  const [theoryTeacherId, setTheoryTeacherId] = useState<number>(
-    theoryTeachers.length ? theoryTeachers[0].id : 0
-  );
-  const [practiceTeacherId, setPracticeTeacherId] = useState<number>(
-    practiceTeachers.length ? practiceTeachers[0].id : 0
-  );
-  const [categoryId, setCategoryId] = useState<number>(
-    categories.length ? categories[0].id : 0
-  );
+  const [theoryTeacherId, setTheoryTeacherId] = useState<number>(0);
+  const [practiceTeacherId, setPracticeTeacherId] = useState<number>(0);
+  const [categoryId, setCategoryId] = useState<number>(0);
 
   const [createGroup] = groupsApi.useCreateGroupMutation();
 

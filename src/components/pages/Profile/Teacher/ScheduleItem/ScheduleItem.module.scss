@@ -1,0 +1,23 @@
+.item {
+  @apply flex justify-between items-center;
+
+  > .info {
+    @apply flex items-center gap-4;
+
+    h4 {
+      @apply text-xl font-bold;
+    }
+  }
+
+  .type {
+    @apply text-xl font-medium;
+  }
+
+  .action {
+    @apply flex gap-6 items-center;
+
+    button {
+      @apply px-8 py-2;
+    }
+  }
+}

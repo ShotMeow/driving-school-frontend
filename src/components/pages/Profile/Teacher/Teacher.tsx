@@ -3,12 +3,18 @@ import styles from "../Profile.module.scss";
 import UserInfoCard from "@/components/pages/Profile/UserInfoCard/UserInfoCard";
 import ScheduleCard from "@/components/pages/Profile/Teacher/ScheduleCard/ScheduleCard";
 import { UserType } from "@/store/api/users/users.types";
+import { groupsApi } from "@/store/api/groups/groups.api";
+import { schedulesApi } from "@/store/api/schedules/schedules.api";
 
 interface Props {
   user: UserType;
 }
 
 const Teacher: FC<Props> = ({ user }) => {
+  const groups = groupsApi.useGetGroupsQuery({ search: user.email }).data;
+  const schedules = schedulesApi.useGetSchedulesQuery({
+    teacherId: user.id
+  }).data;
   return (
     <main className={styles.main}>
       <div className={styles.left}>
@@ -18,7 +24,9 @@ const Teacher: FC<Props> = ({ user }) => {
           patronymic={user.patronymic}
           role={user.role}
         />
-        <ScheduleCard />
+        {groups && schedules && (
+          <ScheduleCard schedules={schedules} groups={groups} />
+        )}
       </div>
       <></>
     </main>

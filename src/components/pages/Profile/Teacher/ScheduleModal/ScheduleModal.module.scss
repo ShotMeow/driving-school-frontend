@@ -1,0 +1,54 @@
+@import "@/styles/variables";
+
+.modal {
+  width: 1000px;
+
+  @media (max-width: $adaptive-max-breakpoint) {
+    @apply w-full h-full;
+  }
+
+  header {
+    @apply flex items-center justify-between;
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+  }
+
+  .body {
+    .actions {
+      @apply mt-4 space-y-4;
+
+      .selects {
+        @apply flex gap-4;
+      }
+
+      .inputs {
+        @apply flex gap-4;
+
+        label {
+          @apply w-full;
+
+          input {
+            @apply w-full;
+          }
+        }
+      }
+    }
+
+    button {
+      @apply px-6 py-2 mt-6;
+    }
+  }
+
+  .schedule {
+    @apply mt-6;
+    > h4 {
+      @apply font-bold text-xl;
+    }
+
+    > ul {
+      @apply mt-6;
+    }
+  }
+}

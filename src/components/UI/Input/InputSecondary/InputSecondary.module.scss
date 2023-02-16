@@ -1,8 +1,8 @@
 .input {
-  @apply flex flex-col gap-2;
+  @apply space-y-2;
 
   > h5 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 
   > input {
