@@ -1,4 +1,4 @@
-import React, { FC, SelectHTMLAttributes } from "react";
+import React, {forwardRef, SelectHTMLAttributes} from "react";
 
 import styles from "./Select.module.scss";
 import classNames from "classnames";
@@ -15,7 +15,7 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   options: any[];
 }
 
-const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
+const Select = forwardRef<HTMLSelectElement, Props>(({ title, options, type, className, ...props }, ref) => {
   return (
     <label
       className={classNames(
@@ -27,8 +27,8 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
     >
       {title && <h5>{title}</h5>}
       {type === SelectTypes.Users && (
-        <select {...props}>
-          <option value="" selected disabled hidden>Выберите значение</option>
+        <select defaultValue="DEFAULT" ref={ref} {...props}>
+          <option value="DEFAULT" disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               {option.surname} {option.name[0]}.{" "}
@@ -38,8 +38,8 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
         </select>
       )}
       {type === SelectTypes.Categories && (
-        <select {...props}>
-          <option value="" selected disabled hidden>Выберите значение</option>
+        <select defaultValue="DEFAULT" ref={ref} {...props}>
+          <option value="DEFAULT" disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               {option.value}
@@ -48,8 +48,8 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
         </select>
       )}
       {type === SelectTypes.Groups && (
-        <select {...props}>
-          <option value="" selected disabled hidden>Выберите значение</option>
+        <select defaultValue="DEFAULT" ref={ref} {...props}>
+          <option value="DEFAULT" disabled hidden>Выберите значение</option>
           {options.map((option) => (
             <option key={option.id} value={option.id}>
               № {option.id}
@@ -60,8 +60,8 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
       {type !== SelectTypes.Categories &&
         type !== SelectTypes.Users &&
         type !== SelectTypes.Groups && (
-          <select {...props}>
-            <option value="" selected disabled hidden>Выберите значение</option>
+          <select defaultValue="DEFAULT" ref={ref} {...props}>
+            <option value="DEFAULT" disabled hidden>Выберите значение</option>
             {options.map((option) => (
               <option key={option}>{option}</option>
             ))}
@@ -69,6 +69,8 @@ const Select: FC<Props> = ({ title, options, type, className, ...props }) => {
         )}
     </label>
   );
-};
+});
+
+Select.displayName = "Select";
 
 export default Select;
