@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import styles from "./ScheduleItem.module.scss";
 import { ScheduleType } from "@/store/api/schedules/schedules.types";
 import { getScheduleType } from "@/components/pages/Profile/Teacher/ScheduleItem/ScheduleItem.utils";
-import ExitThin from "@/components/other/Icons/ExitThin";
 import { AnimatePresence } from "framer-motion";
 import classNames from "classnames";
 import ListArrow from "@/components/other/Icons/ListArrow";
