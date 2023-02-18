@@ -3,7 +3,8 @@
   background-color: rgba(0 0 0 / 30%);
 
   > div {
-    @apply h-full flex items-center justify-center;
+    @apply h-full flex items-start justify-center overflow-y-scroll mt-10;
+    overflow: auto;
   }
 
   .inner {

@@ -5,6 +5,7 @@ import ErrorMessage from "@/components/pages/Profile/ErrorMessage/ErrorMessage";
 
 import styles from "../Profile.module.scss";
 import { UserType } from "@/store/api/users/users.types";
+import ScheduleItem from "@/components/pages/Profile/Student/ScheduleItem/ScheduleItem";
 
 interface Props {
   user: UserType;
@@ -29,7 +30,11 @@ const Student: FC<Props> = ({ user }) => {
           />
         )}
       </div>
-      {!user.group ? <ErrorMessage /> : <></>}
+      {!user.group ? <ErrorMessage /> : <div className={styles.body}>
+        <ul>
+          {user.group.schedules.map((schedule) => <li key={schedule.id}><ScheduleItem schedule={schedule} /></li>)}
+        </ul>
+      </div>}
     </main>
   );
 };

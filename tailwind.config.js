@@ -14,7 +14,8 @@ module.exports = {
         black: "#282828",
         info: "#E6F3FF",
         success: "#E6FFED",
-        warning: "#FF0000"
+        warning: "#FF0000",
+        notification: "#E6F3FF"
       },
       borderRadius: {
         sm: "4px",

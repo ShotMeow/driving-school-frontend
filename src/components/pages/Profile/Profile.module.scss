@@ -5,4 +5,10 @@
   .left {
     @apply flex flex-col gap-6;
   }
+
+  .body {
+    ul {
+      @apply space-y-6;
+    }
+  }
 }

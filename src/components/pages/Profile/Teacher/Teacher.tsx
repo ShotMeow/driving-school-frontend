@@ -5,6 +5,7 @@ import ScheduleCard from "@/components/pages/Profile/Teacher/ScheduleCard/Schedu
 import { UserType } from "@/store/api/users/users.types";
 import { groupsApi } from "@/store/api/groups/groups.api";
 import { schedulesApi } from "@/store/api/schedules/schedules.api";
+import ScheduleItem from "@/components/pages/Profile/Student/ScheduleItem/ScheduleItem";
 
 interface Props {
   user: UserType;
@@ -28,7 +29,16 @@ const Teacher: FC<Props> = ({ user }) => {
           <ScheduleCard schedules={schedules} groups={groups} />
         )}
       </div>
-      <></>
+      <div className={styles.body}>
+        <ul>
+          {schedules &&
+            schedules.map((schedule) => (
+              <li key={schedule.id}>
+                <ScheduleItem schedule={schedule} />
+              </li>
+            ))}
+        </ul>
+      </div>
     </main>
   );
 };

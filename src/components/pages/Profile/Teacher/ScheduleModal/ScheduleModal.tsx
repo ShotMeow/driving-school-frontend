@@ -25,7 +25,7 @@ interface Props {
 }
 
 interface ScheduleCreateFields extends CreateScheduleType {
-  groupId: number;
+  groupId: number | "DEFAULT";
 }
 
 const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
@@ -40,11 +40,10 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
   });
   const validationOpt = { resolver: yupResolver(formSchema) };
 
-  const { handleSubmit, control } =
+  const { handleSubmit, control, reset } =
     useForm<ScheduleCreateFields>(validationOpt);
 
   const onSubmit: SubmitHandler<ScheduleCreateFields> = (data) => {
-    console.log(data);
     createSchedule({
       groupId: data.groupId,
       body: {
@@ -53,10 +52,8 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
         endTime: data.endTime,
         date: data.date
       }
-    }).then(() => setIsShow(false));
+    }).then(() => reset());
   };
-
-  console.log(schedules);
 
   return (
     <ModalWrapper
@@ -75,6 +72,7 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
           <div className={styles.selects}>
             <Controller
               name="groupId"
+              defaultValue="DEFAULT"
               control={control}
               render={({ field }) => (
                 <Select
@@ -87,6 +85,7 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
             />
             <Controller
               name="type"
+              defaultValue="DEFAULT"
               control={control}
               render={({ field }) => (
                 <Select

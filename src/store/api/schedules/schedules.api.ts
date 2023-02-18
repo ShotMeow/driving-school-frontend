@@ -20,7 +20,7 @@ export const schedulesApi = api.injectEndpoints({
     }),
     createSchedule: builder.mutation<
       ScheduleType,
-      { groupId: number; body: CreateScheduleType }
+      { groupId: number | "DEFAULT"; body: CreateScheduleType }
     >({
       query: (args) => ({
         url: `/schedules/${args.groupId}/create`,

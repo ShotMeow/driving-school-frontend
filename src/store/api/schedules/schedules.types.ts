@@ -11,7 +11,7 @@ export interface ScheduleType {
 }
 
 export interface CreateScheduleType {
-  type: ScheduleEnum;
+  type: ScheduleEnum | "DEFAULT";
   startTime: string;
   endTime: string;
   date: string;
