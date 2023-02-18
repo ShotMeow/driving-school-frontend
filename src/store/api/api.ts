@@ -15,6 +15,7 @@ export const api = createApi({
   endpoints: (builder) => ({
     getAuthUser: builder.query<UserType, void>({
       query: () => `/users/profile`,
+      forceRefetch: () => true,
       providesTags: ["Profile"]
     })
   })

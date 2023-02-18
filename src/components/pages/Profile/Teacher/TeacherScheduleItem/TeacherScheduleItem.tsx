@@ -1,9 +1,8 @@
 import React, { FC, useState } from "react";
 
 import { motion } from "framer-motion";
-import styles from "./ScheduleItem.module.scss";
+import styles from "./TeacherScheduleItem.module.scss";
 import { ScheduleType } from "@/store/api/schedules/schedules.types";
-import { getScheduleType } from "@/components/pages/Profile/Teacher/ScheduleItem/ScheduleItem.utils";
 import { AnimatePresence } from "framer-motion";
 import classNames from "classnames";
 import ListArrow from "@/components/other/Icons/ListArrow";
@@ -13,15 +12,15 @@ interface Props {
   schedule: ScheduleType;
 }
 
-const ScheduleItem: FC<Props> = ({ schedule }) => {
+const TeacherScheduleItem: FC<Props> = ({ schedule }) => {
   const [isShow, setIsShow] = useState<boolean>(false);
   return (
     <article className={styles.item}>
       <header>
         <div>
-          <h3>{getScheduleType(schedule.type)}</h3>
+          <h3>Группа №{schedule.group.id}</h3>
           <p>
-            {schedule.date} - {schedule.startTime}
+            {schedule.date} - с {schedule.startTime} до {schedule.endTime}
           </p>
         </div>
         {schedule.address && (
@@ -58,4 +57,4 @@ const ScheduleItem: FC<Props> = ({ schedule }) => {
   );
 };
 
-export default ScheduleItem;
+export default TeacherScheduleItem;

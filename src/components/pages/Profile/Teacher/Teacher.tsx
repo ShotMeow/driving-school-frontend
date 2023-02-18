@@ -5,7 +5,7 @@ import ScheduleCard from "@/components/pages/Profile/Teacher/ScheduleCard/Schedu
 import { UserType } from "@/store/api/users/users.types";
 import { groupsApi } from "@/store/api/groups/groups.api";
 import { schedulesApi } from "@/store/api/schedules/schedules.api";
-import ScheduleItem from "@/components/pages/Profile/Student/ScheduleItem/ScheduleItem";
+import TeacherScheduleItem from "@/components/pages/Profile/Teacher/TeacherScheduleItem/TeacherScheduleItem";
 
 interface Props {
   user: UserType;
@@ -26,7 +26,11 @@ const Teacher: FC<Props> = ({ user }) => {
           role={user.role}
         />
         {groups && schedules && (
-          <ScheduleCard schedules={schedules} groups={groups} />
+          <ScheduleCard
+            teacherType={user.role}
+            schedules={schedules}
+            groups={groups}
+          />
         )}
       </div>
       <div className={styles.body}>
@@ -34,7 +38,7 @@ const Teacher: FC<Props> = ({ user }) => {
           {schedules &&
             schedules.map((schedule) => (
               <li key={schedule.id}>
-                <ScheduleItem schedule={schedule} />
+                <TeacherScheduleItem schedule={schedule} />
               </li>
             ))}
         </ul>

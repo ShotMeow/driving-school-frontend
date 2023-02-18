@@ -5,35 +5,42 @@ import styles from "./ScheduleModal.module.scss";
 import { GroupType } from "@/store/api/groups/groups.types";
 import { schedulesApi } from "@/store/api/schedules/schedules.api";
 import Select, { SelectTypes } from "@/components/UI/Select/Select";
-import { ScheduleTypes } from "@/components/pages/Profile/Teacher/ScheduleModal/ScheduleModal.data";
 import InputSecondary from "@/components/UI/Input/InputSecondary/InputSecondary";
 import Button from "@/components/UI/Button/Button";
-import { SubmitHandler, useForm, Controller } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   CreateScheduleType,
+  ScheduleEnum,
   ScheduleType
 } from "@/store/api/schedules/schedules.types";
-import ScheduleItem from "@/components/pages/Profile/Teacher/ScheduleItem/ScheduleItem";
+import ScheduleModalItem from "@/components/pages/Profile/Teacher/ScheduleModal/ScheduleModalItem/ScheduleModalItem";
+import { UserRole } from "@/store/api/users/users.types";
 
 interface Props {
   isShow: boolean;
   setIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   groups: GroupType[];
   schedules: ScheduleType[];
+  teacherType: UserRole;
 }
 
 interface ScheduleCreateFields extends CreateScheduleType {
   groupId: number | "DEFAULT";
 }
 
-const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
+const ScheduleModal: FC<Props> = ({
+  isShow,
+  setIsShow,
+  groups,
+  schedules,
+  teacherType
+}) => {
   const [createSchedule] = schedulesApi.useCreateScheduleMutation();
 
   const formSchema = Yup.object().shape({
     groupId: Yup.number().required("Выберите номер группы"),
-    type: Yup.string().required("Выберите тип занятия"),
     startTime: Yup.string().required("Выберите начало занятия"),
     endTime: Yup.string().required("Выберите конец занятия"),
     date: Yup.string().required("Введите дату занятия")
@@ -47,10 +54,14 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
     createSchedule({
       groupId: data.groupId,
       body: {
-        type: data.type,
+        type:
+          teacherType === UserRole.PRACTICE_TEACHER
+            ? ScheduleEnum.Practice
+            : ScheduleEnum.Theory,
         startTime: data.startTime,
         endTime: data.endTime,
-        date: data.date
+        date: data.date,
+        address: data.address
       }
     }).then(() => reset());
   };
@@ -79,19 +90,6 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
                   title="Группа"
                   type={SelectTypes.Groups}
                   options={groups}
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              name="type"
-              defaultValue="DEFAULT"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  title="Тип урока"
-                  type={SelectTypes.Schedule}
-                  options={ScheduleTypes}
                   {...field}
                 />
               )}
@@ -141,7 +139,7 @@ const ScheduleModal: FC<Props> = ({ isShow, setIsShow, groups, schedules }) => {
         <ul>
           {schedules.map((schedule) => (
             <li key={schedule.id}>
-              <ScheduleItem schedule={schedule} />
+              <ScheduleModalItem schedule={schedule} />
             </li>
           ))}
         </ul>

@@ -1,18 +1,18 @@
 import React, { FC, useState } from "react";
 
-import styles from "./ScheduleItem.module.scss";
+import styles from "./ScheduleModalItem.module.scss";
 import { ScheduleType } from "@/store/api/schedules/schedules.types";
 import Avatar from "@/components/other/Icons/Avatar";
 import Button from "@/components/UI/Button/Button";
-import { getScheduleType } from "@/components/pages/Profile/Teacher/ScheduleItem/ScheduleItem.utils";
+import { getScheduleType } from "@/utils/getScheduleType.utils";
 import { AnimatePresence } from "framer-motion";
-import ScheduleDeleteModal from "@/components/pages/Profile/Teacher/ScheduleItem/ScheduleDeleteModal/ScheduleDeleteModal";
+import ScheduleDeleteModal from "@/components/pages/Profile/Teacher/ScheduleModal/ScheduleModalItem/ScheduleDeleteModal/ScheduleDeleteModal";
 
 interface Props {
   schedule: ScheduleType;
 }
 
-const ScheduleItem: FC<Props> = ({ schedule }) => {
+const ScheduleModalItem: FC<Props> = ({ schedule }) => {
   const [deleteModalShown, setDeleteModalShown] = useState<boolean>(false);
   return (
     <>
@@ -44,4 +44,4 @@ const ScheduleItem: FC<Props> = ({ schedule }) => {
   );
 };
 
-export default ScheduleItem;
+export default ScheduleModalItem;
