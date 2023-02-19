@@ -1,6 +1,8 @@
 .main {
   @apply grid gap-4;
   grid-template-columns: 2fr 6fr;
+  color: #000;
+  display: block;
 
   .left {
     @apply flex flex-col gap-6;
