@@ -4,7 +4,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 
 const Document: NextPage = () => {
   return (
-    <Html lang="ru">
+    <Html lang="en">
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
