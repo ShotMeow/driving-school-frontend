@@ -20,10 +20,6 @@
       > div {
         @apply grid gap-6;
         grid-template-columns: 1fr 1fr;
-
-        input {
-          @apply w-full;
-        }
       }
 
       button {
