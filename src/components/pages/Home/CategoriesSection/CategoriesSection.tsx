@@ -17,6 +17,7 @@ import categoryCarD from "/src/images/oversize/category_car_d.jpg";
 import price from "/src/images/icons/price.png";
 import theory from "/src/images/icons/theory.png";
 import practice from "/src/images/icons/practice.png";
+import Link from "next/link";
 
 const CategoriesSection: FC = () => {
   return (
@@ -53,9 +54,11 @@ const CategoriesSection: FC = () => {
               <span>- 1.5 месяца</span>
             </li>
           </ul>
-          <Button primary>
-            Записаться <Arrow />
-          </Button>
+          <Link href="/#form" scroll={false}>
+            <Button primary>
+              Записаться <Arrow />
+            </Button>
+          </Link>
         </article>
         <article>
           <h3>
@@ -81,9 +84,11 @@ const CategoriesSection: FC = () => {
               <span>- 2 месяца</span>
             </li>
           </ul>
-          <Button primary>
-            Записаться <Arrow />
-          </Button>
+          <Link href="/#form" scroll={false}>
+            <Button primary>
+              Записаться <Arrow />
+            </Button>
+          </Link>
         </article>
         <article>
           <h3>
@@ -109,9 +114,11 @@ const CategoriesSection: FC = () => {
               <span>- 2.5 месяца</span>
             </li>
           </ul>
-          <Button primary>
-            Записаться <Arrow />
-          </Button>
+          <Link href="/#form" scroll={false}>
+            <Button primary>
+              Записаться <Arrow />
+            </Button>
+          </Link>
         </article>
         <article>
           <h3>
@@ -137,9 +144,11 @@ const CategoriesSection: FC = () => {
               <span>- 2.5 месяца</span>
             </li>
           </ul>
-          <Button primary>
-            Записаться <Arrow />
-          </Button>
+          <Link href="/#form" scroll={false}>
+            <Button primary>
+              Записаться <Arrow />
+            </Button>
+          </Link>
         </article>
       </div>
       <Swiper
