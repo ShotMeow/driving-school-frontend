@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import styles from "./GroupSearch.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
-import Burger from "@/components/other/Icons/Burger";
 import { useDebounce } from "@/hooks/useDebounce";
 import { groupsApi } from "@/store/api/groups/groups.api";
 import { GroupType } from "@/store/api/groups/groups.types";
@@ -32,10 +31,6 @@ const GroupSearch: FC<Props> = ({ setGroups }) => {
       />
       <Button className={styles.search} primary>
         Найти
-      </Button>
-      <Button className={styles.filter} secondary>
-        <Burger />
-        Фильтры
       </Button>
     </article>
   );

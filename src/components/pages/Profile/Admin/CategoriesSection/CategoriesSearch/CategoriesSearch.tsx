@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import styles from "./CategoriesSearch.module.scss";
 import InputPrimary from "@/components/UI/Input/InputPrimary/InputPrimary";
 import Button from "@/components/UI/Button/Button";
-import Burger from "@/components/other/Icons/Burger";
 import { useDebounce } from "@/hooks/useDebounce";
 import { categoriesApi } from "@/store/api/categories/categories.api";
 import { CategoryType } from "@/store/api/categories/categories.types";
@@ -32,10 +31,6 @@ const CategoriesSearch: FC<Props> = ({ setCategories }) => {
       />
       <Button className={styles.search} primary>
         Найти
-      </Button>
-      <Button className={styles.filter} secondary>
-        <Burger />
-        Фильтры
       </Button>
     </article>
   );
